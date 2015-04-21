@@ -109,7 +109,7 @@ def getLocation(locBestGuess):
 	return "but I can't find where"
     elif len(locBestGuess) == 1:
 	return str(locBestGuess[0])
-    else
+    else:
 	d = dict((i,locBestGuess.count(i)) for i in locBestGuess)
 	return str(max(d, key=d.get))
 	
