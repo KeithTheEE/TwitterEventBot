@@ -1,0 +1,16 @@
+tornado
+earthquake
+hail
+rain
+thunder
+lightening
+asteroid
+meteoroid
+massacre
+missile
+bombing
+Volcano
+Tsunami
+blizzard
+Wildfire
+Shipwreck
