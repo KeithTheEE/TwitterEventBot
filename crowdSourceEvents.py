@@ -161,7 +161,7 @@ def main():
 		try: # This 'try' is to catch 'rate limit exceeded' errors
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
-		    print tweetAge/(float(60*60))
+		    #print tweetAge/(float(60*60))
 		    if not tweet.retweeted and (tweetAge < 24*60*60): # Make sure original tweet and fairly new (24 hours)
 			if tweetTracker == 0:
 			    oldTime = tweet.created_at
@@ -175,6 +175,7 @@ def main():
 			    tweetTracker = 0
 			    break
 		except tweepy.TweepError: 
+		    print "I started to annoy twitter, now I have to wait a bit"
 		    time.sleep(60*5)
 		    continue
 
@@ -220,6 +221,7 @@ def main():
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax
 	#break
+	print "Time to rest up a bit, be back soon"
 	time.sleep(5*60)
 
     return
