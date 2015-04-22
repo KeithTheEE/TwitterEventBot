@@ -216,9 +216,9 @@ def main():
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess1)
+		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess1) + "\n" + str(time.ctime(time.time()))
 		api.update_status(status=msg)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess)
+		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess) + str(time.ctime(time.time()))
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
