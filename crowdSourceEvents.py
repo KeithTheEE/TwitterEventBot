@@ -106,17 +106,17 @@ def isItAnEvent(event, theMean, var):
 
 def getLocation(locBestGuess):
     if len(locBestGuess) == 0:
-	return "but I can't find where"
+	return " but I can't find where"
     elif len(locBestGuess) == 1:
-	return str(locBestGuess[0])
+	return " in " +str(locBestGuess[0])
     else:
 	d = dict((i,locBestGuess.count(i)) for i in locBestGuess)
-	return str(max(d, key=d.get))
+	return " in " +str(max(d, key=d.get))
 	
 
 def main():
     # Get twitter reqs 
-    myKeys = getKMKeys.GETTHEM()
+    myKeys = getKMKeys.GETTWITTER()
     CONSUMER_KEY = myKeys[0]
     CONSUMER_SECRET = myKeys[1]
     ACCESS_KEY = myKeys[2]
@@ -215,9 +215,10 @@ def main():
 			    pass
 
 		# now we've looked at the tweets and tried to guess a location
-		locBestGuess = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured in " + str(locBestGuess)
+		locBestGuess1 = getLocation(locBestGuess)
+		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess1)
 		api.update_status(status=msg)
+		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess)
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
