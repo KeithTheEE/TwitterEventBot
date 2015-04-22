@@ -13,7 +13,8 @@ Search twitter for events, and search results for location ID's
 If event and location are present with enough frequency, 
 tweet about event
 
-Later have user go back and adjust results
+Later have user go back and adjust results, perhaps using neural
+nets to 'learn' about actual events occuring.
 
 **********************************************
 explination for setting up api
@@ -57,17 +58,6 @@ import math
 import numpy as np
 import datetime
 
-def processTweet(tweet):
-    dbSample = open('tweetAtrib.txt', 'a')
-    
-    try:
-	dbSample.write("\t" +str(tweet.created_at)+ str(tweet.retweet_count) + str(tweet.text)  +'\n')
-    except UnicodeEncodeError:	
-	pass
-
-
-    dbSample.close()
-    return
 
 def isItAnEvent(event, theMean, var):
     # open event db
@@ -195,7 +185,7 @@ def main():
 		# Now we get ready to tweet!! :D
 		locBestGuess = []
 		for aTweet in theTweets:
-		    # Right now we'll only do 1 word city names, fix this later
+		    # v Right now we'll only do 1 word city names, fix this later
 		    words = aTweet.split(" ")
 		    for i in range(len(words)):
 			try:
@@ -213,6 +203,7 @@ def main():
 
 			    '''
 			    pass
+		    # ^ This area is where the city name needs to be fixed 
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
@@ -223,37 +214,6 @@ def main():
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
 
-	    '''
-	    for tweet in tweetList:
-		#try:
-		#processTweet(tweet)
-		#print tweet.text
-		#print tweet.created_at
-		#print tweet.retweet_count
-		#print tweet.coordinates
-		#print tweet.place
-		if tweetTracker == 0:
-		    oldTime = tweet.created_at
-		timeDiff = oldTime - tweet.created_at
-		timeFloat = timeDiff.total_seconds()
-		timeBTWTweets.append(timeFloat)
-		
-		oldTime = tweet.created_at
-		myTxt = [char for char in tweet.text]
-		try:
-		    dbSample.write("\t" +str(tweet.created_at) + str(tweet.text) + '\n')
-		except UnicodeEncodeError:	
-		    pass
-		#print tweet.retweeted_status.favorite_count
-		# to keep from spamming: only take 50 tweets at first
-		tweetTracker +=1
-		if tweetTracker > rppSize:
-		    tweetTracker = 0
-		    break
-	    print searchEV[event]
-	    print np.mean(timeBTWTweets) # < 2 s
-	    print np.var(timeBTWTweets)  # < Var 3 s
-	    '''
 	    
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax
@@ -263,28 +223,6 @@ def main():
     return
 
 main()
-
-
-
-
-#api.update_status(status="Hello World! (And twitter too)")
-
-
-#results = api.search(q="Earthquake")
-#print len(results)
-#for result in results:
-#    print result.text
-#    print "*******************************"
-
-
-#for tweet in tweepy.Cursor(api.search,
-#                           q="Nebraska Engineering",
-#                           rpp=20,
-#                           result_type="recent",
-#                           include_entities=True).items():
-#    print tweet.created_at, tweet.coordinates, tweet.place, tweet.text
-#    print "*******************************"
-
 
 
 
