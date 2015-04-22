@@ -4,7 +4,7 @@ Crowd Sourcing Twitter Bot
 Author(s): Keith Murray
 Contact: kmurrayis@gmail.com
 
-This is the brains of a twitter bot called '"Keith Event Tracker"<https://twitter.com/Keith_Event>'_
+This is the brains of a twitter bot called 'Keith Event Tracker https://twitter.com/Keith_Event>'
 
 The keys, passwords, and anything else security wise is stored in 
   a seperate file accessed via getKMKeys.py, which returns the keys formated
