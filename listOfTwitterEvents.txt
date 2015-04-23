@@ -8,7 +8,6 @@ asteroid
 meteoroid
 massacre
 missile
-bombing
 Volcano
 Tsunami
 blizzard
