@@ -223,7 +223,12 @@ def main():
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
-
+		tweetProof = open('tweetProof', 'a')
+		tweetProof.write(msg+ "\n")
+		for i in range(len(theTweets))
+		    tweetProof.write("\t"+str(theTweets[i])+"\n")
+		tweetProof.write("\n")
+		tweetProof.close()
 	    
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax
