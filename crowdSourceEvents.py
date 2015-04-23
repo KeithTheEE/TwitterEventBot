@@ -225,8 +225,13 @@ def main():
 		testTweetAsText.close
 		tweetProof = open('tweetProof', 'a')
 		tweetProof.write(msg+ "\n")
-		for i in range(len(theTweets))
-		    tweetProof.write("\t"+str(theTweets[i])+"\n")
+		for i in range(len(theTweets)):
+		    try:
+			saveThis = str(theTweets[i])
+			saveThis = saveThis.translate(None, "\n")
+			tweetProof.write("\t"+saveThis+"\n")
+		    except:
+			pass
 		tweetProof.write("\n")
 		tweetProof.close()
 	    
