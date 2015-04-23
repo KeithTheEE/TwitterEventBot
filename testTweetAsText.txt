@@ -63,3 +63,17 @@ I think Event: rain has occured['Thessaloniki', 'Northampton']Thu Apr 23 04:00:5
 I think Event: earthquake has occured[]Thu Apr 23 05:19:43 2015
 I think Event: earthquake has occured[]Thu Apr 23 05:25:17 2015
 I think Event: rain has occured[]Thu Apr 23 05:30:57 2015
+I think Event: rain has occured[]Thu Apr 23 06:10:52 2015
+I think Event: thunder has occured[]Thu Apr 23 08:07:59 2015
+I think Event: earthquake has occured[]Thu Apr 23 08:19:06 2015
+I think Event: Tsunami has occured['Arica', 'Arica', 'Arica']Thu Apr 23 08:19:31 2015
+I think Event: earthquake has occured[]Thu Apr 23 08:24:44 2015
+I think Event: rain has occured[]Thu Apr 23 08:30:33 2015
+I think Event: earthquake has occured[]Thu Apr 23 09:21:50 2015
+I think Event: rain has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Thu Apr 23 09:21:56 2015
+I think Event: earthquake has occured[]Thu Apr 23 09:33:15 2015
+I think Event: rain has occured['Bangalore']Thu Apr 23 11:15:54 2015
+I think Event: rain has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Fukuoka']Thu Apr 23 11:50:44 2015
+I think Event: lightening has occured[]Thu Apr 23 12:13:44 2015
+I think Event: lightening has occured[]Thu Apr 23 12:20:00 2015
+I think Event: rain has occured[]Thu Apr 23 14:04:06 2015
