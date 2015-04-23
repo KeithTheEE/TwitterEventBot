@@ -84,12 +84,16 @@ def isItAnEvent(event, theMean, var):
     didEventOccur = False
     compAvg = np.mean(theAvgs)
     compVar = np.var(theAvgs)
-    if (theMean < (compAvg - compVar/2)) and (theMean < 2.75) :#and (var < 10):
+    compStd = np.std(theAvgs)
+    zSc = (theMean-compAvg)/compStd
+    zSc2 = (compAvg-theMean)/math.sqrt(var)
+    if (theMean < (compAvg - compStd)) and (theMean < 2.75) :#and (var < 10):
+    #if (math.fabs(zSc) > 2):
 	didEventOccur = True 
 
     # Save new data to DB
     eventHistory = open(str(event) + ".txt", 'a')
-    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) + '\n')
+    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +  '\n')
     eventHistory.close()
 
     return didEventOccur
