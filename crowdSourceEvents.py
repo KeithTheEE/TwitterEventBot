@@ -83,8 +83,8 @@ def isItAnEvent(event, theMean, var):
     # compare eventDB to most recent event
     didEventOccur = False
     compAvg = np.mean(theAvgs)
-    compVar = np.var(theVar)
-    if (theMean < (compAvg - compVar/2.0)) and (theMean < 2.75) :#and (var < 10):
+    compVar = np.var(theAvgs)
+    if (theMean < (compAvg - compVar/2)) and (theMean < 2.75) :#and (var < 10):
 	didEventOccur = True 
 
     # Save new data to DB
