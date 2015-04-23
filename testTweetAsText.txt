@@ -48,3 +48,18 @@ I think Event: rain has occured []Thu Apr 23 01:15:54 2015
 I think Event: Tsunami has occured ['Taiwan']Thu Apr 23 01:30:36 2015
 I think Event: blizzard has occured []Thu Apr 23 01:30:38 2015
 I think Event: Volcano has occured ['Nice']Thu Apr 23 01:34:14 2015
+I think Event: Volcano has occured []Thu Apr 23 01:42:16 2015
+I think Event: Volcano has occured []Thu Apr 23 01:47:12 2015
+I think Event: Volcano has occured []Thu Apr 23 01:52:48 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:01:51 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:07:25 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:13:03 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:18:38 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:24:15 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:40:59 2015
+I think Event: Volcano has occured[]Thu Apr 23 02:52:08 2015
+I think Event: blizzard has occured[]Thu Apr 23 03:21:15 2015
+I think Event: rain has occured['Thessaloniki', 'Northampton']Thu Apr 23 04:00:54 2015
+I think Event: earthquake has occured[]Thu Apr 23 05:19:43 2015
+I think Event: earthquake has occured[]Thu Apr 23 05:25:17 2015
+I think Event: rain has occured[]Thu Apr 23 05:30:57 2015

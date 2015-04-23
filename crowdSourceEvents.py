@@ -87,7 +87,7 @@ def isItAnEvent(event, theMean, var):
     compStd = np.std(theAvgs)
     zSc = (theMean-compAvg)/compStd
     zSc2 = (compAvg-theMean)/math.sqrt(var)
-    if (theMean < (compAvg - compStd)) and (theMean < 2.75) :#and (var < 10):
+    if (theMean < (compAvg - compStd*1.3)) and (theMean < 2.75) :#and (var < 10):
     #if (math.fabs(zSc) > 2):
 	didEventOccur = True 
 
@@ -148,6 +148,7 @@ def main():
     # Time To TWEET IT UP :D
     rppSize = 50
     tweetTracker = 0
+    oldEvent = ""
     #dbSample = open('TornadoIsOccuring.txt', 'a')
     while True: # Always running
 	for event in range(len(searchEV)): # Perform a search on all events
@@ -212,11 +213,13 @@ def main():
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess1) + "\n" + str(time.ctime(time.time()))
+		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess1) + "\n" + str(time.ctime(time.time()))
 		if (len(msg) > 140):
 		    msg = msg[0:139]
-		api.update_status(status=msg)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured " + str(locBestGuess) + str(time.ctime(time.time()))
+		if oldEvent != searchEV[event]:
+		    api.update_status(status=msg)
+		oldEvent = searchEV[event]
+		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess) + str(time.ctime(time.time()))
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
