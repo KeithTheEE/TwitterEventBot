@@ -77,3 +77,47 @@ I think Event: rain has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney'
 I think Event: lightening has occured[]Thu Apr 23 12:13:44 2015
 I think Event: lightening has occured[]Thu Apr 23 12:20:00 2015
 I think Event: rain has occured[]Thu Apr 23 14:04:06 2015
+I think Event: rain has occured['Montgomery']Thu Apr 23 15:31:08 2015
+I think Event: rain has occured['Montgomery', 'Nice']Thu Apr 23 17:20:22 2015
+I think Event: thunder has occured['Richmond']Thu Apr 23 17:51:05 2015
+I think Event: rain has occured[]Thu Apr 23 19:00:42 2015
+I think Event: lightening has occured[]Thu Apr 23 19:25:59 2015
+I think Event: earthquake has occured['Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Tonga']Thu Apr 23 19:43:20 2015
+I think Event: rain has occured['Jackson']Thu Apr 23 20:01:19 2015
+I think Event: rain has occured['Durban', 'Bandung']Thu Apr 23 20:31:08 2015
+I think Event: earthquake has occured[]Thu Apr 23 20:42:30 2015
+I think Event: earthquake has occured[]Thu Apr 23 20:48:15 2015
+I think Event: earthquake has occured['Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia', 'Valdivia']Thu Apr 23 20:54:50 2015
+I think Event: earthquake has occured[]Thu Apr 23 21:04:35 2015
+I think Event: earthquake has occured['Sacramento']Thu Apr 23 21:32:23 2015
+I think Event: earthquake has occured['Taiwan']Thu Apr 23 21:46:52 2015
+I think Event: earthquake has occured['Sacramento']Thu Apr 23 21:52:50 2015
+I think Event: earthquake has occured[]Thu Apr 23 21:59:10 2015
+I think Event: rain has occured['Oslo', 'Warren', 'Montgomery']Thu Apr 23 21:59:45 2015
+I think Event: earthquake has occured[]Thu Apr 23 22:08:49 2015
+I think Event: earthquake has occured[]Thu Apr 23 22:33:20 2015
+I think Event: earthquake has occured['Christchurch', 'Wellington']Thu Apr 23 22:41:19 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch', 'Auckland', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Christchurch', 'Wellington']Thu Apr 23 22:47:18 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Wellington', 'Wellington', 'Victoria', 'Wellington', 'Wellington', 'Wellington', 'Wellington']Thu Apr 23 22:53:11 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Wellington', 'Wellington']Thu Apr 23 22:59:16 2015
+I think Event: earthquake has occured['Christchurch', 'Wellington', 'Wellington', 'Wellington']Thu Apr 23 23:06:01 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch']Thu Apr 23 23:12:11 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Wellington', 'Wellington']Thu Apr 23 23:17:55 2015
+I think Event: earthquake has occured['Wellington', 'Auckland', 'Wellington', 'Wellington', 'Wellington']Thu Apr 23 23:23:51 2015
+I think Event: earthquake has occured['Wellington', 'Nice', 'Wellington', 'Auckland', 'Wellington']Thu Apr 23 23:30:12 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch', 'Wellington', 'Christchurch', 'Spokane', 'Christchurch', 'Washington', 'Wellington', 'Christchurch', 'Wellington', 'Christchurch']Thu Apr 23 23:35:56 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Christchurch']Thu Apr 23 23:41:37 2015
+I think Event: earthquake has occured['Ventura', 'Washington', 'Wellington', 'Wellington', 'Christchurch']Thu Apr 23 23:47:18 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Sacramento', 'Washington', 'Wellington']Thu Apr 23 23:52:59 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Christchurch', 'Wellington', 'Washington', 'Wellington', 'Wellington']Thu Apr 23 23:58:39 2015
+I think Event: rain has occured['Sydney', 'Victoria']Fri Apr 24 00:04:29 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch', 'Wellington', 'Christchurch', 'Wellington']Fri Apr 24 00:10:11 2015
+I think Event: earthquake has occured['Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Wellington', 'Valdivia']Fri Apr 24 00:16:06 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch', 'Christchurch']Fri Apr 24 00:45:41 2015
+I think Event: earthquake has occured[]Fri Apr 24 00:51:26 2015
+I think Event: earthquake has occured['Washington']Fri Apr 24 00:57:12 2015
+I think Event: earthquake has occured[]Fri Apr 24 01:02:50 2015
+I think Event: earthquake has occured['Sacramento']Fri Apr 24 01:08:34 2015
+I think Event: earthquake has occured['Wellington', 'Christchurch']Fri Apr 24 01:14:24 2015
+I think Event: earthquake has occured[]Fri Apr 24 01:31:25 2015
+I think Event: earthquake has occured['Christchurch', 'Glasgow']Fri Apr 24 01:48:30 2015
