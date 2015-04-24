@@ -19,9 +19,9 @@ bot decides that an event must have occured.
 
 The 'unusually short amount of time' is a bit of guesswork, and
 will need some time to perfect. During the time it was being written,
-a tornado was occuring in XXXXX and I was able to get some sampeling
-of the time between tweets, and based the 'short amount of time' on
-that event. 
+a tornado was occuring in pennsylviania near Lehigh County, and I was
+able to get some sampeling of the time between tweets, and based 
+the 'short amount of time' on that event. 
 
 
 Files in Project
@@ -53,7 +53,7 @@ note here:
   tweeted that. I still have not figured out what to do about it, and
   am unsure if I want to let that event be apart of the bot.
 
-  Asteroid and Meteroid:
+  Asteroid and Meteoroid:
   This wasn't quite wrong. On Tuesday morning April 21, an asteroid 
   passed the earth, narrowly missing us. This event was picked up by
   the bot, and it would have tweeted it. However, it thought the event

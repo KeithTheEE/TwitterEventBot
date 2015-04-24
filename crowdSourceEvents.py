@@ -223,7 +223,7 @@ def main():
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
-		tweetProof = open('tweetProof', 'a')
+		tweetProof = open('tweetProof.txt', 'a')
 		tweetProof.write(msg+ "\n")
 		for i in range(len(theTweets)):
 		    try:
