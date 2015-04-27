@@ -190,6 +190,8 @@ def main():
 	    if eventStatus == True:
 		# Now we get ready to tweet!! :D
 		locBestGuess = []
+		tweetProof = open('tweetProof.txt', 'a')
+		tweetProof.write(searchEV[event]+ " " +str(time.ctime(time.time())) + "\n")
 		for aTweet in theTweets:
 		    # v Right now we'll only do 1 word city names, fix this later
 		    words = aTweet.split(" ")
@@ -209,11 +211,21 @@ def main():
 
 			    '''
 			    pass
+
+		    
+		    try:
+			saveThis = str(aTweet)
+			saveThis = saveThis.translate(None, "\n")
+			tweetProof.write("\t"+saveThis+"\n")
+		    except:
+			pass
+		tweetProof.write("\n")
+		tweetProof.close()
 		    # ^ This area is where the city name needs to be fixed 
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess1) + "\n" + str(time.ctime(time.time()))
+		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess1) + "\n" + str(time.ctime(time.time())) + "CDT"
 		if (len(msg) > 140):
 		    msg = msg[0:139]
 		if oldEvent != searchEV[event]:
@@ -223,17 +235,6 @@ def main():
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
-		tweetProof = open('tweetProof.txt', 'a')
-		tweetProof.write(msg+ "\n")
-		for i in range(len(theTweets)):
-		    try:
-			saveThis = str(theTweets[i])
-			saveThis = saveThis.translate(None, "\n")
-			tweetProof.write("\t"+saveThis+"\n")
-		    except:
-			pass
-		tweetProof.write("\n")
-		tweetProof.close()
 	    
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax

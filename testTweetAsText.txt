@@ -184,3 +184,408 @@ I think Event: earthquake has occured['Vancouver', 'Glasgow']Fri Apr 24 14:30:53
 I think Event: rain has occured['Bangalore', 'Northampton']Fri Apr 24 14:30:57 2015
 I think Event: hail has occured['Vancouver']Fri Apr 24 14:36:30 2015
 I think Event: hail has occured['Abilene']Fri Apr 24 14:42:06 2015
+I think Event: massacre has occured['Armenia', 'Berlin', 'Armenia', 'Berlin']Fri Apr 24 15:27:29 2015
+I think Event: massacre has occured['Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin', 'Armenia', 'Armenia', 'Berlin']Fri Apr 24 15:55:43 2015
+I think Event: rain has occured['Newport']Fri Apr 24 16:01:06 2015
+I think Event: hail has occured[]Fri Apr 24 16:06:41 2015
+I think Event: hail has occured['London', 'London', 'London', 'London', 'London']Fri Apr 24 16:12:17 2015
+I think Event: hail has occured[]Fri Apr 24 16:35:36 2015
+I think Event: hail has occured['Glasgow', 'Omaha', 'Wuxi']Fri Apr 24 17:22:06 2015
+I think Event: hail has occured[]Fri Apr 24 17:27:52 2015
+I think Event: hail has occured[]Fri Apr 24 17:46:10 2015
+I think Event: hail has occured[]Fri Apr 24 17:57:40 2015
+I think Event: hail has occured['Aurora', 'Nice']Fri Apr 24 18:20:28 2015
+I think Event: rain has occured['Fukuoka', 'Montgomery', 'Dallas']Fri Apr 24 18:20:32 2015
+I think Event: hail has occured[]Fri Apr 24 18:26:15 2015
+I think Event: rain has occured['Toyota']Fri Apr 24 18:26:20 2015
+I think Event: hail has occured['Kingston', 'Lisbon']Fri Apr 24 18:32:11 2015
+I think Event: rain has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Fri Apr 24 18:32:16 2015
+I think Event: rain has occured[]Fri Apr 24 18:38:34 2015
+I think Event: hail has occured['Dallas', 'Dallas']Fri Apr 24 18:44:19 2015
+I think Event: rain has occured[]Fri Apr 24 18:50:13 2015
+I think Event: hail has occured['Dallas', 'Lisbon', 'Dallas', 'Lisbon']Fri Apr 24 19:02:23 2015
+I think Event: thunder has occured['Orange', 'Dallas', 'Orange', 'Dallas', 'Dallas']Fri Apr 24 19:02:28 2015
+I think Event: hail has occured['Lincoln', 'Lincoln']Fri Apr 24 19:08:04 2015
+I think Event: rain has occured['Dagupan', 'Dagupan', 'Montgomery', 'Dagupan', 'Dagupan', 'Dagupan']Fri Apr 24 19:13:42 2015
+I think Event: hail has occured['Aurora', 'Van', 'Wichita', 'Van']Fri Apr 24 19:30:49 2015
+I think Event: rain has occured['Montgomery']Fri Apr 24 19:30:52 2015
+I think Event: earthquake has occured[]Fri Apr 24 19:41:58 2015
+I think Event: earthquake has occured['Fiji']Fri Apr 24 19:58:51 2015
+I think Event: hail has occured['Dallas', 'Dallas', 'Van']Fri Apr 24 19:58:54 2015
+I think Event: rain has occured[]Fri Apr 24 20:04:32 2015
+I think Event: rain has occured[]Fri Apr 24 20:44:00 2015
+I think Event: hail has occured['Vancouver']Fri Apr 24 20:49:34 2015
+I think Event: rain has occured[]Fri Apr 24 21:01:09 2015
+I think Event: rain has occured[]Fri Apr 24 22:50:51 2015
+I think Event: thunder has occured[]Fri Apr 24 23:18:53 2015
+I think Event: thunder has occured[]Fri Apr 24 23:41:20 2015
+I think Event: hail has occured['Wichita', 'Dresden', 'Dresden']Sat Apr 25 00:27:19 2015
+I think Event: hail has occured['Wichita', 'Sydney', 'Dresden', 'Sydney', 'Nice']Sat Apr 25 00:33:08 2015
+I think Event: hail has occured['Sydney']Sat Apr 25 00:44:37 2015
+I think Event: earthquake has occured['Delhi', 'Delhi', 'Delhi', 'Delhi']Sat Apr 25 01:19:36 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Brisbane', 'Sydney']Sat Apr 25 01:19:39 2015
+I think Event: earthquake has occured['Lucknow', 'Delhi', 'Islamabad', 'Delhi', 'Lucknow', 'Guwahati', 'Delhi']Sat Apr 25 01:25:20 2015
+I think Event: hail has occured[]Sat Apr 25 01:25:24 2015
+I think Event: earthquake has occured['Delhi', 'Varanasi', 'Jaipur', 'Delhi', 'Jaipur', 'Delhi', 'Delhi', 'Jaipur', 'Delhi', 'Delhi']Sat Apr 25 01:31:07 2015
+I think Event: hail has occured['Sydney']Sat Apr 25 01:31:11 2015
+I think Event: earthquake has occured['Delhi', 'Delhi']Sat Apr 25 01:36:57 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 01:37:02 2015
+I think Event: earthquake has occured['Khulna', 'Delhi', 'Patna', 'Agra']Sat Apr 25 01:42:48 2015
+I think Event: hail has occured['Sydney', 'Sydney']Sat Apr 25 01:42:52 2015
+I think Event: earthquake has occured['Rajshahi', 'Kathmandu']Sat Apr 25 01:48:35 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Perth', 'Sydney', 'Taiwan', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 01:48:51 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu', 'Delhi']Sat Apr 25 01:54:34 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 01:54:37 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 02:00:20 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:00:24 2015
+I think Event: rain has occured[]Sat Apr 25 02:00:27 2015
+I think Event: earthquake has occured['Kathmandu', 'Lucknow']Sat Apr 25 02:06:06 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Bellevue', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:06:09 2015
+I think Event: earthquake has occured['Delhi', 'Patan']Sat Apr 25 02:11:49 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:11:53 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Chandigarh', 'Gwalior', 'Kathmandu', 'Surat', 'Kathmandu', 'Delhi']Sat Apr 25 02:17:31 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Nice', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:17:35 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 02:23:32 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:23:35 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:29:14 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:29:18 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:34:57 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Perth', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:35:01 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Lucknow', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:40:38 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:40:43 2015
+I think Event: rain has occured['Nice', 'Cardiff', 'Fukuoka']Sat Apr 25 02:40:49 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:46:22 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:52:04 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 02:52:08 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Victoria', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 02:57:48 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Newcastle']Sat Apr 25 02:57:53 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 03:03:30 2015
+I think Event: hail has occured['Ufa', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Sat Apr 25 03:03:39 2015
+I think Event: rain has occured[]Sat Apr 25 03:03:42 2015
+I think Event: earthquake has occured['Kathmandu', 'Varanasi', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 03:09:19 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Lucknow', 'Kathmandu', 'Kathmandu', 'Patan']Sat Apr 25 03:15:01 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Delhi', 'Kathmandu', 'Allahabad']Sat Apr 25 03:20:40 2015
+I think Event: earthquake has occured['Patna', 'Kathmandu', 'Kathmandu', 'Sydney', 'Patan']Sat Apr 25 03:26:21 2015
+I think Event: hail has occured['Sydney', 'Sydney']Sat Apr 25 03:26:24 2015
+I think Event: earthquake has occured['Kathmandu', 'Delhi', 'Kathmandu', 'Kathmandu']Sat Apr 25 03:32:04 2015
+I think Event: hail has occured['Sydney', 'Gary', 'Sydney']Sat Apr 25 03:32:08 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu', 'Sydney']Sat Apr 25 03:37:44 2015
+I think Event: hail has occured['Sydney', 'Sydney']Sat Apr 25 03:37:47 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 03:43:33 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu']Sat Apr 25 03:49:12 2015
+I think Event: earthquake has occured['Patan', 'Bettiah', 'Kathmandu', 'Delhi', 'Kathmandu', 'Kathmandu']Sat Apr 25 04:18:07 2015
+I think Event: earthquake has occured['Kathmandu', 'Siliguri', 'Kathmandu']Sat Apr 25 04:23:51 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu', 'Kathmandu', 'Sydney', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 04:29:29 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Siliguri', 'Kathmandu', 'Seattle']Sat Apr 25 04:35:11 2015
+I think Event: earthquake has occured['Kathmandu', 'Sydney']Sat Apr 25 04:40:58 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 04:46:37 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu']Sat Apr 25 04:52:17 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu', 'Kathmandu', 'Reading', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 04:57:52 2015
+I think Event: earthquake has occured[]Sat Apr 25 05:03:24 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Chandrapur', 'Kathmandu']Sat Apr 25 05:09:00 2015
+I think Event: earthquake has occured['Delhi', 'Sydney', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Siliguri', 'Kathmandu', 'Kathmandu']Sat Apr 25 05:14:39 2015
+I think Event: earthquake has occured['Chennai', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 05:20:12 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 05:25:45 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu', 'Delhi', 'Kathmandu', 'Kathmandu']Sat Apr 25 05:31:19 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 05:36:55 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 05:42:28 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 05:48:07 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Delhi', 'Kathmandu']Sat Apr 25 05:53:42 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 05:59:15 2015
+I think Event: earthquake has occured[]Sat Apr 25 06:04:52 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 06:10:26 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 06:16:01 2015
+I think Event: earthquake has occured['Sydney', 'Sydney', 'Sydney']Sat Apr 25 06:21:39 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 06:27:12 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 06:32:54 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 06:38:58 2015
+I think Event: earthquake has occured[]Sat Apr 25 06:44:35 2015
+I think Event: earthquake has occured[]Sat Apr 25 06:50:10 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 06:55:47 2015
+I think Event: earthquake has occured['Kathmandu', 'Patan']Sat Apr 25 07:01:22 2015
+I think Event: rain has occured[]Sat Apr 25 07:01:28 2015
+I think Event: earthquake has occured[]Sat Apr 25 07:07:01 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 07:12:39 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Lucknow']Sat Apr 25 07:18:13 2015
+I think Event: rain has occured['Halifax', 'Sofia', 'Pittsburgh']Sat Apr 25 07:18:18 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 07:23:50 2015
+I think Event: rain has occured[]Sat Apr 25 07:23:56 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 07:29:28 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 07:35:06 2015
+I think Event: rain has occured['Atlanta']Sat Apr 25 07:35:12 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 07:40:49 2015
+I think Event: rain has occured[]Sat Apr 25 07:40:55 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 07:46:26 2015
+I think Event: rain has occured['Houston']Sat Apr 25 07:46:32 2015
+I think Event: earthquake has occured[]Sat Apr 25 07:52:04 2015
+I think Event: rain has occured[]Sat Apr 25 07:52:09 2015
+I think Event: earthquake has occured['Patan', 'Sydney', 'Kathmandu']Sat Apr 25 07:57:44 2015
+I think Event: rain has occured[]Sat Apr 25 07:57:50 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Sydney', 'Kathmandu']Sat Apr 25 08:03:19 2015
+I think Event: hail has occured['Sydney', 'Sydney']Sat Apr 25 08:03:23 2015
+I think Event: rain has occured['Derby']Sat Apr 25 08:03:26 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 08:09:00 2015
+I think Event: earthquake has occured['Kathmandu', 'Baltimore', 'Kathmandu']Sat Apr 25 08:14:36 2015
+I think Event: earthquake has occured['Kathmandu', 'Ghaziabad', 'Kathmandu']Sat Apr 25 08:20:12 2015
+I think Event: rain has occured[]Sat Apr 25 08:20:17 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 08:25:49 2015
+I think Event: earthquake has occured['Ghaziabad', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 08:31:25 2015
+I think Event: rain has occured[]Sat Apr 25 08:31:31 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 08:37:07 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Huntsville', 'Kathmandu']Sat Apr 25 08:42:52 2015
+I think Event: earthquake has occured[]Sat Apr 25 08:48:30 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu']Sat Apr 25 08:54:08 2015
+I think Event: thunder has occured['Sydney', 'Portland']Sat Apr 25 08:54:15 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 08:59:47 2015
+I think Event: rain has occured[]Sat Apr 25 08:59:53 2015
+I think Event: earthquake has occured['Ghaziabad', 'Siliguri']Sat Apr 25 09:05:27 2015
+I think Event: rain has occured['London', 'London']Sat Apr 25 09:05:33 2015
+I think Event: earthquake has occured['Kathmandu', 'Delhi', 'Kathmandu']Sat Apr 25 09:11:09 2015
+I think Event: rain has occured['Atlanta']Sat Apr 25 09:11:14 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 09:16:51 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 09:22:28 2015
+I think Event: rain has occured[]Sat Apr 25 09:22:34 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 09:28:07 2015
+I think Event: rain has occured[]Sat Apr 25 09:28:12 2015
+I think Event: earthquake has occured[]Sat Apr 25 09:33:47 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 09:39:23 2015
+I think Event: rain has occured['Richmond']Sat Apr 25 09:39:29 2015
+I think Event: earthquake has occured['Sydney']Sat Apr 25 09:45:03 2015
+I think Event: rain has occured['Louisville', 'Derby']Sat Apr 25 09:45:09 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 09:51:09 2015
+I think Event: rain has occured[]Sat Apr 25 09:51:16 2015
+I think Event: earthquake has occured['Chennai', 'Chennai', 'Kathmandu']Sat Apr 25 09:56:56 2015
+I think Event: rain has occured['Oakland', 'Ghaziabad', 'Sacramento']Sat Apr 25 09:57:05 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 10:02:50 2015
+I think Event: rain has occured['Derby', 'Bangalore']Sat Apr 25 10:02:56 2015
+I think Event: earthquake has occured['Sydney']Sat Apr 25 10:08:31 2015
+I think Event: earthquake has occured['Kathmandu', 'Sydney']Sat Apr 25 10:14:09 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 10:20:01 2015
+I think Event: rain has occured['Barcelona', 'Carolina', 'Delhi']Sat Apr 25 10:20:06 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 10:25:50 2015
+I think Event: rain has occured['Delhi']Sat Apr 25 10:25:56 2015
+I think Event: earthquake has occured[]Sat Apr 25 10:31:54 2015
+I think Event: earthquake has occured['Nottingham']Sat Apr 25 10:37:58 2015
+I think Event: earthquake has occured[]Sat Apr 25 10:41:17 2015
+I think Event: rain has occured['Houston']Sat Apr 25 10:41:22 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 10:52:06 2015
+I think Event: earthquake has occured['Kathmandu', 'Patan', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 10:57:45 2015
+I think Event: rain has occured['Richmond']Sat Apr 25 10:57:50 2015
+I think Event: earthquake has occured['Van', 'Kathmandu']Sat Apr 25 11:03:24 2015
+I think Event: rain has occured['Louisville']Sat Apr 25 11:03:30 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Washington', 'Washington']Sat Apr 25 11:09:27 2015
+I think Event: earthquake has occured['Kathmandu', 'Washington']Sat Apr 25 11:15:05 2015
+I think Event: earthquake has occured[]Sat Apr 25 11:20:59 2015
+I think Event: rain has occured['Richmond', 'Tallahassee']Sat Apr 25 11:21:10 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 11:27:05 2015
+I think Event: rain has occured['Nice']Sat Apr 25 11:27:12 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 11:33:49 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Varanasi']Sat Apr 25 11:40:57 2015
+I think Event: rain has occured['Oakland']Sat Apr 25 11:41:03 2015
+I think Event: earthquake has occured['Kathmandu', 'Delhi']Sat Apr 25 11:46:41 2015
+I think Event: rain has occured[]Sat Apr 25 11:46:46 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 11:52:39 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 11:58:48 2015
+I think Event: earthquake has occured['Kathmandu', 'Sydney']Sat Apr 25 12:05:52 2015
+I think Event: rain has occured['Nice']Sat Apr 25 12:05:59 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 12:11:46 2015
+I think Event: rain has occured[]Sat Apr 25 12:11:51 2015
+I think Event: earthquake has occured['Delhi', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 12:17:25 2015
+I think Event: rain has occured[]Sat Apr 25 12:17:30 2015
+I think Event: earthquake has occured[]Sat Apr 25 12:23:04 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 12:28:45 2015
+I think Event: rain has occured['Cincinnati', 'Austin']Sat Apr 25 12:28:50 2015
+I think Event: earthquake has occured[]Sat Apr 25 12:34:23 2015
+I think Event: earthquake has occured['Kathmandu', 'Sydney', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 12:40:00 2015
+I think Event: earthquake has occured[]Sat Apr 25 12:45:39 2015
+I think Event: rain has occured[]Sat Apr 25 12:45:45 2015
+I think Event: earthquake has occured[]Sat Apr 25 12:51:17 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Reading']Sat Apr 25 12:56:52 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Reading']Sat Apr 25 13:02:26 2015
+I think Event: rain has occured[]Sat Apr 25 13:02:31 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 13:08:03 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 13:13:46 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 13:19:21 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 13:24:59 2015
+I think Event: rain has occured[]Sat Apr 25 13:25:04 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Sydney', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 13:30:35 2015
+I think Event: rain has occured[]Sat Apr 25 13:30:47 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 13:36:28 2015
+I think Event: rain has occured['Blackpool']Sat Apr 25 13:36:36 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 13:42:17 2015
+I think Event: rain has occured[]Sat Apr 25 13:42:22 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 13:47:55 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 13:59:13 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 14:05:19 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 14:11:14 2015
+I think Event: earthquake has occured[]Sat Apr 25 14:17:04 2015
+I think Event: earthquake has occured['Kathmandu', 'Pretoria']Sat Apr 25 14:22:38 2015
+I think Event: earthquake has occured['Siliguri', 'Kathmandu', 'Varanasi']Sat Apr 25 14:28:13 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 14:34:00 2015
+I think Event: earthquake has occured[]Sat Apr 25 14:39:39 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 14:45:14 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 14:50:52 2015
+I think Event: rain has occured['Ventura', 'Oxnard']Sat Apr 25 14:50:58 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 14:56:29 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Kathmandu', 'Puri']Sat Apr 25 15:02:04 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Tokyo', 'Kathmandu']Sat Apr 25 15:07:41 2015
+I think Event: earthquake has occured['Sydney']Sat Apr 25 15:13:17 2015
+I think Event: rain has occured[]Sat Apr 25 15:13:22 2015
+I think Event: earthquake has occured['Sydney', 'Kathmandu']Sat Apr 25 15:24:18 2015
+I think Event: earthquake has occured[]Sat Apr 25 15:29:52 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu', 'Sydney']Sat Apr 25 15:35:26 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 15:41:03 2015
+I think Event: rain has occured['Kathmandu', 'Derby']Sat Apr 25 15:41:09 2015
+I think Event: earthquake has occured['Vancouver', 'Vancouver', 'Patan', 'Kathmandu']Sat Apr 25 15:46:40 2015
+I think Event: earthquake has occured['Kathmandu', 'Patna']Sat Apr 25 15:52:14 2015
+I think Event: earthquake has occured['Patan', 'Kathmandu']Sat Apr 25 15:57:47 2015
+I think Event: earthquake has occured[]Sat Apr 25 16:03:22 2015
+I think Event: earthquake has occured['Kathmandu', 'Patan']Sat Apr 25 16:08:59 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 16:14:44 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 16:20:20 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 16:25:54 2015
+I think Event: rain has occured[]Sat Apr 25 16:26:00 2015
+I think Event: earthquake has occured['Kathmandu', 'Sydney']Sat Apr 25 16:31:31 2015
+I think Event: earthquake has occured['Chicago', 'Kathmandu']Sat Apr 25 16:37:13 2015
+I think Event: earthquake has occured[]Sat Apr 25 16:42:51 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 16:48:26 2015
+I think Event: rain has occured['Columbus', 'Sydney']Sat Apr 25 16:48:31 2015
+I think Event: earthquake has occured[]Sat Apr 25 16:54:01 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 16:59:39 2015
+I think Event: earthquake has occured['Chengdu', 'Kathmandu']Sat Apr 25 17:05:13 2015
+I think Event: rain has occured['Richmond', 'Lima', 'Saskatoon', 'Toyota']Sat Apr 25 17:05:18 2015
+I think Event: earthquake has occured['Sydney']Sat Apr 25 17:10:52 2015
+I think Event: rain has occured['Fukuoka']Sat Apr 25 17:10:58 2015
+I think Event: earthquake has occured['Vancouver', 'Delhi']Sat Apr 25 17:16:33 2015
+I think Event: rain has occured['Toyota']Sat Apr 25 17:16:39 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 17:22:09 2015
+I think Event: earthquake has occured[]Sat Apr 25 17:27:47 2015
+I think Event: rain has occured['Richmond', 'Richmond', 'Richmond', 'Richmond']Sat Apr 25 17:27:53 2015
+I think Event: earthquake has occured['Chicago', 'Kathmandu', 'Kathmandu']Sat Apr 25 17:33:24 2015
+I think Event: rain has occured['Toyota', 'Richmond', 'Richmond', 'Richmond', 'Richmond']Sat Apr 25 17:33:29 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 17:39:03 2015
+I think Event: earthquake has occured['Sydney', 'Varanasi', 'Kathmandu']Sat Apr 25 17:44:42 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Jacksonville']Sat Apr 25 17:44:45 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 17:50:17 2015
+I think Event: earthquake has occured['Toronto']Sat Apr 25 17:55:53 2015
+I think Event: earthquake has occured['Kathmandu', 'London']Sat Apr 25 18:01:27 2015
+I think Event: rain has occured['Toyota', 'Richmond']Sat Apr 25 18:01:34 2015
+I think Event: earthquake has occured[]Sat Apr 25 18:07:05 2015
+I think Event: earthquake has occured[]Sat Apr 25 18:12:43 2015
+I think Event: rain has occured[]Sat Apr 25 18:12:48 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 18:18:19 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 18:23:57 2015
+I think Event: earthquake has occured['Reading', 'Kathmandu']Sat Apr 25 18:29:34 2015
+I think Event: earthquake has occured[]Sat Apr 25 18:35:12 2015
+I think Event: hail has occured['Louisville', 'Dublin', 'Louisville', 'Dublin', 'Dublin', 'Sydney', 'Louisville']Sat Apr 25 18:35:15 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 18:40:50 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 18:46:29 2015
+I think Event: earthquake has occured[]Sat Apr 25 18:52:04 2015
+I think Event: earthquake has occured['Lucknow']Sat Apr 25 18:57:41 2015
+I think Event: Tsunami has occured['Phuket']Sat Apr 25 18:58:06 2015
+I think Event: earthquake has occured[]Sat Apr 25 19:03:19 2015
+I think Event: earthquake has occured['Kathmandu', 'Kathmandu']Sat Apr 25 19:08:57 2015
+I think Event: earthquake has occured['Perth']Sat Apr 25 19:14:32 2015
+I think Event: earthquake has occured['Kathmandu', 'Perth']Sat Apr 25 19:20:07 2015
+I think Event: earthquake has occured['Bangkok']Sat Apr 25 19:25:42 2015
+I think Event: earthquake has occured['Cambridge', 'Kathmandu', 'Delhi', 'Kathmandu', 'Kathmandu', 'Kathmandu']Sat Apr 25 19:31:17 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 19:36:59 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 19:42:34 2015
+I think Event: earthquake has occured['Perth']Sat Apr 25 19:48:13 2015
+I think Event: earthquake has occured['Lhasa']Sat Apr 25 20:10:40 2015
+I think Event: earthquake has occured['Kathmandu']Sat Apr 25 20:21:50 2015
+I think Event: rain has occured['Seoul', 'Richmond']Sat Apr 25 21:01:24 2015
+I think Event: earthquake has occured['Kathmandu', 'Dili', 'Kathmandu']Sat Apr 25 21:06:57 2015
+I think Event: rain has occured[]Sun Apr 26 02:01:17 2015
+I think Event: rain has occured[]Sun Apr 26 04:30:27 2015
+I think Event: earthquake has occured['Kathmandu']Sun Apr 26 04:35:57 2015
+I think Event: rain has occured[]Sun Apr 26 04:58:24 2015
+I think Event: rain has occured['London', 'Bangalore']Sun Apr 26 07:01:35 2015
+I think Event: rain has occured[]Sun Apr 26 07:24:05 2015
+I think Event: rain has occured['Glasgow']Sun Apr 26 08:48:29 2015
+I think Event: rain has occured[]Sun Apr 26 09:16:55 2015
+I think Event: thunder has occured['Madrid', 'Gaziantep', 'Madrid', 'Austin']Sun Apr 26 10:02:06 2015
+I think Event: rain has occured[]Sun Apr 26 10:30:31 2015
+I think Event: rain has occured['Fukuoka', 'Peshawar']Sun Apr 26 11:50:33 2015
+I think Event: rain has occured['Peshawar']Sun Apr 26 12:47:07 2015
+I think Event: Tsunami has occured['Washington']Sun Apr 26 13:43:47 2015
+I think Event: rain has occured['Jackson']Sun Apr 26 14:00:41 2015
+I think Event: thunder has occured['Carolina']Sun Apr 26 14:18:25 2015
+I think Event: thunder has occured['Astana']Sun Apr 26 14:24:00 2015
+I think Event: rain has occured['Tenerife']Sun Apr 26 15:00:58 2015
+I think Event: hail has occured['Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Rome', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Amarillo']Sun Apr 26 16:49:53 2015
+I think Event: thunder has occured[]Sun Apr 26 16:50:01 2015
+I think Event: hail has occured['Dublin', 'London', 'Dublin', 'Dublin', 'Dublin']Sun Apr 26 17:08:47 2015
+I think Event: hail has occured['Dublin', 'Dublin']Sun Apr 26 17:31:10 2015
+I think Event: rain has occured['Sydney']Sun Apr 26 17:31:13 2015
+I think Event: hail has occured['Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin', 'Dublin']Sun Apr 26 17:42:27 2015
+I think Event: Tsunami has occured[]Sun Apr 26 17:42:49 2015
+I think Event: hail has occured['Dublin', 'Austin']Sun Apr 26 18:38:42 2015
+I think Event: hail has occured['Dublin', 'Albuquerque', 'Austin']Sun Apr 26 18:44:18 2015
+I think Event: hail has occured['Sydney']Sun Apr 26 18:49:55 2015
+I think Event: hail has occured['Dublin']Sun Apr 26 19:37:12 2015
+I think Event: hail has occured['Amarillo']Sun Apr 26 19:50:50 2015
+I think Event: hail has occured['Amarillo']Sun Apr 26 19:56:36 2015
+I think Event: hail has occured['Dublin', 'Dublin', 'Amarillo']Sun Apr 26 20:02:29 2015
+I think Event: thunder has occured[]Sun Apr 26 20:02:54 2015
+I think Event: hail has occured[]Sun Apr 26 20:09:25 2015
+I think Event: hail has occured[]Sun Apr 26 20:49:38 2015
+I think Event: rain has occured[]Sun Apr 26 21:00:59 2015
+I think Event: hail has occured['Dallas', 'Sydney', 'Sydney']Sun Apr 26 21:40:43 2015
+I think Event: hail has occured['Sydney']Sun Apr 26 21:46:24 2015
+I think Event: hail has occured['Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Townsville', 'Dublin']Sun Apr 26 21:57:57 2015
+I think Event: thunder has occured[]Sun Apr 26 22:03:48 2015
+I think Event: thunder has occured[]Sun Apr 26 22:09:26 2015
+I think Event: thunder has occured[]Sun Apr 26 22:15:05 2015
+I think Event: thunder has occured['Cleveland']Sun Apr 26 22:20:43 2015
+I think Event: thunder has occured['Dallas']Sun Apr 26 22:26:20 2015
+I think Event: thunder has occured[]Sun Apr 26 22:31:57 2015
+I think Event: thunder has occured[]Sun Apr 26 22:37:33 2015
+I think Event: thunder has occured[]Sun Apr 26 22:43:10 2015
+I think Event: thunder has occured['Plano']Sun Apr 26 22:48:49 2015
+I think Event: thunder has occured[]Sun Apr 26 22:54:30 2015
+I think Event: thunder has occured[]Sun Apr 26 23:00:05 2015
+I think Event: thunder has occured['Garland', 'Garland', 'Anaheim']Sun Apr 26 23:05:46 2015
+I think Event: thunder has occured['Downey']Sun Apr 26 23:11:20 2015
+I think Event: thunder has occured['Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario', 'Calgary', 'Calgary', 'Ontario']Sun Apr 26 23:16:58 2015
+I think Event: thunder has occured[]Sun Apr 26 23:22:33 2015
+I think Event: thunder has occured['Tampa']Sun Apr 26 23:28:06 2015
+I think Event: thunder has occured[]Sun Apr 26 23:33:43 2015
+I think Event: thunder has occured[]Sun Apr 26 23:39:24 2015
+I think Event: thunder has occured['Tampa']Sun Apr 26 23:45:02 2015
+I think Event: hail has occured['Bridgeport', 'Dallas']Sun Apr 26 23:50:35 2015
+I think Event: thunder has occured[]Sun Apr 26 23:50:40 2015
+I think Event: thunder has occured[]Sun Apr 26 23:56:15 2015
+I think Event: thunder has occured[]Mon Apr 27 00:01:51 2015
+I think Event: thunder has occured[]Mon Apr 27 00:07:30 2015
+I think Event: thunder has occured['Arlington', 'Orange']Mon Apr 27 00:13:08 2015
+I think Event: thunder has occured[]Mon Apr 27 00:18:43 2015
+I think Event: thunder has occured[]Mon Apr 27 00:24:17 2015
+I think Event: thunder has occured[]Mon Apr 27 00:29:52 2015
+I think Event: thunder has occured['Islamabad']Mon Apr 27 00:35:26 2015
+I think Event: thunder has occured[]Mon Apr 27 00:41:03 2015
+I think Event: rain has occured[]Mon Apr 27 02:00:26 2015
+I think Event: thunder has occured['Bogor', 'Downey', 'Orange']Mon Apr 27 02:00:28 2015
+I think Event: massacre has occured[]Mon Apr 27 02:00:40 2015
+I think Event: rain has occured['Peshawar', 'Fukuoka']Mon Apr 27 03:30:32 2015
+I think Event: rain has occured[]Mon Apr 27 08:01:24 2015
+I think Event: Tsunami has occured[]Mon Apr 27 08:13:25 2015
+I think Event: rain has occured[]Mon Apr 27 09:01:01 2015
+I think Event: hail has occured[]Mon Apr 27 09:47:22 2015
+I think Event: Tsunami has occured[]Mon Apr 27 09:47:51 2015
+I think Event: rain has occured['Glasgow']Mon Apr 27 10:10:34 2015
+I think Event: rain has occured[]Mon Apr 27 10:39:28 2015
+I think Event: massacre has occured['Aurora', 'France']Mon Apr 27 11:54:45 2015
+I think Event: thunder has occured[]Mon Apr 27 12:29:18 2015
+I think Event: massacre has occured['Aurora']Mon Apr 27 14:14:13 2015
+I think Event: asteroid has occured[]Mon Apr 27 14:37:27 2015
+I think Event: massacre has occured['Washington', 'Gaza', 'Berlin', 'Gaza', 'Gaza', 'Gaza']Mon Apr 27 14:37:34 2015
+I think Event: rain has occured['Jackson']Mon Apr 27 15:00:45 2015
+I think Event: hail has occured[]Mon Apr 27 17:04:43 2015
+I think Event: hail has occured[]Mon Apr 27 17:10:38 2015
+I think Event: rain has occured['Fukuoka']Mon Apr 27 17:10:42 2015
+I think Event: hail has occured[]Mon Apr 27 17:16:42 2015
+I think Event: thunder has occured['Bournemouth']Mon Apr 27 17:16:51 2015
+I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Mon Apr 27 17:22:47 2015
+I think Event: hail has occured['Dallas']Mon Apr 27 17:35:23 2015
+I think Event: hail has occured['Dallas', 'Madison', 'Baltimore']Mon Apr 27 17:41:19 2015

@@ -1,7 +1,6 @@
 tornado
 earthquake
 hail
-rain
 thunder
 lightening
 asteroid
