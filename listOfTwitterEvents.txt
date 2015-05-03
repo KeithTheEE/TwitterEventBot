@@ -12,3 +12,4 @@ Tsunami
 blizzard
 Wildfire
 Shipwreck
+riot

@@ -589,3 +589,225 @@ I think Event: thunder has occured['Bournemouth']Mon Apr 27 17:16:51 2015
 I think Event: hail has occured['Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney']Mon Apr 27 17:22:47 2015
 I think Event: hail has occured['Dallas']Mon Apr 27 17:35:23 2015
 I think Event: hail has occured['Dallas', 'Madison', 'Baltimore']Mon Apr 27 17:41:19 2015
+I think Event: riot has occured['Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Cambridge', 'Baltimore', 'Baltimore', 'Baltimore', 'Aurora']Mon Apr 27 18:58:12 2015
+I think Event: riot has occured['Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore']Mon Apr 27 19:11:33 2015
+I think Event: riot has occured['Baltimore', 'Baltimore', 'Baltimore', 'Detroit', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore']Mon Apr 27 19:17:49 2015
+I think Event: riot has occured['Baltimore', 'Baltimore', 'Baltimore', 'Baltimore', 'Baltimore']Mon Apr 27 20:38:35 2015
+I think Event: thunder has occured['Tampa']Mon Apr 27 20:56:18 2015
+I think Event: riot has occured['Baltimore']Mon Apr 27 21:03:20 2015
+I think Event: Tsunami has occured[]Tue Apr 28 07:00:55 2015
+I think Event: Tsunami has occured[]Tue Apr 28 07:06:40 2015
+I think Event: Tsunami has occured[]Tue Apr 28 07:12:27 2015
+I think Event: hail has occured[]Tue Apr 28 19:55:35 2015
+I think Event: hail has occured[]Tue Apr 28 20:01:14 2015
+I think Event: Tsunami has occured[]Tue Apr 28 21:18:04 2015
+I think Event: thunder has occured['Jackson']Wed Apr 29 01:32:16 2015
+I think Event: thunder has occured[]Wed Apr 29 01:44:29 2015
+I think Event: Tsunami has occured[]Wed Apr 29 08:51:58 2015
+I think Event: thunder has occured['Ontario']Wed Apr 29 10:01:58 2015
+I think Event: thunder has occured['Jackson', 'Philadelphia']Wed Apr 29 10:07:40 2015
+I think Event: thunder has occured[]Wed Apr 29 10:13:34 2015
+I think Event: thunder has occured[]Wed Apr 29 10:37:10 2015
+I think Event: thunder has occured['Madison', 'Brighton', 'Chicago']Wed Apr 29 10:49:06 2015
+I think Event: thunder has occured['Bogor']Wed Apr 29 11:01:00 2015
+I think Event: thunder has occured[]Wed Apr 29 12:42:52 2015
+I think Event: thunder has occured[]Wed Apr 29 12:48:45 2015
+I think Event: thunder has occured[]Wed Apr 29 12:54:39 2015
+I think Event: thunder has occured[]Wed Apr 29 13:01:41 2015
+I think Event: thunder has occured['Jackson']Wed Apr 29 13:07:31 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 14:18:54 2015
+I think Event: massacre has occured['Paris', 'Paris', 'Paris']Wed Apr 29 14:47:17 2015
+I think Event: massacre has occured['Philadelphia', 'Paris', 'Paris', 'Paris']Wed Apr 29 14:53:01 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 14:59:17 2015
+I think Event: massacre has occured['Istanbul', 'Curitiba', 'London', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba']Wed Apr 29 15:05:17 2015
+I think Event: thunder has occured[]Wed Apr 29 15:10:49 2015
+I think Event: massacre has occured['Curitiba', 'Paris']Wed Apr 29 15:11:03 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 15:17:24 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 15:23:42 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba']Wed Apr 29 15:29:30 2015
+I think Event: massacre has occured[]Wed Apr 29 15:35:13 2015
+I think Event: massacre has occured[]Wed Apr 29 15:41:01 2015
+I think Event: massacre has occured['Paradise']Wed Apr 29 15:46:54 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba']Wed Apr 29 15:52:42 2015
+I think Event: massacre has occured[]Wed Apr 29 16:04:30 2015
+I think Event: massacre has occured['Curitiba', 'Serra', 'Curitiba']Wed Apr 29 16:10:20 2015
+I think Event: massacre has occured['Curitiba', 'Serra']Wed Apr 29 16:16:09 2015
+I think Event: massacre has occured['Aurora', 'Berlin']Wed Apr 29 16:22:46 2015
+I think Event: massacre has occured[]Wed Apr 29 16:28:49 2015
+I think Event: massacre has occured['Curitiba', 'Batman']Wed Apr 29 16:34:45 2015
+I think Event: massacre has occured[]Wed Apr 29 16:40:42 2015
+I think Event: massacre has occured['Batman']Wed Apr 29 16:46:49 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 16:52:47 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba']Wed Apr 29 16:58:47 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Baltimore']Wed Apr 29 17:04:31 2015
+I think Event: massacre has occured['Baltimore', 'Batman']Wed Apr 29 17:10:12 2015
+I think Event: massacre has occured[]Wed Apr 29 17:15:54 2015
+I think Event: massacre has occured['Curitiba', 'Baltimore']Wed Apr 29 17:21:38 2015
+I think Event: massacre has occured['Paris']Wed Apr 29 17:27:19 2015
+I think Event: hail has occured['Toronto', 'Denver']Wed Apr 29 17:32:46 2015
+I think Event: massacre has occured['Gaza']Wed Apr 29 17:33:01 2015
+I think Event: massacre has occured['Natal', 'Curitiba', 'Curitiba', 'Curitiba', 'Aurora', 'Curitiba', 'Armenia']Wed Apr 29 17:57:09 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba']Wed Apr 29 18:08:24 2015
+I think Event: massacre has occured['Baltimore', 'Curitiba', 'Curitiba', 'Gaza']Wed Apr 29 18:14:21 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Serra']Wed Apr 29 18:20:07 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Gaza', 'Curitiba', 'Curitiba', 'Gaza']Wed Apr 29 18:26:03 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Curitiba']Wed Apr 29 18:32:00 2015
+I think Event: massacre has occured['Baltimore']Wed Apr 29 18:37:54 2015
+I think Event: massacre has occured['Gaza', 'Curitiba']Wed Apr 29 18:43:47 2015
+I think Event: massacre has occured['Gaza', 'Curitiba']Wed Apr 29 18:55:21 2015
+I think Event: massacre has occured['Baltimore', 'Baltimore', 'Baltimore', 'Nanjing']Wed Apr 29 19:07:42 2015
+I think Event: massacre has occured['Baltimore', 'Curitiba', 'Curitiba']Wed Apr 29 19:25:28 2015
+I think Event: massacre has occured['Curitiba', 'Tokyo', 'Curitiba']Wed Apr 29 19:31:06 2015
+I think Event: massacre has occured['Tokyo', 'Tokyo', 'Curitiba', 'Curitiba']Wed Apr 29 19:36:49 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Curitiba', 'Tokyo']Wed Apr 29 19:42:34 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 19:48:18 2015
+I think Event: massacre has occured['Curitiba']Wed Apr 29 19:54:03 2015
+I think Event: massacre has occured[]Wed Apr 29 19:59:56 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba']Wed Apr 29 20:06:28 2015
+I think Event: massacre has occured['Tokyo', 'Curitiba']Wed Apr 29 20:12:19 2015
+I think Event: massacre has occured[]Wed Apr 29 20:18:26 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Curitiba', 'Curitiba']Wed Apr 29 20:24:43 2015
+I think Event: massacre has occured['Curitiba', 'Serra', 'Gaza']Wed Apr 29 20:30:41 2015
+I think Event: massacre has occured['Curitiba', 'Brazil', 'Brazil', 'Brazil', 'Curitiba']Wed Apr 29 20:47:58 2015
+I think Event: massacre has occured['Detroit']Wed Apr 29 20:53:37 2015
+I think Event: massacre has occured['Brazil']Wed Apr 29 20:59:18 2015
+I think Event: thunder has occured[]Wed Apr 29 21:25:22 2015
+I think Event: thunder has occured['Carlisle']Wed Apr 29 21:31:36 2015
+I think Event: massacre has occured[]Wed Apr 29 21:31:47 2015
+I think Event: thunder has occured[]Wed Apr 29 21:37:14 2015
+I think Event: thunder has occured[]Wed Apr 29 21:42:50 2015
+I think Event: thunder has occured[]Wed Apr 29 21:48:26 2015
+I think Event: thunder has occured[]Wed Apr 29 21:54:44 2015
+I think Event: thunder has occured[]Wed Apr 29 22:00:34 2015
+I think Event: thunder has occured[]Wed Apr 29 22:06:20 2015
+I think Event: thunder has occured[]Wed Apr 29 22:12:21 2015
+I think Event: thunder has occured[]Wed Apr 29 22:18:19 2015
+I think Event: thunder has occured[]Wed Apr 29 22:24:05 2015
+I think Event: thunder has occured[]Wed Apr 29 22:29:45 2015
+I think Event: thunder has occured[]Wed Apr 29 22:41:01 2015
+I think Event: thunder has occured[]Wed Apr 29 22:46:44 2015
+I think Event: thunder has occured[]Wed Apr 29 22:52:28 2015
+I think Event: thunder has occured['Bath']Wed Apr 29 22:58:10 2015
+I think Event: thunder has occured[]Thu Apr 30 00:00:53 2015
+I think Event: Tsunami has occured[]Thu Apr 30 06:09:03 2015
+I think Event: Tsunami has occured[]Thu Apr 30 07:56:47 2015
+I think Event: massacre has occured[]Thu Apr 30 08:54:52 2015
+I think Event: massacre has occured['Curitiba']Thu Apr 30 09:17:32 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba', 'Curitiba']Thu Apr 30 09:34:46 2015
+I think Event: thunder has occured['Nice']Thu Apr 30 10:43:01 2015
+I think Event: thunder has occured[]Thu Apr 30 10:54:23 2015
+I think Event: thunder has occured[]Thu Apr 30 10:59:59 2015
+I think Event: thunder has occured['Victoria']Thu Apr 30 11:05:35 2015
+I think Event: thunder has occured[]Thu Apr 30 11:11:14 2015
+I think Event: thunder has occured['Dallas', 'Ontario']Thu Apr 30 11:17:00 2015
+I think Event: thunder has occured[]Thu Apr 30 11:22:39 2015
+I think Event: thunder has occured[]Thu Apr 30 11:28:14 2015
+I think Event: thunder has occured[]Thu Apr 30 11:39:30 2015
+I think Event: thunder has occured[]Thu Apr 30 11:45:05 2015
+I think Event: thunder has occured['Jacksonville', 'Paradise', 'Portland']Thu Apr 30 12:01:53 2015
+I think Event: thunder has occured['Paradise']Thu Apr 30 12:07:28 2015
+I think Event: thunder has occured[]Thu Apr 30 12:13:03 2015
+I think Event: thunder has occured[]Thu Apr 30 12:18:47 2015
+I think Event: thunder has occured[]Thu Apr 30 12:24:22 2015
+I think Event: thunder has occured[]Thu Apr 30 12:30:00 2015
+I think Event: thunder has occured[]Thu Apr 30 12:35:35 2015
+I think Event: thunder has occured['Houston', 'Orlando']Thu Apr 30 12:41:08 2015
+I think Event: thunder has occured[]Thu Apr 30 12:46:43 2015
+I think Event: thunder has occured[]Thu Apr 30 12:52:19 2015
+I think Event: thunder has occured['Jackson', 'Boston']Thu Apr 30 12:57:54 2015
+I think Event: thunder has occured['Wichita']Thu Apr 30 13:03:32 2015
+I think Event: thunder has occured[]Thu Apr 30 13:09:03 2015
+I think Event: thunder has occured[]Thu Apr 30 13:14:37 2015
+I think Event: thunder has occured[]Thu Apr 30 13:20:10 2015
+I think Event: thunder has occured[]Thu Apr 30 13:25:43 2015
+I think Event: thunder has occured[]Thu Apr 30 13:31:18 2015
+I think Event: thunder has occured[]Thu Apr 30 13:36:52 2015
+I think Event: thunder has occured[]Thu Apr 30 13:42:26 2015
+I think Event: thunder has occured['Orlando']Thu Apr 30 13:53:25 2015
+I think Event: thunder has occured[]Thu Apr 30 13:59:01 2015
+I think Event: thunder has occured[]Thu Apr 30 14:04:38 2015
+I think Event: thunder has occured[]Thu Apr 30 14:10:30 2015
+I think Event: hail has occured['Madison', 'London']Thu Apr 30 14:16:08 2015
+I think Event: thunder has occured[]Thu Apr 30 14:16:11 2015
+I think Event: thunder has occured[]Thu Apr 30 14:21:52 2015
+I think Event: thunder has occured['Jackson', 'Jackson']Thu Apr 30 14:27:39 2015
+I think Event: thunder has occured['Jackson']Thu Apr 30 14:33:50 2015
+I think Event: thunder has occured[]Thu Apr 30 14:39:27 2015
+I think Event: thunder has occured[]Thu Apr 30 14:45:03 2015
+I think Event: thunder has occured[]Thu Apr 30 14:50:41 2015
+I think Event: thunder has occured[]Thu Apr 30 14:56:27 2015
+I think Event: thunder has occured['Vienna']Thu Apr 30 15:02:06 2015
+I think Event: thunder has occured[]Thu Apr 30 15:07:44 2015
+I think Event: thunder has occured[]Thu Apr 30 15:13:19 2015
+I think Event: thunder has occured[]Thu Apr 30 15:41:50 2015
+I think Event: thunder has occured['Kawasaki']Thu Apr 30 16:11:11 2015
+I think Event: thunder has occured[]Thu Apr 30 16:57:58 2015
+I think Event: thunder has occured[]Thu Apr 30 17:15:02 2015
+I think Event: massacre has occured['Curitiba', 'Curitiba']Thu Apr 30 17:21:07 2015
+I think Event: thunder has occured[]Thu Apr 30 17:26:45 2015
+I think Event: hail has occured['Richmond', 'Carolina', 'Richmond']Thu Apr 30 18:00:44 2015
+I think Event: thunder has occured[]Thu Apr 30 18:00:47 2015
+I think Event: massacre has occured['Warsaw']Thu Apr 30 19:20:27 2015
+I think Event: hail has occured['Chicago', 'Chicago', 'Bridgeport']Thu Apr 30 19:37:25 2015
+I think Event: thunder has occured[]Thu Apr 30 19:59:57 2015
+I think Event: thunder has occured[]Thu Apr 30 20:11:10 2015
+I think Event: massacre has occured['Chicago', 'Curitiba']Thu Apr 30 20:11:21 2015
+I think Event: thunder has occured[]Thu Apr 30 20:22:25 2015
+I think Event: Tsunami has occured[]Fri May  1 03:21:56 2015
+I think Event: Tsunami has occured[]Fri May  1 03:27:38 2015
+I think Event: Tsunami has occured['Malang', 'Taiwan']Fri May  1 03:33:13 2015
+I think Event: Tsunami has occured[]Fri May  1 03:38:48 2015
+I think Event: Tsunami has occured[]Fri May  1 03:49:58 2015
+I think Event: Tsunami has occured[]Fri May  1 03:55:32 2015
+I think Event: Tsunami has occured['Washington']Fri May  1 04:01:06 2015
+I think Event: Tsunami has occured['Washington', 'Nice', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington']Fri May  1 04:06:41 2015
+I think Event: Tsunami has occured['Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington', 'Washington']Fri May  1 04:12:16 2015
+I think Event: Tsunami has occured['Washington']Fri May  1 04:23:23 2015
+I think Event: Tsunami has occured[]Fri May  1 04:56:50 2015
+I think Event: Tsunami has occured[]Fri May  1 08:03:51 2015
+I think Event: hail has occured[]Fri May  1 08:59:49 2015
+I think Event: thunder has occured['Orange']Fri May  1 13:35:04 2015
+I think Event: thunder has occured[]Fri May  1 16:39:52 2015
+I think Event: thunder has occured[]Fri May  1 16:45:30 2015
+I think Event: thunder has occured[]Fri May  1 16:56:45 2015
+I think Event: thunder has occured[]Fri May  1 17:02:22 2015
+I think Event: thunder has occured[]Fri May  1 17:24:44 2015
+I think Event: lightening has occured[]Fri May  1 19:44:39 2015
+I think Event: asteroid has occured[]Sat May  2 06:21:01 2015
+I think Event: asteroid has occured[]Sat May  2 06:37:49 2015
+I think Event: asteroid has occured[]Sat May  2 06:43:25 2015
+I think Event: asteroid has occured[]Sat May  2 06:49:00 2015
+I think Event: hail has occured['Glasgow']Sat May  2 10:57:56 2015
+I think Event: hail has occured['Glasgow']Sat May  2 11:54:18 2015
+I think Event: thunder has occured['Nice']Sat May  2 12:11:08 2015
+I think Event: thunder has occured['Singapore']Sat May  2 12:16:43 2015
+I think Event: Tsunami has occured[]Sat May  2 12:45:48 2015
+I think Event: Tsunami has occured[]Sat May  2 12:51:37 2015
+I think Event: Tsunami has occured[]Sat May  2 12:57:17 2015
+I think Event: Tsunami has occured[]Sat May  2 13:03:08 2015
+I think Event: Wildfire has occured[]Sat May  2 13:14:45 2015
+I think Event: thunder has occured[]Sat May  2 13:42:32 2015
+I think Event: Tsunami has occured['Brescia']Sat May  2 14:33:18 2015
+I think Event: Tsunami has occured[]Sat May  2 14:38:54 2015
+I think Event: Tsunami has occured[]Sat May  2 14:44:35 2015
+I think Event: hail has occured['Gary', 'Gary', 'Gary', 'Warren', 'Warren', 'Gary', 'Gary', 'Warren', 'Warren', 'Warren', 'Gary', 'Gary']Sat May  2 14:49:52 2015
+I think Event: Tsunami has occured[]Sat May  2 14:50:12 2015
+I think Event: Tsunami has occured[]Sat May  2 14:55:50 2015
+I think Event: Tsunami has occured[]Sat May  2 15:01:28 2015
+I think Event: Tsunami has occured[]Sat May  2 15:46:31 2015
+I think Event: massacre has occured['Curitiba', 'London', 'Curitiba', 'Warren', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba', 'Curitiba']Sat May  2 15:52:01 2015
+I think Event: Tsunami has occured[]Sat May  2 15:52:08 2015
+I think Event: Tsunami has occured['Tokyo']Sat May  2 16:09:02 2015
+I think Event: hail has occured['Gary']Sat May  2 18:25:45 2015
+I think Event: thunder has occured[]Sat May  2 18:25:49 2015
+I think Event: hail has occured[]Sat May  2 18:48:58 2015
+I think Event: Tsunami has occured[]Sat May  2 18:55:06 2015
+I think Event: thunder has occured['Washington']Sat May  2 21:57:39 2015
+I think Event: Tsunami has occured[]Sat May  2 22:04:03 2015
+I think Event: thunder has occured[]Sat May  2 22:49:51 2015
+I think Event: hail has occured[]Sat May  2 23:58:27 2015
+I think Event: thunder has occured[]Sun May  3 07:59:46 2015
+I think Event: thunder has occured['Oxford', 'Newcastle']Sun May  3 08:45:34 2015
+I think Event: thunder has occured['Toledo']Sun May  3 10:35:06 2015
+I think Event: massacre has occured[]Sun May  3 14:16:52 2015
+I think Event: massacre has occured[]Sun May  3 14:56:49 2015

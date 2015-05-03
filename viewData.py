@@ -28,31 +28,7 @@ def plotEvent(eventF):
     dates = theTimes
     x = np.array([dt.datetime.strptime(d,'%Y-%m-%d %H:%M') for d in dates])
     
-    '''
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
-    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
-    plt.plot(x,theAvgs)
-    plt.gcf().autofmt_xdate()
-    plt.show()
-    plt.close()
-    '''
-    plt.figure(1)
-    ax1 = plt.subplot(211)
-    plt.title(eventF[0].upper() + eventF[1:].lower())
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
-    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
-    plt.gcf().autofmt_xdate()
-    ax1.plot(x,theAvgs)
-    plt.ylabel("Average Tweets Per Second")
-    ax2 = plt.subplot(212, sharex=ax1)
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
-    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
-    ax2.plot(x,theVar)
-    plt.gcf().autofmt_xdate()
-    plt.ylabel("Variance of \nthe Average")
 
-    plt.show()
-    plt.close()
 
     # look to see
     #  1: how the current average compares to the old avg of the std of old avg
@@ -71,6 +47,47 @@ def plotEvent(eventF):
 	zSc1.append((curAvg - oldAvg)/oldStd)
 	zSc2.append((oldAvg - curAvg)/curStd)
 
+
+    # Draw "EVENT OCCURRED" estimation
+    xVlinesZs = []
+    for i in range(len(zSc1)):
+	#print zSc1[i]*zSc2[i]
+	if (zSc1[i]*zSc2[i]) <= -2:
+	    xVlinesZs.append(x[i])
+
+    print len(xVlinesZs)
+    '''
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
+    plt.plot(x,theAvgs)
+    plt.gcf().autofmt_xdate()
+    plt.show()
+    plt.close()
+    '''
+    plt.figure(1)
+    ax1 = plt.subplot(211)
+    plt.title(eventF[0].upper() + eventF[1:].lower())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
+    plt.gcf().autofmt_xdate()
+    ax1.plot(x,theAvgs)
+    plt.ylabel("Average Tweets Per Second")
+    for xc in xVlinesZs:
+	plt.axvline(x=xc, color='r')
+
+    ax2 = plt.subplot(212, sharex=ax1)
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
+    ax2.plot(x,theVar)
+    plt.gcf().autofmt_xdate()
+    plt.ylabel("Variance of \nthe Average")
+    for xc in xVlinesZs:
+	plt.axvline(x=xc, color='r')
+
+    plt.show()
+    plt.close()
+
+
     plt.figure(2)
     ax1 = plt.subplot(211)
     plt.title(eventF[0].upper() + eventF[1:].lower())
@@ -78,12 +95,16 @@ def plotEvent(eventF):
     #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
     plt.gcf().autofmt_xdate()
     ax1.plot(x,zSc1)
+    for xc in xVlinesZs:
+	plt.axvline(x=xc, color='r')
     plt.ylabel("Current set of tweets wrt \nthe past averages and std")
     ax2 = plt.subplot(212, sharex=ax1)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
     #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
     ax2.plot(x,zSc2)
     plt.gcf().autofmt_xdate()
+    for xc in xVlinesZs:
+	plt.axvline(x=xc, color='r')
     plt.ylabel("Past Average compared to the average\n current set and the std of that set")
 
     plt.show()
