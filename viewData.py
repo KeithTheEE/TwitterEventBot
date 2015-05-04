@@ -133,3 +133,26 @@ def main(eventF):
 	    pass
 
 main('earthquake')
+
+
+
+'''
+Assumptions
+The number of earbuds in the US is a function of owning ipods and cellphones 
+knot complexity directly correlates with how much time is wasted
+knot complexity is a function of 'time since earbud use', and earbud length. However, 90% of earbuds are between 1.3 and 1.43 yd, with the median at 1.3 yd, so it's safe to assume the length is a constant 1.3 yd, and therefore not a varible. 
+
+
+
+
+Relationships:
+
+Time Wasted = (Number of earbuds, proportion of frequent use, knot complexity)
+
+Number of earbuds in US:
+79.4 mill people with earbuds: http://www.statista.com/topics/1405/ipod/
+
+
+
+
+'''
