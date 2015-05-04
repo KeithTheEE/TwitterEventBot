@@ -89,7 +89,8 @@ def isItAnEvent(event, theMean, var):
     zSc2 = (compAvg-theMean)/math.sqrt(var)
     #if (theMean < (compAvg - compStd*1.3)) and (theMean < 2.75) :#and (var < 10):
     #if (math.fabs(zSc) > 2):
-    if (zSc * zSc2) <= -2:
+    print event, (zSc * zSc2), compAvg, theMean
+    if ((zSc * zSc2) <= -2) and (theMean < compAvg) and (theMean < 2.75):
 	didEventOccur = True 
 
     # Save new data to DB
