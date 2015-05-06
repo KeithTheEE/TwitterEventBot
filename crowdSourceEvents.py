@@ -110,6 +110,20 @@ def getLocation(locBestGuess):
 	return " in " +str(max(d, key=d.get))
 	
 
+def processTweet(tweet, tweetDict):
+    # Basic Spam Rejection:
+    if tweet[0:2] == "RT":
+	# Reject Retweets
+	return False, tweetDict
+    cleanTweet = tweet.split("http://t.co/")
+    cleanTweet = tweet[0]
+    if cleanTweet in tweetDict:
+	# Reject Repeats
+	return False, tweetDict
+    else:
+	tweetDict[cleanTweet] = 1
+	return True, tweetDict
+
 def main():
     # Get twitter reqs 
     myKeys = getKMKeys.GETTWITTER()
@@ -164,12 +178,14 @@ def main():
 	    theTweets = []
 	    #for tweet in tweetList:
 	    tweetTracker = 0
+	    tweetDict = {}
 	    while True:
 		try: # This 'try' is to catch 'rate limit exceeded' errors
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
 		    #print tweetAge/(float(60*60))
-		    if not tweet.retweeted and (tweetAge < 24*60*60): # Make sure original tweet and fairly new (24 hours)
+		    newTweet, tweetDict = processTweet(tweet, tweetDict)
+		    if (not tweet.retweeted) and (tweetAge < 24*60*60) and newTweet: # Make sure original tweet and fairly new (24 hours)
 			if tweetTracker == 0:
 			    oldTime = tweet.created_at
 			timeDiff = oldTime - tweet.created_at
