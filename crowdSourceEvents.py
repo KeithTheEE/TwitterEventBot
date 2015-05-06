@@ -59,7 +59,7 @@ import numpy as np
 import datetime
 
 
-def isItAnEvent(event, theMean, var):
+def isItAnEvent(event, theMean, var, uniqTweets):
     # open event db
     # Date/Time \t theMean \t var
     try:
@@ -95,8 +95,11 @@ def isItAnEvent(event, theMean, var):
 
     # Save new data to DB
     eventHistory = open(str(event) + ".txt", 'a')
-    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +  '\n')
+    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) + str(uniqTweets) +'\n')
     eventHistory.close()
+
+    if uniqTweets < 15:
+	didEventOccur = False
 
     return didEventOccur
 
@@ -185,8 +188,13 @@ def main():
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
 		    #print tweetAge/(float(60*60))
-		    newTweet, tweetDict = processTweet(tweet.text, tweetDict)
+		    newTweet, tweetDict = processTweet(tweet.text.encode('utf-8'), tweetDict)
 		    tweetTries += 1
+		    
+		    handle = tweet.user.screen_name.encode('utf-8')
+		    text = tweet.text.encode('utf-8')
+		    #print handle
+		    #print text
 		    if (not tweet.retweeted) and (tweetAge < 24*60*60) and newTweet: # Make sure original tweet and fairly new (24 hours)
 			if tweetTracker == 0:
 			    oldTime = tweet.created_at
@@ -195,8 +203,8 @@ def main():
 			timeBTWTweets.append(timeFloat) # list of time between tweets occurence 		
 			oldTime = tweet.created_at
 			tweetTracker +=1
-			theTweets.append(unicode(tweet.text))
-			if tweetTracker > rppSize or tweetTries > 100:
+			theTweets.append((tweet.text.encode('utf-8')))
+			if tweetTracker > rppSize or tweetTries > 500:
 			    tweetTracker = 0
 			    break
 		except tweepy.TweepError: 
@@ -206,7 +214,9 @@ def main():
 
 	    # Now I've got timeBTWTweets, and theTweets:
 	    #  Based on tbtwtweets, decide if an event occured. 
-	    eventStatus = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets))
+	    eventStatus = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets), len(theTweets))
+	    #eventStatus = True #DEBUGGING
+	    print len(theTweets)
 	    if eventStatus == True:
 		# Now we get ready to tweet!! :D
 		locBestGuess = []
@@ -215,16 +225,16 @@ def main():
 		for aTweet in theTweets:
 		    # v Right now we'll only do 1 word city names, fix this later
 		    words = aTweet.split(" ")
-		    guessCity = ""
+		    guessCity = "" # No idea if this will stop sydney 
 		    for j in range(maxSpace):
 			for i in range(len(words)-j):
 			    try:
 				guessCity = " ".join(words[i:i+j+1])
 				if str(guessCity) in cities:
-				    cityName = words[i]
+				    cityName = guessCity
 			    	    locBestGuess.append(str(guessCity))
 			    except UnicodeEncodeError:
-			    '''
+			        '''
 				Traceback (most recent call last):
 				  File "crowdSourceEvents.py", line 238, in <module>
 				    main()
@@ -232,15 +242,16 @@ def main():
 				    if str(words[i]) in cities:
 				UnicodeEncodeError: 'ascii' codec can't encode character u'\U0001f64f' in position 0: ordinal not in range(128)
 
-			    '''
+			        '''
 			        pass
 
 		    
 		    try:
-			saveThis = str(aTweet)
+			#print aTweet
+			saveThis = str(aTweet.decode('utf8'))
 			saveThis = saveThis.translate(None, "\n")
 			tweetProof.write("\t"+saveThis+"\n")
-		    except:
+		    except UnicodeEncodeError:
 			pass
 		tweetProof.write("\n")
 		tweetProof.close()
@@ -253,11 +264,13 @@ def main():
 		    msg = msg[0:139]
 		if oldEvent != searchEV[event]:
 		    api.update_status(status=msg)
+		    pass
 		oldEvent = searchEV[event]
 		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess) + str(time.ctime(time.time()))
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
+		print msg
 	    
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax
