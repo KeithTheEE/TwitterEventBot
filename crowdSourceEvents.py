@@ -178,13 +178,15 @@ def main():
 	    theTweets = []
 	    #for tweet in tweetList:
 	    tweetTracker = 0
+	    tweetTries = 0
 	    tweetDict = {}
 	    while True:
 		try: # This 'try' is to catch 'rate limit exceeded' errors
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
 		    #print tweetAge/(float(60*60))
-		    newTweet, tweetDict = processTweet(tweet, tweetDict)
+		    newTweet, tweetDict = processTweet(tweet.text, tweetDict)
+		    tweetTries += 1
 		    if (not tweet.retweeted) and (tweetAge < 24*60*60) and newTweet: # Make sure original tweet and fairly new (24 hours)
 			if tweetTracker == 0:
 			    oldTime = tweet.created_at
@@ -194,7 +196,7 @@ def main():
 			oldTime = tweet.created_at
 			tweetTracker +=1
 			theTweets.append(unicode(tweet.text))
-			if tweetTracker > rppSize:
+			if tweetTracker > rppSize or tweetTries > 100:
 			    tweetTracker = 0
 			    break
 		except tweepy.TweepError: 
@@ -213,12 +215,15 @@ def main():
 		for aTweet in theTweets:
 		    # v Right now we'll only do 1 word city names, fix this later
 		    words = aTweet.split(" ")
-		    for i in range(len(words)):
-			try:
-			    if str(words[i]) in cities:
-				cityName = words[i]
-			    	locBestGuess.append(str(words[i]))
-			except UnicodeEncodeError:
+		    guessCity = ""
+		    for j in range(maxSpace):
+			for i in range(len(words)-j):
+			    try:
+				guessCity = " ".join(words[i:i+j+1])
+				if str(guessCity) in cities:
+				    cityName = words[i]
+			    	    locBestGuess.append(str(guessCity))
+			    except UnicodeEncodeError:
 			    '''
 				Traceback (most recent call last):
 				  File "crowdSourceEvents.py", line 238, in <module>
@@ -228,7 +233,7 @@ def main():
 				UnicodeEncodeError: 'ascii' codec can't encode character u'\U0001f64f' in position 0: ordinal not in range(128)
 
 			    '''
-			    pass
+			        pass
 
 		    
 		    try:
