@@ -50,8 +50,10 @@ def plotEvent(eventF):
 
     # Draw "EVENT OCCURRED" estimation
     xVlinesZs = []
+    zP = []
     for i in range(len(zSc1)):
 	#print zSc1[i]*zSc2[i]
+	zP.append(-1.0*zSc1[i]*zSc2[i])
 	if (zSc1[i]*zSc2[i]) <= -2:
 	    xVlinesZs.append(x[i])
 
@@ -88,8 +90,8 @@ def plotEvent(eventF):
     plt.close()
 
 
-    plt.figure(2)
-    ax1 = plt.subplot(211)
+    plt.figure(3)
+    ax1 = plt.subplot(311)
     plt.title(eventF[0].upper() + eventF[1:].lower())
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
     #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
@@ -98,7 +100,7 @@ def plotEvent(eventF):
     for xc in xVlinesZs:
 	plt.axvline(x=xc, color='r')
     plt.ylabel("Current set of tweets wrt \nthe past averages and std")
-    ax2 = plt.subplot(212, sharex=ax1)
+    ax2 = plt.subplot(312, sharex=ax1)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
     #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
     ax2.plot(x,zSc2)
@@ -106,6 +108,16 @@ def plotEvent(eventF):
     for xc in xVlinesZs:
 	plt.axvline(x=xc, color='r')
     plt.ylabel("Past Average compared to the average\n current set and the std of that set")
+    ax1 = plt.subplot(313)
+    plt.title(eventF[0].upper() + eventF[1:].lower())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
+    plt.gcf().autofmt_xdate()
+    ax1.plot(x,zP)
+    for xc in xVlinesZs:
+	plt.axvline(x=xc, color='r')
+    plt.ylabel("Current set of tweets wrt \nthe past averages and std")
+    
 
     plt.show()
     plt.close()

@@ -872,3 +872,274 @@ I think Event: asteroid has occured[]Sun May  3 23:32:46 2015
 I think Event: lightening has occured['Independence']Sun May  3 23:43:59 2015
 I think Event: massacre has occured[]Mon May  4 00:01:09 2015
 I think Event: Wildfire has occured[]Mon May  4 00:12:37 2015
+I think Event: Shipwreck has occured['Sydney']Mon May  4 03:28:14 2015
+I think Event: Tsunami has occured[]Mon May  4 15:49:36 2015
+I think Event: tornado has occured[]Mon May  4 16:00:31 2015
+I think Event: tornado has occured['Austin']Mon May  4 18:22:54 2015
+I think Event: tornado has occured[]Mon May  4 18:28:31 2015
+I think Event: hail has occured[]Mon May  4 18:39:49 2015
+I think Event: tornado has occured[]Mon May  4 19:52:45 2015
+I think Event: tornado has occured['Tulsa']Mon May  4 19:58:25 2015
+I think Event: tornado has occured[]Mon May  4 20:04:02 2015
+I think Event: tornado has occured[]Mon May  4 20:09:37 2015
+I think Event: tornado has occured[]Mon May  4 20:15:19 2015
+I think Event: tornado has occured[]Mon May  4 20:21:00 2015
+I think Event: tornado has occured[]Mon May  4 20:26:38 2015
+I think Event: hail has occured[]Mon May  4 20:49:53 2015
+I think Event: Tsunami has occured[]Mon May  4 20:57:02 2015
+I think Event: Tsunami has occured[]Mon May  4 21:02:48 2015
+I think Event: hail has occured['Nice']Mon May  4 21:08:21 2015
+I think Event: Tsunami has occured[]Mon May  4 21:08:48 2015
+I think Event: Tsunami has occured[]Mon May  4 21:14:43 2015
+I think Event: Tsunami has occured[]Mon May  4 21:20:48 2015
+I think Event: Tsunami has occured['Washington']Mon May  4 21:26:50 2015
+I think Event: Tsunami has occured[]Mon May  4 21:32:38 2015
+I think Event: Tsunami has occured[]Mon May  4 21:38:40 2015
+I think Event: hail has occured[]Mon May  4 21:44:04 2015
+I think Event: massacre has occured['Washington']Mon May  4 21:44:28 2015
+I think Event: Tsunami has occured[]Mon May  4 21:44:38 2015
+I think Event: Tsunami has occured[]Mon May  4 21:50:33 2015
+I think Event: Tsunami has occured[]Mon May  4 21:56:29 2015
+I think Event: Tsunami has occured[]Mon May  4 22:02:14 2015
+I think Event: Tsunami has occured[]Mon May  4 22:08:01 2015
+I think Event: Tsunami has occured[]Mon May  4 22:13:45 2015
+I think Event: Tsunami has occured[]Mon May  4 22:19:38 2015
+I think Event: Tsunami has occured[]Mon May  4 22:25:27 2015
+I think Event: Tsunami has occured[]Mon May  4 22:31:31 2015
+I think Event: tornado has occured[]Mon May  4 22:36:57 2015
+I think Event: Tsunami has occured[]Mon May  4 22:37:29 2015
+I think Event: Tsunami has occured[]Mon May  4 22:43:12 2015
+I think Event: Tsunami has occured[]Mon May  4 22:49:08 2015
+I think Event: Tsunami has occured[]Mon May  4 22:54:46 2015
+I think Event: Tsunami has occured[]Mon May  4 23:00:35 2015
+I think Event: Tsunami has occured[]Mon May  4 23:06:21 2015
+I think Event: Tsunami has occured[]Mon May  4 23:12:03 2015
+I think Event: Tsunami has occured[]Mon May  4 23:17:49 2015
+I think Event: Tsunami has occured[]Mon May  4 23:23:44 2015
+I think Event: Tsunami has occured[]Mon May  4 23:29:27 2015
+I think Event: Tsunami has occured[]Mon May  4 23:35:03 2015
+I think Event: Tsunami has occured[]Mon May  4 23:40:53 2015
+I think Event: Tsunami has occured['Brisbane']Mon May  4 23:47:12 2015
+I think Event: Tsunami has occured[]Mon May  4 23:52:53 2015
+I think Event: Tsunami has occured['Washington', 'Washington']Mon May  4 23:58:34 2015
+I think Event: Tsunami has occured[]Tue May  5 00:04:13 2015
+I think Event: Tsunami has occured[]Tue May  5 00:09:54 2015
+I think Event: Tsunami has occured[]Tue May  5 00:16:58 2015
+I think Event: Tsunami has occured[]Tue May  5 00:22:42 2015
+I think Event: Tsunami has occured[]Tue May  5 00:28:19 2015
+I think Event: Tsunami has occured[]Tue May  5 00:34:45 2015
+I think Event: Tsunami has occured[]Tue May  5 00:40:38 2015
+I think Event: Tsunami has occured[]Tue May  5 00:46:23 2015
+I think Event: Tsunami has occured['Bangkok']Tue May  5 00:52:12 2015
+I think Event: Tsunami has occured['Brisbane']Tue May  5 00:57:51 2015
+I think Event: Tsunami has occured[]Tue May  5 01:03:49 2015
+I think Event: Tsunami has occured[]Tue May  5 01:16:25 2015
+I think Event: Tsunami has occured[]Tue May  5 01:29:17 2015
+I think Event: Tsunami has occured[]Tue May  5 01:42:10 2015
+I think Event: Tsunami has occured[]Tue May  5 01:53:28 2015
+I think Event: hail has occured[]Tue May  5 06:45:41 2015
+I think Event: Volcano has occured['Aurora']Tue May  5 08:33:08 2015
+I think Event: tornado has occured[]Tue May  5 09:51:53 2015
+I think Event: tornado has occured['Rostock', 'Rostock']Tue May  5 14:42:13 2015
+I think Event: Tsunami has occured['Colombia']Tue May  5 14:42:33 2015
+I think Event: tornado has occured['Rostock', 'Schwerin', 'Rostock', 'Schwerin', 'Rostock', 'Schwerin', 'Rostock', 'Rostock', 'Ontario', 'Rostock']Tue May  5 14:47:43 2015
+I think Event: tornado has occured['Rostock', 'Rostock', 'Rostock']Tue May  5 14:58:43 2015
+I think Event: tornado has occured['Rostock', 'Rostock']Tue May  5 15:04:24 2015
+I think Event: tornado has occured[]Tue May  5 15:10:23 2015
+I think Event: tornado has occured['Omaha', 'Schwerin', 'Rostock', 'Omaha']Tue May  5 15:15:59 2015
+I think Event: tornado has occured['Omaha']Tue May  5 15:21:31 2015
+I think Event: tornado has occured['Omaha', 'Schwerin', 'Rostock']Tue May  5 15:27:02 2015
+I think Event: tornado has occured['Schwerin', 'Schwerin', 'Rostock', 'Hamburg', 'Cleveland']Tue May  5 15:32:36 2015
+I think Event: tornado has occured['Rostock', 'Schwerin']Tue May  5 15:38:13 2015
+I think Event: tornado has occured['Rostock']Tue May  5 15:43:44 2015
+I think Event: tornado has occured[]Tue May  5 15:49:32 2015
+I think Event: tornado has occured['Rostock']Tue May  5 15:57:39 2015
+I think Event: tornado has occured['Rostock', 'Hamburg', 'Hamburg', 'Ontario']Tue May  5 16:03:09 2015
+I think Event: tornado has occured['Hamburg', 'Schwerin', 'Rostock']Tue May  5 16:08:41 2015
+I think Event: tornado has occured['Ontario', 'Rostock']Tue May  5 16:14:17 2015
+I think Event: tornado has occured['Schwerin', 'Hamburg']Tue May  5 16:25:25 2015
+I think Event: tornado has occured['Ontario', 'Windsor', 'Rostock']Tue May  5 16:31:00 2015
+I think Event: tornado has occured['Rostock', 'Hamburg', 'Schwerin', 'Rostock', 'Hamburg']Tue May  5 16:36:32 2015
+I think Event: tornado has occured[]Tue May  5 16:42:02 2015
+I think Event: tornado has occured['Hamburg']Tue May  5 16:47:32 2015
+I think Event: tornado has occured['Hamburg']Tue May  5 16:53:16 2015
+I think Event: tornado has occured['Hamburg', 'Schwerin']Tue May  5 16:58:57 2015
+I think Event: tornado has occured[]Tue May  5 17:10:18 2015
+I think Event: tornado has occured['Hamburg', 'Hamburg']Tue May  5 17:15:52 2015
+I think Event: tornado has occured['Hamburg', 'Rostock', 'Hamburg']Tue May  5 17:21:45 2015
+I think Event: tornado has occured['Hamburg']Tue May  5 17:27:16 2015
+I think Event: tornado has occured['Rostock']Tue May  5 17:32:57 2015
+I think Event: Volcano has occured[]Tue May  5 18:20:11 2015
+I think Event: massacre has occured['Andijan']Tue May  5 18:48:10 2015
+I think Event: tornado has occured['Rostock']Tue May  5 18:59:02 2015
+I think Event: tornado has occured[]Tue May  5 19:04:35 2015
+I think Event: tornado has occured[]Tue May  5 19:15:50 2015
+I think Event: tornado has occured[]Tue May  5 19:21:20 2015
+I think Event: tornado has occured['Lubbock', 'Lubbock', 'Lubbock']Tue May  5 19:32:21 2015
+I think Event: tornado has occured['Lubbock', 'Lubbock', 'Lubbock', 'Lubbock']Tue May  5 19:37:50 2015
+I think Event: tornado has occured['Lubbock', 'Lubbock', 'Lubbock']Tue May  5 19:43:20 2015
+I think Event: tornado has occured['Lubbock', 'Lubbock', 'Lubbock']Tue May  5 19:54:35 2015
+I think Event: tornado has occured['Lubbock', 'Lubbock']Tue May  5 20:00:08 2015
+I think Event: tornado has occured['Abilene', 'Abilene', 'Abilene']Tue May  5 20:16:45 2015
+I think Event: tornado has occured['Louisville']Tue May  5 20:58:35 2015
+I think Event: Volcano has occured[]Tue May  5 21:29:58 2015
+I think Event: tornado has occured['Schwerin']Tue May  5 21:35:23 2015
+I think Event: tornado has occured['Ontario', 'Ontario', 'Lubbock']Wed May  6 10:12:02 2015
+I think Event: tornado has occured[]Wed May  6 13:27:52 2015
+I think Event: tornado has occured['Abilene']Wed May  6 13:33:29 2015
+I think Event: tornado has occured[]Wed May  6 13:44:42 2015
+I think Event: tornado has occured['Lincoln', 'Washington', 'Washington']Wed May  6 13:50:22 2015
+I think Event: tornado has occured['Abilene', 'Wichita']Wed May  6 13:55:58 2015
+I think Event: tornado has occured['Wichita', 'Wichita']Wed May  6 14:01:35 2015
+I think Event: tornado has occured['Omaha', 'Omaha', 'Wichita', 'Lincoln', 'Omaha', 'Omaha']Wed May  6 14:07:11 2015
+I think Event: tornado has occured['Omaha']Wed May  6 14:12:47 2015
+I think Event: tornado has occured['Wichita', 'Wichita', 'Lincoln', 'Lubbock', 'Sydney']Wed May  6 14:18:25 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:24:08 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:29:46 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:35:28 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Omaha', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:41:05 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Wichita', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:46:45 2015
+I think Event: hail has occured[]Wed May  6 14:46:51 2015
+I think Event: tornado has occured['Ottawa', 'Ottawa', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:52:29 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln', 'Lincoln']Wed May  6 14:58:10 2015
+I think Event: tornado has occured['Lincoln']Wed May  6 15:03:52 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln']Wed May  6 15:09:35 2015
+I think Event: tornado has occured['Jackson', 'Lincoln', 'Lincoln']Wed May  6 15:15:17 2015
+I think Event: tornado has occured[]Wed May  6 15:21:00 2015
+I think Event: hail has occured['Orange']Wed May  6 15:21:09 2015
+I think Event: tornado has occured['Norman', 'Bakersfield']Wed May  6 15:26:47 2015
+I think Event: hail has occured[]Wed May  6 15:26:54 2015
+I think Event: tornado has occured['Norman', 'Norman', 'Norman']Wed May  6 15:32:40 2015
+I think Event: hail has occured['Norman', 'Baltimore']Wed May  6 15:32:47 2015
+I think Event: tornado has occured[]Wed May  6 15:38:56 2015
+I think Event: massacre has occured['Curitiba', 'Barcelona', 'Gaza']Wed May  6 15:39:17 2015
+I think Event: tornado has occured['Wichita', 'Lincoln']Wed May  6 15:44:50 2015
+I think Event: massacre has occured['Madrid']Wed May  6 15:45:41 2015
+I think Event: tornado has occured['Lincoln']Wed May  6 15:51:46 2015
+I think Event: tornado has occured['Norman']Wed May  6 15:57:30 2015
+I think Event: blizzard has occured[]Wed May  6 15:58:01 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Lincoln']Wed May  6 16:03:12 2015
+I think Event: blizzard has occured[]Wed May  6 16:03:42 2015
+I think Event: tornado has occured[]Wed May  6 16:08:52 2015
+I think Event: tornado has occured['Lincoln']Wed May  6 16:14:35 2015
+I think Event: tornado has occured['Lincoln']Wed May  6 16:20:21 2015
+I think Event: tornado has occured['Newcastle', 'Lincoln']Wed May  6 16:26:07 2015
+I think Event: tornado has occured['Lincoln', 'Lincoln', 'Omaha']Wed May  6 16:32:00 2015
+I think Event: tornado has occured['Newcastle', 'Newcastle']Wed May  6 16:37:39 2015
+I think Event: tornado has occured['Norman', 'Newcastle', 'Norman', 'Norman']Wed May  6 16:43:18 2015
+I think Event: tornado has occured['Lincoln']Wed May  6 16:48:53 2015
+I think Event: hail has occured['Barcelona', 'Barcelona', 'Tokyo']Wed May  6 16:48:58 2015
+I think Event: missile has occured[]Wed May  6 16:49:15 2015
+I think Event: tornado has occured['Norman', 'Newcastle']Wed May  6 16:54:33 2015
+I think Event: tornado has occured['Wichita', 'Norman', 'Norman', 'Norman', 'Newcastle', 'Newcastle']Wed May  6 17:00:13 2015
+I think Event: tornado has occured['Newcastle', 'Newcastle', 'Newcastle', 'Newcastle', 'Newcastle', 'Newcastle', 'Newcastle']Wed May  6 17:05:50 2015
+I think Event: tornado has occured['Newcastle', 'Newcastle', 'Norman', 'Newcastle', 'Norman']Wed May  6 17:11:25 2015
+I think Event: tornado has occured['Oklahoma City']Fri May  8 01:48:08 2015
+I think Event: thunder has occured['Oklahoma City', 'Oklahoma City']Fri May  8 01:48:21 2015
+I think Event: meteoroid has occured[]Fri May  8 01:48:33 2015
+I think Event: tornado has occured['Omaha', 'Oklahoma City']Fri May  8 01:54:13 2015
+I think Event: missile has occured[]Fri May  8 02:04:48 2015
+I think Event: Volcano has occured['London']Fri May  8 02:04:52 2015
+I think Event: blizzard has occured[]Fri May  8 02:05:00 2015
+I think Event: tornado has occured['Wichita', 'Wichita']Fri May  8 11:09:26 2015
+I think Event: massacre has occured['France']Fri May  8 11:09:55 2015
+I think Event: missile has occured[]Fri May  8 11:09:59 2015
+I think Event: blizzard has occured['Hirosaki', 'Rockford', 'Chicago']Fri May  8 11:10:11 2015
+I think Event: Wildfire has occured[]Fri May  8 11:10:16 2015
+I think Event: Shipwreck has occured[]Fri May  8 11:10:21 2015
+I think Event: hail has occured['Lubbock', 'Bangkok']Fri May  8 11:15:36 2015
+I think Event: thunder has occured['Oklahoma City', 'Oklahoma City']Fri May  8 11:15:40 2015
+I think Event: Wildfire has occured['Burlington']Fri May  8 11:26:12 2015
+I think Event: tornado has occured[]Fri May  8 11:31:26 2015
+I think Event: missile has occured[]Fri May  8 11:32:02 2015
+I think Event: tornado has occured['Wichita']Fri May  8 12:54:45 2015
+I think Event: tornado has occured['Jackson']Fri May  8 16:01:53 2015
+I think Event: tornado has occured['Cleveland', 'Oklahoma City', 'Oklahoma City', 'Oklahoma City']Fri May  8 16:29:01 2015
+I think Event: thunder has occured['Downey']Fri May  8 17:03:57 2015
+I think Event: tornado has occured[]Fri May  8 17:20:53 2015
+I think Event: missile has occured[]Fri May  8 19:17:58 2015
+I think Event: missile has occured[]Fri May  8 19:28:59 2015
+I think Event: tornado has occured[]Fri May  8 19:34:28 2015
+I think Event: missile has occured['Chicago', 'Seoul']Fri May  8 19:45:35 2015
+I think Event: lightening has occured['New York']Fri May  8 20:39:03 2015
+I think Event: missile has occured['New York']Fri May  8 21:01:16 2015
+I think Event: missile has occured['New York', 'New York']Fri May  8 21:12:11 2015
+I think Event: missile has occured['Washington', 'Washington']Fri May  8 21:45:04 2015
+I think Event: Volcano has occured[]Fri May  8 22:59:00 2015
+I think Event: missile has occured['New York']Fri May  8 23:27:09 2015
+I think Event: thunder has occured[]Sat May  9 06:40:30 2015
+I think Event: tornado has occured['Washington']Sat May  9 16:32:22 2015
+I think Event: massacre has occured['Jackson']Sat May  9 16:33:02 2015
+I think Event: massacre has occured['Serra', 'Guadeloupe', 'Curitiba', 'Curitiba', 'Jackson']Sat May  9 16:39:04 2015
+I think Event: riot has occured['Birmingham', 'London']Sat May  9 16:55:28 2015
+I think Event: tornado has occured['Lincoln', 'El Paso', 'Lincoln']Sat May  9 17:00:32 2015
+I think Event: tornado has occured['Lincoln', 'Pueblo', 'El Paso', 'Colorado Springs']Sat May  9 17:13:32 2015
+I think Event: tornado has occured['Lincoln']Sat May  9 17:25:13 2015
+I think Event: tornado has occured['Waco']Sat May  9 18:04:21 2015
+I think Event: tornado has occured[]Sat May  9 18:20:31 2015
+I think Event: tornado has occured['Washington']Sat May  9 18:26:44 2015
+I think Event: tornado has occured['Clarksville', 'Washington', 'Kingston']Sat May  9 18:38:27 2015
+I think Event: tornado has occured['Washington']Sat May  9 18:54:26 2015
+I think Event: tornado has occured[]Sat May  9 19:00:26 2015
+I think Event: tornado has occured[]Sat May  9 19:11:19 2015
+I think Event: tornado has occured[]Sat May  9 19:27:14 2015
+I think Event: tornado has occured['Arlington', 'Fort Worth']Sat May  9 19:33:08 2015
+I think Event: tornado has occured['Dublin']Sat May  9 19:44:04 2015
+I think Event: tornado has occured[]Sat May  9 19:59:58 2015
+I think Event: tornado has occured[]Sat May  9 20:05:53 2015
+I think Event: tornado has occured[]Sat May  9 20:16:48 2015
+I think Event: tornado has occured['Washington', 'Fort Worth', 'Dallas']Sat May  9 20:27:49 2015
+I think Event: lightening has occured[]Sat May  9 20:28:04 2015
+I think Event: lightening has occured[]Sat May  9 20:33:59 2015
+I think Event: lightening has occured['Tampa', 'Tampa']Sat May  9 20:49:55 2015
+I think Event: tornado has occured['Dallas']Sat May  9 20:55:38 2015
+I think Event: tornado has occured[]Sat May  9 21:06:36 2015
+I think Event: tornado has occured[]Sat May  9 21:55:37 2015
+I think Event: tornado has occured['Gary', 'Gary', 'Norman']Sat May  9 22:01:33 2015
+I think Event: tornado has occured[]Sat May  9 22:12:31 2015
+I think Event: tornado has occured[]Sat May  9 22:28:30 2015
+I think Event: tornado has occured['Fort Worth', 'Dallas']Sat May  9 22:34:30 2015
+I think Event: lightening has occured[]Sat May  9 23:01:54 2015
+I think Event: lightening has occured['Tampa']Sat May  9 23:18:48 2015
+I think Event: asteroid has occured[]Sat May  9 23:18:51 2015
+I think Event: asteroid has occured[]Sat May  9 23:29:49 2015
+I think Event: Tsunami has occured[]Sat May  9 23:30:08 2015
+I think Event: asteroid has occured[]Sun May 10 00:08:36 2015
+I think Event: asteroid has occured[]Sun May 10 00:24:30 2015
+I think Event: asteroid has occured[]Sun May 10 04:26:30 2015
+I think Event: asteroid has occured[]Sun May 10 04:32:23 2015
+I think Event: tornado has occured['Carrollton']Sun May 10 07:00:09 2015
+I think Event: Volcano has occured[]Sun May 10 07:00:44 2015
+I think Event: tornado has occured[]Sun May 10 07:16:09 2015
+I think Event: tornado has occured[]Sun May 10 07:22:07 2015
+I think Event: tornado has occured['Dallas']Sun May 10 07:33:07 2015
+I think Event: riot has occured['Baltimore', 'London', 'Baltimore']Sun May 10 09:24:22 2015
+I think Event: tornado has occured['Omaha']Sun May 10 10:52:14 2015
+I think Event: tornado has occured[]Sun May 10 11:25:08 2015
+I think Event: asteroid has occured[]Sun May 10 11:47:34 2015
+I think Event: asteroid has occured[]Sun May 10 11:59:10 2015
+I think Event: blizzard has occured[]Sun May 10 12:32:31 2015
+I think Event: tornado has occured[]Sun May 10 13:04:33 2015
+I think Event: tornado has occured[]Sun May 10 14:16:06 2015
+I think Event: tornado has occured[]Sun May 10 14:27:03 2015
+I think Event: tornado has occured[]Sun May 10 14:42:58 2015
+I think Event: tornado has occured[]Sun May 10 14:48:55 2015
+I think Event: tornado has occured['Orange']Sun May 10 14:59:49 2015
+I think Event: tornado has occured[]Sun May 10 15:10:44 2015
+I think Event: tornado has occured['Van', 'Van']Sun May 10 15:16:39 2015
+I think Event: tornado has occured[]Sun May 10 15:32:36 2015
+I think Event: tornado has occured['Van']Sun May 10 15:38:34 2015
+I think Event: tornado has occured['Hamilton', 'Hamilton']Sun May 10 16:05:24 2015
+I think Event: tornado has occured['Hamilton']Sun May 10 16:55:14 2015
+I think Event: tornado has occured['Van']Sun May 10 18:33:36 2015
+I think Event: tornado has occured['Dallas']Sun May 10 18:39:35 2015
+I think Event: asteroid has occured[]Sun May 10 19:06:47 2015
+I think Event: asteroid has occured[]Sun May 10 19:14:27 2015
+I think Event: tornado has occured[]Sun May 10 19:26:40 2015
+I think Event: tornado has occured[]Sun May 10 19:43:03 2015
+I think Event: tornado has occured[]Sun May 10 19:49:00 2015
+I think Event: tornado has occured[]Sun May 10 20:00:00 2015
+I think Event: thunder has occured[]Sun May 10 20:00:13 2015
+I think Event: tornado has occured[]Sun May 10 20:15:57 2015
+I think Event: lightening has occured[]Sun May 10 20:22:17 2015
+I think Event: lightening has occured[]Sun May 10 20:33:21 2015

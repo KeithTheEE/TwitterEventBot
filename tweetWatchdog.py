@@ -50,6 +50,7 @@ def main():
 		print "Could not send Message"
 	    print msg
 	    print "Now exiting watchdog"
+	    print str(time.ctime(time.time()))
 	    break
 	else : # This is in place to reduce processor speed
 	    #    In the event that the time.sleep(checkDelay*60) is removed
