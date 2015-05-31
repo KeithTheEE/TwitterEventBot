@@ -444,12 +444,12 @@ def piMain():
     GPIO.setup(16, GPIO.OUT)
     heartB = heartBeatThread()
     tweetStuff = twitterThread()
-    try:
-	heartB.start()
-	tweetStuff.start()
-    except(KeyboardInterrupt, SystemExit):
-	heartB.stop()
-	tweetStuff.stop()
+    #try:
+    heartB.start()
+    tweetStuff.start()
+    #except(KeyboardInterrupt, SystemExit):
+	#heartB.stop()
+	#tweetStuff.stop()
     return
 	
 
