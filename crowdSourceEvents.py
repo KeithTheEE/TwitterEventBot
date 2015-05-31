@@ -231,12 +231,12 @@ def isItAnEvent(event, theMean, var, uniqTweets):
     #if (theMean < (compAvg - compStd*1.3)) and (theMean < 2.75) :#and (var < 10):
     #if (math.fabs(zSc) > 2):
     print event, (zSc * zSc2), compAvg, theMean
-    if ((zSc * zSc2) <= -2) and (theMean < compAvg) and (theMean < 2.75):
+    if ((zSc * zSc2) <= -2) and (theMean < compAvg) :#and (theMean < 2.75):
 	didEventOccur = True 
 
     # Save new data to DB
     eventHistory = open(str(event) + ".txt", 'a')
-    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) + str(uniqTweets) +'\n')
+    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +"\t"+ str(uniqTweets) +'\n')
     eventHistory.close()
 
     if uniqTweets < 15:
@@ -346,7 +346,7 @@ def main():
 			oldTime = tweet.created_at
 			tweetTracker +=1
 			theTweets.append((tweet.text.encode('utf-8')))
-			if tweetTracker > rppSize or tweetTries > 500:
+			if tweetTracker > rppSize or tweetTries > 100:
 			    tweetTracker = 0
 			    break
 		except tweepy.TweepError: 
@@ -360,6 +360,8 @@ def main():
 			myLED("RED")
 		    time.sleep(60*5)
 		    continue
+		except StopIteration:
+		    break
 
 	    # Now I've got timeBTWTweets, and theTweets:
 	    #  Based on tbtwtweets, decide if an event occured. 
