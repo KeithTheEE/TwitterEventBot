@@ -176,10 +176,10 @@ def myLED(theLED):
 
 def heartBeat():
     while True:
-	GPIO.output(16, True)
+	#GPIO.output(16, True)
 	print "Thub"
 	time.sleep(1)
-	GPIO.output(16, False)
+	#GPIO.output(16, False)
 	print "\tDub"
 	time.sleep(1)
 	    
