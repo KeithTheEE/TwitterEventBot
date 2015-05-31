@@ -117,7 +117,7 @@ class heartBeatThread(threading.Thread):
     def __init__(self):
 	threading.Thread.__init__(self)
 	self.name="HeartBeatThread"
-	self.daemon = True
+	#self.daemon = True
     def run(self):
 	print "STARTING THAT SICK BEAT YO"
 	heartBeat()
@@ -130,7 +130,7 @@ class twitterThread(threading.Thread):
     def __init__(self):
 	threading.Thread.__init__(self)
 	self.name="TwitterBotThread"
-	self.daemon = True
+	#self.daemon = True
     def run(self):
 	print "Starting to Tweet"
 	main()
@@ -444,12 +444,12 @@ def piMain():
     GPIO.setup(16, GPIO.OUT)
     heartB = heartBeatThread()
     tweetStuff = twitterThread()
-    #try:
+    try:
     heartB.start()
     tweetStuff.start()
-    #except(KeyboardInterrupt, SystemExit):
-	#heartB.stop()
-	#tweetStuff.stop()
+    except(KeyboardInterrupt, SystemExit):
+	heartB.stop()
+	tweetStuff.stop()
     return
 	
 
