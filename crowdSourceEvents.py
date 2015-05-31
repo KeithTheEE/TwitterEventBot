@@ -187,6 +187,7 @@ def heartBeat():
 
 
 def is_connected():
+    REMOT_SERVER = "www.google.com"
     try:
 	# see if we can resolve the host name -- tells us if there is
 	# a DNS listening
