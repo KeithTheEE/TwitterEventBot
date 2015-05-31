@@ -132,6 +132,7 @@ class twitterThread(threading.Thread):
 	self.name="TwitterBotThread"
 	self.daemon = True
     def run(self):
+	print "Starting to Tweet"
 	main()
     def stop(self):
 	self._stop.set()
@@ -187,6 +188,7 @@ def heartBeat():
 def is_connected():
     REMOT_SERVER = "www.google.com"
     try:
+	print "Truing"
 	# see if we can resolve the host name -- tells us if there is
 	# a DNS listening
 	host = socket.gethostbyname(REMOTE_SERVER)
@@ -350,7 +352,8 @@ def main():
 			    break
 		except tweepy.TweepError: 
 		    # check if the error is internet connection based
-		    connected = is_connected()
+		    #connected = is_connected()
+		    connected = True
 		    if connected:
 			print "I started to annoy twitter, now I have to wait a bit"
 			myLED("YELLOW")
