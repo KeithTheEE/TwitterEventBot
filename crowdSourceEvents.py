@@ -106,25 +106,19 @@ GREEN--	15 16  --HEARTBEAT
 	23 24
 	25 26
 '''
-rPI = False
-
 import threading
-
+rPI = False
 def rPIsetup():
     import RPi.GPIO as GPIO
     rPI = True
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
-    GPIO.setup(12, GPIO.OUT)
-    GPIO.setup(13, GPIO.OUT)
-    GPIO.setup(15, GPIO.OUT)
-    GPIO.setup(16, GPIO.OUT)
+    return
 
 class heartBeatThread(threading.Thread):
     def __init__(self):
 	self.name="HeartBeatThread"
 	self.daemon = True
     def run(self):
+	print "STARTING THAT SICK BEAT YO"
 	heartBeat()
     def stop(self):
 	self._stop.set()
@@ -180,8 +174,10 @@ def myLED(theLED):
 def heartBeat():
     while True:
 	GPIO.output(16, True)
+	print "Thub"
 	time.sleep(1)
 	GPIO.output(16, False)
+	print "\tDub"
 	time.sleep(1)
 	    
 
@@ -435,6 +431,12 @@ def main():
 
 def piMain():
     #Start two threads, one heartbeat, one standard
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.setup(15, GPIO.OUT)
+    GPIO.setup(16, GPIO.OUT)
     heartB = heartBeatThread()
     tweetStuff = twitterThread()
     try:
@@ -448,10 +450,11 @@ def piMain():
 
 
 
-rPIsetup() # Comment out if not using a rPi, this is for LEDs
+#rPIsetup() # Comment out if not using a rPi, this is for LEDs
 
 
 if (rPI == True):
+    print "PI"
     piMain()
 else:
     main()
