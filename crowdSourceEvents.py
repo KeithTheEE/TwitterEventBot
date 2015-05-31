@@ -107,11 +107,11 @@ GREEN--	15 16  --HEARTBEAT
 	25 26
 '''
 import threading
+import RPi.GPIO as GPIO
 rPI = False
 def rPIsetup():
-    import RPi.GPIO as GPIO
     rPI = True
-    return rPI
+    return True
 
 class heartBeatThread(threading.Thread):
     def __init__(self):
@@ -450,7 +450,7 @@ def piMain():
 
 
 
-rPIsetup() # Comment out if not using a rPi, this is for LEDs
+rPI = rPIsetup() # Comment out if not using a rPi, this is for LEDs
 
 
 if (rPI == True):
