@@ -117,7 +117,7 @@ class heartBeatThread(threading.Thread):
     def __init__(self):
 	threading.Thread.__init__(self)
 	self.name="HeartBeatThread"
-	#self.daemon = True
+	self.daemon = True
     def run(self):
 	print "STARTING THAT SICK BEAT YO"
 	heartBeat()
@@ -352,8 +352,8 @@ def main():
 			    break
 		except tweepy.TweepError: 
 		    # check if the error is internet connection based
-		    #connected = is_connected()
-		    connected = True
+		    connected = is_connected()
+		    #connected = True
 		    if connected:
 			print "I started to annoy twitter, now I have to wait a bit"
 			myLED("YELLOW")
@@ -445,8 +445,8 @@ def piMain():
     heartB = heartBeatThread()
     tweetStuff = twitterThread()
     try:
-    heartB.start()
-    tweetStuff.start()
+    	heartB.start()
+    	tweetStuff.start()
     except(KeyboardInterrupt, SystemExit):
 	heartB.stop()
 	tweetStuff.stop()
