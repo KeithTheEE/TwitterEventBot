@@ -108,10 +108,10 @@ GREEN--	15 16  --HEARTBEAT
 '''
 rPI = False
 
+import threading
 
 def rPIsetup():
     import RPi.GPIO as GPIO
-    import threading
     rPI = True
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
