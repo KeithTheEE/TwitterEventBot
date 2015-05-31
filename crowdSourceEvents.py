@@ -57,6 +57,147 @@ import time
 import math
 import numpy as np
 import datetime
+import socket
+import sys
+
+
+
+
+'''
+Pin Numbers	RPi.GPIO	Raspberry Pi Name	BCM2835		USED AS
+P1_01		1		3V3	 
+P1_02		2		5V0	 
+P1_03		3		SDA0			GPIO0
+P1_04		4		DNC	 
+P1_05		5		SCL0			GPIO1
+P1_06		6		GND	 				GND
+P1_07		7		GPIO7			GPIO4
+P1_08		8		TXD			GPIO14		TXD
+P1_09		9		DNC	 
+P1_10		10		RXD			GPIO15		RXD
+P1_11		11		GPIO0			GPIO17	
+P1_12		12		GPIO1			GPIO18
+P1_13		13		GPIO2		 	GPIO21
+P1_14		14		DNC	 
+P1_15		15		GPIO3			GPIO22
+P1_16		16		GPIO4			GPIO23
+P1_17		17		DNC	 
+P1_18		18		GPIO5			GPIO24
+P1_19		19		SPI_MOSI		GPIO10
+P1_20		20		DNC	 
+P1_21		21		SPI_MISO		GPIO9
+P1_22		22		GPIO6			GPIO25
+P1_23		23		SPI_SCLK		GPIO11
+P1_24		24		SPI_CE0_N		GPIO8
+P1_25		25		DNC	 
+P1_26		26		SPI_CE1_N		GPIO7
+pin setup on PI
+	1   2 
+	3   4
+	5   6  --GND
+	7   8  
+	9  10  
+	11 12  --RED 
+YELLOW-	13 14
+GREEN--	15 16  --HEARTBEAT
+	17 18
+	19 20
+	21 22 
+	23 24
+	25 26
+'''
+rPI = False
+
+class heartBeatThread(threading.Thread):
+    def __init__(self):
+	self.name="HeartBeatThread"
+	self.daemon = True
+    def run(self):
+	heartBeat()
+    def stop(self):
+	self._stop.set()
+    def stopped(self):
+	return self._stop.isSet()
+
+class twitterThread(threading.Thread):
+    def __init__(self):
+	self.name="TwitterBotThread"
+	self.daemon = True
+    def run(self):
+	main()
+    def stop(self):
+	self._stop.set()
+    def stopped(self):
+	return self._stop.isSet()
+
+def rPIsetup():
+    import RPi.GPIO as GPIO
+    import threading
+    rPI = True
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.setup(15, GPIO.OUT)
+    GPIO.setup(16, GPIO.OUT)
+
+
+def myLED(theLED):
+    red = 12
+    yellow = 13
+    green = 15
+    if rPI == True:
+	if theLED == "RED":
+	    GPIO.output(red, True)
+	    GPIO.output(yellow, False)
+	    GPIO.output(green, False)
+	if theLED == "YELLOW":
+	    GPIO.output(red, False)
+	    GPIO.output(yellow, True)
+	    GPIO.output(green, False)
+	if theLED == "GREEN":
+	    GPIO.output(red, False)
+	    GPIO.output(yellow, False)
+	    GPIO.output(green, True)
+	if theLED == "EVENT":
+	    GPIO.output(red, False)
+	    GPIO.output(yellow, False)
+	    GPIO.output(green, True)
+	    time.sleep(0.15)
+	    GPIO.output(green, False)
+	    time.sleep(0.15)
+	    GPIO.output(green, True)
+	    time.sleep(0.15)
+	    GPIO.output(green, False)
+	    time.sleep(0.15)
+	    GPIO.output(green, True)
+	    time.sleep(0.15)
+	    GPIO.output(green, False)
+	    time.sleep(0.15)
+	    GPIO.output(green, True)
+    return
+
+def heartBeat():
+    while True:
+	GPIO.output(16, True)
+	time.sleep(1)
+	GPIO.output(16, False)
+	time.sleep(1)
+	    
+
+
+def is_connected():
+    try:
+	# see if we can resolve the host name -- tells us if there is
+	# a DNS listening
+	host = socket.gethostbyname(REMOTE_SERVER)
+	# connect to the host -- tells us if the host is actually
+	# reachable
+	s = socket.create_connection((host, 80), 2)
+	return True
+    except:
+	pass
+    return False
 
 
 def isItAnEvent(event, theMean, var, uniqTweets):
@@ -185,6 +326,7 @@ def main():
 	    tweetDict = {}
 	    while True:
 		try: # This 'try' is to catch 'rate limit exceeded' errors
+		    myLED("GREEN")
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
 		    #print tweetAge/(float(60*60))
@@ -208,7 +350,14 @@ def main():
 			    tweetTracker = 0
 			    break
 		except tweepy.TweepError: 
-		    print "I started to annoy twitter, now I have to wait a bit"
+		    # check if the error is internet connection based
+		    connected = is_connected()
+		    if connected:
+			print "I started to annoy twitter, now I have to wait a bit"
+			myLED("YELLOW")
+		    else:
+			print "I'm not connected to the network at the moment, sorry"
+			myLED("RED")
 		    time.sleep(60*5)
 		    continue
 
@@ -223,7 +372,6 @@ def main():
 		tweetProof = open('tweetProof.txt', 'a')
 		tweetProof.write(searchEV[event]+ " " +str(time.ctime(time.time())) + "\n")
 		for aTweet in theTweets:
-		    # v Right now we'll only do 1 word city names, fix this later
 		    words = aTweet.split(" ")
 		    guessCity = "" # No idea if this will stop sydney 
 		    for j in range(maxSpace):
@@ -271,6 +419,7 @@ def main():
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
 		print msg
+		myLED("EVENT")
 	    
 	# We've gone through all events, recorded their data, and determined if an event occured
 	#   Time to relax
@@ -280,7 +429,29 @@ def main():
 
     return
 
-main()
+
+def piMain():
+    #Start two threads, one heartbeat, one standard
+    heartB = heartBeatThread()
+    tweetStuff = twitterThread()
+    try:
+	heartB.start()
+	tweetStuff.start()
+    except(KeyboardInterrupt, SystemExit):
+	heartB.stop()
+	tweetStuff.stop()
+    return
+	
+
+
+
+rPIsetup() # Comment out if not using a rPi, this is for LEDs
+
+
+if (rPI == True):
+    piMain()
+else:
+    main()
 
 
 
