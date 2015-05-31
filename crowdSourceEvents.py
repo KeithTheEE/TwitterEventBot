@@ -114,8 +114,8 @@ def rPIsetup():
     return True
 
 class heartBeatThread(threading.Thread):
-    threading.Thread.__init__(self)
     def __init__(self):
+	threading.Thread.__init__(self)
 	self.name="HeartBeatThread"
 	self.daemon = True
     def run(self):
@@ -127,8 +127,8 @@ class heartBeatThread(threading.Thread):
 	return self._stop.isSet()
 
 class twitterThread(threading.Thread):
-    threading.Thread.__init__(self)
     def __init__(self):
+	threading.Thread.__init__(self)
 	self.name="TwitterBotThread"
 	self.daemon = True
     def run(self):
