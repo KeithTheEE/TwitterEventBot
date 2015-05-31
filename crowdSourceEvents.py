@@ -108,6 +108,18 @@ GREEN--	15 16  --HEARTBEAT
 '''
 rPI = False
 
+
+def rPIsetup():
+    import RPi.GPIO as GPIO
+    import threading
+    rPI = True
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.setup(15, GPIO.OUT)
+    GPIO.setup(16, GPIO.OUT)
+
 class heartBeatThread(threading.Thread):
     def __init__(self):
 	self.name="HeartBeatThread"
@@ -129,18 +141,6 @@ class twitterThread(threading.Thread):
 	self._stop.set()
     def stopped(self):
 	return self._stop.isSet()
-
-def rPIsetup():
-    import RPi.GPIO as GPIO
-    import threading
-    rPI = True
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
-    GPIO.setup(12, GPIO.OUT)
-    GPIO.setup(13, GPIO.OUT)
-    GPIO.setup(15, GPIO.OUT)
-    GPIO.setup(16, GPIO.OUT)
-
 
 def myLED(theLED):
     red = 12
