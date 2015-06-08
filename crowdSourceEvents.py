@@ -332,7 +332,8 @@ def main():
 	    tweetTries = 0
 	    tweetDict = {}
 	    while True:
-		try: # This 'try' is to catch 'rate limit exceeded' errors
+		#try: # This 'try' is to catch 'rate limit exceeded' errors
+		if "a" == "a":
 		    myLED("GREEN")
 		    tweet = tweetList.next()
 		    tweetAge = time.time() - (tweet.created_at - datetime.datetime(1970,1,1)).total_seconds()
@@ -356,7 +357,8 @@ def main():
 			if tweetTracker > rppSize or tweetTries > 100:
 			    tweetTracker = 0
 			    break
-		except tweepy.TweepError: 
+		#except tweepy.TweepError: 
+		else:
 		    # check if the error is internet connection based
 		    connected = is_connected()
 		    #connected = True
@@ -368,8 +370,8 @@ def main():
 			myLED("RED")
 		    time.sleep(60*5)
 		    continue
-		except StopIteration:
-		    break
+		#except StopIteration:
+		    #break
 
 	    # Now I've got timeBTWTweets, and theTweets:
 	    #  Based on tbtwtweets, decide if an event occured. 
