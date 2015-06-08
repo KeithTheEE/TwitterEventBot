@@ -108,10 +108,6 @@ GREEN--	15 16  --HEARTBEAT
 '''
 import threading
 import RPi.GPIO as GPIO
-rPI = False
-def rPIsetup():
-    rPI = True
-    return True
 
 class heartBeatThread(threading.Thread):
     def __init__(self):
@@ -134,10 +130,15 @@ class twitterThread(threading.Thread):
     def run(self):
 	print "Starting to Tweet"
 	main()
+	print "I ESCAPED"
     def stop(self):
 	self._stop.set()
     def stopped(self):
 	return self._stop.isSet()
+rPI = True
+def rPIsetup():
+    rPI = True
+    return True
 
 def myLED(theLED):
     red = 12
@@ -148,14 +149,17 @@ def myLED(theLED):
 	    GPIO.output(red, True)
 	    GPIO.output(yellow, False)
 	    GPIO.output(green, False)
+	    print "RED"
 	if theLED == "YELLOW":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, True)
 	    GPIO.output(green, False)
+	    print "YELLOW"
 	if theLED == "GREEN":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
 	    GPIO.output(green, True)
+	    print "GREEN"
 	if theLED == "EVENT":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
@@ -172,23 +176,25 @@ def myLED(theLED):
 	    GPIO.output(green, False)
 	    time.sleep(0.15)
 	    GPIO.output(green, True)
+	    print "EVENT"
     return
 
 def heartBeat():
     while True:
-	#GPIO.output(16, True)
-	print "Thub"
+	GPIO.output(16, True)
+	print "BEAT"
 	time.sleep(1)
-	#GPIO.output(16, False)
-	print "\tDub"
+	GPIO.output(16, False)
 	time.sleep(1)
 	    
 
 
 def is_connected():
-    REMOT_SERVER = "www.google.com"
+    REMOTE_SERVER = "www.google.com"
+    #host = socket.gethostbyname(REMOTE_SERVER)
+    #s = socket.create_connection((host, 80), 2)
     try:
-	print "Truing"
+	print "Trying"
 	# see if we can resolve the host name -- tells us if there is
 	# a DNS listening
 	host = socket.gethostbyname(REMOTE_SERVER)
