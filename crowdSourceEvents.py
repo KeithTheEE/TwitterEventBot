@@ -222,10 +222,14 @@ def isItAnEvent(event, theMean, var, uniqTweets):
     for line in eventHistory:
 	if line == "":
 	    break
-	line = line.split('\t')
-	theTimes.append(line[0])
-	theAvgs.append(float(line[1]))
-	theVar.append(float(line[2]))
+	try:
+	    line = line.split('\t')
+	    theTimes.append(line[0])
+	    theAvgs.append(float(line[1]))
+	    theVar.append(float(line[2]))
+	except:
+	    print "Average File Error"
+	
     eventHistory.close()
 	
     # compare eventDB to most recent event
