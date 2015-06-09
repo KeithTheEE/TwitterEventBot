@@ -149,17 +149,17 @@ def myLED(theLED):
 	    GPIO.output(red, True)
 	    GPIO.output(yellow, False)
 	    GPIO.output(green, False)
-	    print "RED"
+	    #print "RED"
 	if theLED == "YELLOW":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, True)
 	    GPIO.output(green, False)
-	    print "YELLOW"
+	    #print "YELLOW"
 	if theLED == "GREEN":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
 	    GPIO.output(green, True)
-	    print "GREEN"
+	    #print "GREEN"
 	if theLED == "EVENT":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
@@ -176,7 +176,7 @@ def myLED(theLED):
 	    GPIO.output(green, False)
 	    time.sleep(0.15)
 	    GPIO.output(green, True)
-	    print "EVENT"
+	    #print "EVENT"
     return
 
 def heartBeat():
@@ -439,6 +439,7 @@ def main():
 	#   Time to relax
 	#break
 	print "Time to rest up a bit, be back soon"
+	myLED("SLEEP")
 	time.sleep(5*60)
 
     return
