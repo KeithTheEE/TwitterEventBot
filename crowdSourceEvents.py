@@ -242,16 +242,13 @@ def isItAnEvent(event, theMean, var, uniqTweets):
     #if (theMean < (compAvg - compStd*1.3)) and (theMean < 2.75) :#and (var < 10):
     #if (math.fabs(zSc) > 2):
     print event, (zSc * zSc2), compAvg, theMean
-    if ((zSc * zSc2) <= -2) and (theMean < compAvg) :#and (theMean < 2.75):
+    if ((zSc * zSc2) <= -2) and (theMean < compAvg) and uniqTweets > 14:#and (theMean < 2.75):
 	didEventOccur = True 
 
     # Save new data to DB
     eventHistory = open(str(event) + ".txt", 'a')
     eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +"\t"+ str(uniqTweets) +'\n')
     eventHistory.close()
-
-    if uniqTweets < 15:
-	didEventOccur = False
 
     return didEventOccur
 
@@ -271,6 +268,8 @@ def processTweet(tweet, tweetDict):
 	# Reject Retweets
 	return False, tweetDict
     cleanTweet = tweet.split("http://t.co/")
+    cleanTweet = tweet[0]
+    cleanTweet = cleanTweet.split("goo.gl/")
     cleanTweet = tweet[0]
     if cleanTweet in tweetDict:
 	# Reject Repeats
