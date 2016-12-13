@@ -3,9 +3,24 @@
 '''
 Keith Murray
 
-Using http://tweepy.readthedocs.org/
-Uses list of events and list of loctations around world
 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * "Once men turned their thinking over to machines in the hope      *
+ *  that this would set them free. But that only permitted other     *
+ *  men with machines to enslave them."                              *
+ * " 'Thou shalt not make a machine in the likeness of a man's       *
+ *  mind,' " Paul quoted.                                            *
+ * "Right out of the Butlerian Jihad and the Orange Catholic         *
+ *  Bible," she said. "But what the O.C. Bible should've said is:    *
+ *  'Thou shalt not make a machine to counterfeit a human mind.'..." *
+ *                                                                   *
+ *  --from Dune, by Frank Herbert                                    *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+
+Using tweepy: http://tweepy.readthedocs.org/
+Uses list of events and list of loctations around world
 
 Read in a list of key events
 
@@ -13,8 +28,8 @@ Search twitter for events, and search results for location ID's
 If event and location are present with enough frequency, 
 tweet about event
 
-Later have user go back and adjust results, perhaps using neural
-nets to 'learn' about actual events occuring.
+Later have user go back and adjust results, perhaps using something
+to 'learn' about actual events occuring.
 
 **********************************************
 explination for setting up api
@@ -52,6 +67,7 @@ http://tkang.blogspot.com/2011/01/tweepy-twitter-api-status-object.html
 
 import tweepy
 import getKMKeys # Format of CK, CS, AK, AS
+#import getChatBotKeys as getKMKeys
 #[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 import time
 import math
@@ -59,7 +75,9 @@ import numpy as np
 import datetime
 import socket
 import sys
-
+import os
+import threading
+import unCorruptFiles
 
 
 
@@ -91,7 +109,8 @@ P1_23		23		SPI_SCLK		GPIO11
 P1_24		24		SPI_CE0_N		GPIO8
 P1_25		25		DNC	 
 P1_26		26		SPI_CE1_N		GPIO7
-pin setup on PI
+
+pin setup on PI 
 	1   2 
 	3   4
 	5   6  --GND
@@ -99,15 +118,14 @@ pin setup on PI
 	9  10  
 	11 12  --RED 
 YELLOW-	13 14
-GREEN--	15 16  --HEARTBEAT
-	17 18
+ BLUE--	15 16  --HEARTBEAT
+	17 18  --GREEN
 	19 20
 	21 22 
 	23 24
 	25 26
 '''
-import threading
-import RPi.GPIO as GPIO
+
 
 class heartBeatThread(threading.Thread):
     def __init__(self):
@@ -135,48 +153,56 @@ class twitterThread(threading.Thread):
 	self._stop.set()
     def stopped(self):
 	return self._stop.isSet()
-rPI = True
-def rPIsetup():
-    rPI = True
-    return True
+
 
 def myLED(theLED):
     red = 12
     yellow = 13
-    green = 15
+    blue = 15
+    green = 18
     if rPI == True:
 	if theLED == "RED":
 	    GPIO.output(red, True)
 	    GPIO.output(yellow, False)
+	    GPIO.output(blue, False)
 	    GPIO.output(green, False)
 	    #print "RED"
 	if theLED == "YELLOW":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, True)
+	    GPIO.output(blue, False)
 	    GPIO.output(green, False)
 	    #print "YELLOW"
 	if theLED == "GREEN":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
-	    GPIO.output(green, True)
-	    #print "GREEN"
+	    GPIO.output(blue, True)
+	    GPIO.output(green, False)
+	    #print "BLUE"
 	if theLED == "EVENT":
 	    GPIO.output(red, False)
 	    GPIO.output(yellow, False)
-	    GPIO.output(green, True)
-	    time.sleep(0.15)
 	    GPIO.output(green, False)
+	    GPIO.output(blue, True)
 	    time.sleep(0.15)
-	    GPIO.output(green, True)
+	    GPIO.output(blue, False)
 	    time.sleep(0.15)
-	    GPIO.output(green, False)
+	    GPIO.output(blue, True)
 	    time.sleep(0.15)
-	    GPIO.output(green, True)
+	    GPIO.output(blue, False)
 	    time.sleep(0.15)
-	    GPIO.output(green, False)
+	    GPIO.output(blue, True)
 	    time.sleep(0.15)
-	    GPIO.output(green, True)
+	    GPIO.output(blue, False)
+	    time.sleep(0.15)
+	    GPIO.output(blue, True)
 	    #print "EVENT"
+	if theLED == "SLEEP":
+	    GPIO.output(red, False)
+	    GPIO.output(yellow, False)
+	    GPIO.output(blue, False)
+	    GPIO.output(green, True)
+	    #print "GREEN"
     return
 
 def heartBeat():
@@ -191,10 +217,8 @@ def heartBeat():
 
 def is_connected():
     REMOTE_SERVER = "www.google.com"
-    #host = socket.gethostbyname(REMOTE_SERVER)
-    #s = socket.create_connection((host, 80), 2)
     try:
-	print "Trying"
+	print "Testing Internet Connection"
 	# see if we can resolve the host name -- tells us if there is
 	# a DNS listening
 	host = socket.gethostbyname(REMOTE_SERVER)
@@ -244,13 +268,40 @@ def isItAnEvent(event, theMean, var, uniqTweets):
     print event, (zSc * zSc2), compAvg, theMean
     if ((zSc * zSc2) <= -2) and (theMean < compAvg) and uniqTweets > 14:#and (theMean < 2.75):
 	didEventOccur = True 
+	# Build a plot to visualize Impact
+	x1 = np.linspace(0, compAvg+(3*compStd), 100*(6*compStd))
+	newstd = math.sqrt(var)
+	x2 = np.linspace(0, theMean+(3*newstd), 100*(6*newstd))
+    
+	plt.subplot(2, 1, 1)
+	plt.title(event[0].upper()+event[1:] + " " + str(time.ctime(time.time())) + " CDT Score: " + str(zSc * zSc2) )
+	plt.ylabel("Frequency Density\nof Historic Averages")
+	plt.hist(theAvgs, bins=1000)
+	plt.axvline(x=theMean, color='r', label="Current Mean")
+	plt.legend(loc='upper right')
+	axes = plt.gca()
+	tempSet = axes.get_xlim()
+
+	plt.subplot(2, 1, 2)
+	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Historic Distribution')
+	plt.plot(x2,mlab.normpdf(x2, theMean, newstd),label='Current Distribution')
+	plt.legend(loc='upper right')
+	plt.ylabel('Modeled Approximate\nProbability Density')
+	axes = plt.gca()
+	plt.axvline(x=theMean, color='r')
+	#print axes.get_xlim()
+	axes.set_xlim(tempSet)
+	plt.xlabel("Average Time Between Tweets (Seconds)")
+	plt.savefig("tweetProof.png", bbox_inches='tight')
+	plt.close()
+
 
     # Save new data to DB
     eventHistory = open(str(event) + ".txt", 'a')
     eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +"\t"+ str(uniqTweets) +'\n')
     eventHistory.close()
 
-    return didEventOccur
+    return didEventOccur, (zSc * zSc2)
 
 def getLocation(locBestGuess):
     if len(locBestGuess) == 0:
@@ -376,7 +427,7 @@ def main():
 
 	    # Now I've got timeBTWTweets, and theTweets:
 	    #  Based on tbtwtweets, decide if an event occured. 
-	    eventStatus = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets), len(theTweets))
+	    eventStatus, zscored = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets), len(theTweets))
 	    #eventStatus = True #DEBUGGING
 	    print len(theTweets)
 	    if eventStatus == True:
@@ -420,14 +471,19 @@ def main():
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess1) + "\n" + str(time.ctime(time.time())) + "CDT"
-		if (len(msg) > 140):
-		    msg = msg[0:139]
-		if oldEvent != searchEV[event]:
-		    api.update_status(status=msg)
+		msg = "I think Event: " + str(searchEV[event]) + " has occurred" + str(locBestGuess1) + "\n" + str(time.ctime(time.time())) + "CDT" 
+		if (len(msg) > 116):
+		    msg = msg[0:115]
+		# Only tweet if it's not repeating OR (zSc * zSc2) under isItAnEvent is less than -10 
+		#   zscored is used to prevent the bot from remaining quiet when new events occur
+		#   even if they are the same event type as before
+		if (oldEvent != searchEV[event]) or (zscored < -10):
+		    #api.update_status(status=msg)
+		    fn = os.path.abspath('tweetProof.png')
+		    api.update_with_media(fn, status=msg)
 		    pass
 		oldEvent = searchEV[event]
-		msg = "I think Event: " + str(searchEV[event]) + " has occured" + str(locBestGuess) + str(time.ctime(time.time()))
+		msg = "I think Event: " + str(searchEV[event]) + " has occurred" + str(locBestGuess) + str(time.ctime(time.time()))
 		testTweetAsText = open('testTweetAsText.txt', 'a')
 		testTweetAsText.write(msg + "\n")
 		testTweetAsText.close
@@ -439,20 +495,99 @@ def main():
 	#break
 	print "Time to rest up a bit, be back soon"
 	myLED("SLEEP")
+	# This is where I should clean all the files
+	#unCorruptFiles.main()
+
 	time.sleep(5*60)
 
     return
 
+def getTwitterAPI():
+    # Get twitter reqs 
+    myKeys = getKMKeys.GETTWITTER()
+    CONSUMER_KEY = myKeys[0]
+    CONSUMER_SECRET = myKeys[1]
+    ACCESS_KEY = myKeys[2]
+    ACCESS_SECRET = myKeys[3]
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    api = tweepy.API(auth)
+    return api
+
+def cityData(): 
+    locDB = "extendedCityDatabase.txt"
+    # Load cities and events into memory
+    #   Cities
+    cities = {}
+    cityIn = open(locDB, 'r')
+    maxSpace = 0
+    for line in cityIn:
+	city = line.split('\t')
+	cities[str(city[0])] = city[1:]
+	city = city[0]
+	spaces = len(city.split(' '))
+	if spaces > maxSpace:
+	    maxSpace = spaces # maxSpace is the number of spaces that will have to be read in to read a city
+	    thatCity = city
+	    #print city
+    cityIn.close()
+    return cities, maxSpace
+
+def eventLists():
+
+    keyEventsDB = "listOfTwitterEvents.txt"
+    #   Events
+    eventL = open(keyEventsDB, 'r')
+    searchEV = []
+    for event in eventL:
+	searchEV.append(event.strip())
+    eventL.close()
+    return searchEV
+
+
+
+def main1():
+    # Header 
+    api = getTwitterAPI()
+    cities, maxSpace = cityData()
+    searchEV = eventLists()
+    
+    # Time To TWEET IT UP :D
+    rppSize = 50
+    tweetTracker = 0
+    oldEvent = ""
+    
+    while True:
+	for event in searchEV:
+	    pass
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def piMain():
     #Start two threads, one heartbeat, one standard
+    # Setup rpi pins
     GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
     GPIO.setup(12, GPIO.OUT)
     GPIO.setup(13, GPIO.OUT)
     GPIO.setup(15, GPIO.OUT)
     GPIO.setup(16, GPIO.OUT)
+    GPIO.setup(18, GPIO.OUT)
     heartB = heartBeatThread()
+    unCorruptFiles.main()
     tweetStuff = twitterThread()
     try:
     	heartB.start()
@@ -462,18 +597,31 @@ def piMain():
 	tweetStuff.stop()
     return
 	
+
  
-
-
-rPI = rPIsetup() # Comment out if not using a rPi, this is for LEDs
-
+rPI = False
+try: 
+    import RPi.GPIO as GPIO
+    rPI = True
+    # These two lines are for the pi graphics handling the plots
+    import matplotlib as mpl
+    mpl.use('Agg')
+    # Image Data
+    import matplotlib.pyplot as plt
+    import matplotlib.mlab as mlab
+except:
+    # Image Data
+    import matplotlib.pyplot as plt
+    import matplotlib.mlab as mlab
+    rPI = False
 
 if (rPI == True):
     print "PI"
     piMain()
 else:
+    unCorruptFiles.main()
     main()
-
+    #print "Cool, double check shit"
 
 
 
