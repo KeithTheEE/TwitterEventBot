@@ -66,8 +66,8 @@ http://tkang.blogspot.com/2011/01/tweepy-twitter-api-status-object.html
 '''
 
 import tweepy
-#import getKMKeys # Format of CK, CS, AK, AS
-import getChatBotKeys as getKMKeys
+import getKMKeys # Format of CK, CS, AK, AS
+#import getChatBotKeys as getKMKeys
 #[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 import time
 import math
