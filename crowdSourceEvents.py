@@ -66,8 +66,8 @@ http://tkang.blogspot.com/2011/01/tweepy-twitter-api-status-object.html
 '''
 
 import tweepy
-import getKMKeys # Format of CK, CS, AK, AS
-#import getChatBotKeys as getKMKeys
+#import getKMKeys # Format of CK, CS, AK, AS
+import getChatBotKeys as getKMKeys
 #[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 import time
 import math
@@ -77,6 +77,7 @@ import socket
 import sys
 import os
 import threading
+from sklearn.neighbors import KernelDensity
 import unCorruptFiles
 
 
@@ -255,6 +256,8 @@ def isItAnEvent(event, theMean, var, uniqTweets):
 	    print "Average File Error"
 	
     eventHistory.close()
+    
+    
 	
     # compare eventDB to most recent event
     didEventOccur = False
@@ -272,9 +275,18 @@ def isItAnEvent(event, theMean, var, uniqTweets):
 	x1 = np.linspace(0, compAvg+(3*compStd), 100*(6*compStd))
 	newstd = math.sqrt(var)
 	x2 = np.linspace(0, theMean+(3*newstd), 100*(6*newstd))
+
+	# Fit with KDE 
+	theAvgs = np.array(theAvgs)
+	theAvgs = theAvgs[:, None]
+	x1 = np.linspace(0, compAvg+(3*compStd), len(theAvgs))[:, None]
+	X_plot = x1 #np.linspace(-6, 6, 1000)[:, None]
+	kde = KernelDensity(kernel='epanechnikov', bandwidth=2.0)
+	kde.fit(theAvgs)
+	log_dens = kde.score_samples(X_plot)
     
 	plt.subplot(2, 1, 1)
-	plt.title(event[0].upper()+event[1:] + " " + str(time.ctime(time.time())) + " CDT Score: " + str(zSc * zSc2) )
+	plt.title(event[0].upper()+event[1:] + " " + str(time.ctime(time.time())) + " CDT")
 	plt.ylabel("Frequency Density\nof Historic Averages")
 	plt.hist(theAvgs, bins=1000)
 	plt.axvline(x=theMean, color='r', label="Current Mean")
@@ -283,8 +295,9 @@ def isItAnEvent(event, theMean, var, uniqTweets):
 	tempSet = axes.get_xlim()
 
 	plt.subplot(2, 1, 2)
-	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Historic Distribution')
-	plt.plot(x2,mlab.normpdf(x2, theMean, newstd),label='Current Distribution')
+	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Modeled Historic Distribution')
+	plt.plot(x2,mlab.normpdf(x2, theMean, newstd),label='Modeled Current Distribution')
+	plt.plot(X_plot, np.exp(log_dens), 'r',label='KDE Fit using Epanechnikov')
 	plt.legend(loc='upper right')
 	plt.ylabel('Modeled Approximate\nProbability Density')
 	axes = plt.gca()
