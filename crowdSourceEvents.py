@@ -232,7 +232,7 @@ def is_connected():
     return False
 
 
-def isItAnEvent(event, theMean, var, uniqTweets):
+def isItAnEvent(event, theMean, var, uniqTweets, timeBTWTweets):
     # open event db
     # Date/Time \t theMean \t var
     try:
@@ -279,11 +279,18 @@ def isItAnEvent(event, theMean, var, uniqTweets):
 	# Fit with KDE 
 	theAvgs = np.array(theAvgs)
 	theAvgs = theAvgs[:, None]
-	x1 = np.linspace(0, compAvg+(3*compStd), len(theAvgs))[:, None]
-	X_plot = x1 #np.linspace(-6, 6, 1000)[:, None]
-	kde = KernelDensity(kernel='epanechnikov', bandwidth=2.0)
+	X_plot = np.linspace(0, compAvg+(3*compStd), len(theAvgs))[:, None]
+	kde = KernelDensity(kernel='epanechnikov', bandwidth=3.0)
 	kde.fit(theAvgs)
 	log_dens = kde.score_samples(X_plot)
+	# KDE For Event
+	theTweets = np.array(timeBTWTweets)
+	theTweets = theTweets[:, None]
+	#X_plot2 =  np.linspace(0, theMean+(3*newstd), 100*(6*newstd))[:, None]
+	#kde = KernelDensity(kernel='epanechnikov', bandwidth=3.0)
+	#kde.fit(theTweets)
+	#log_dens2 = kde.score_samples(X_plot2)
+	
     
 	plt.subplot(2, 1, 1)
 	plt.title(event[0].upper()+event[1:] + " " + str(time.ctime(time.time())) + " CDT")
@@ -295,9 +302,14 @@ def isItAnEvent(event, theMean, var, uniqTweets):
 	tempSet = axes.get_xlim()
 
 	plt.subplot(2, 1, 2)
-	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Modeled Historic Distribution')
-	plt.plot(x2,mlab.normpdf(x2, theMean, newstd),label='Modeled Current Distribution')
+	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Historic Gaussian Distribution')
+	plt.plot(x2,mlab.normpdf(x2, theMean, newstd),label='Current Gaussian Distribution')
 	plt.plot(X_plot, np.exp(log_dens), 'r',label='KDE Fit using Epanechnikov')
+	#plt.axhline(y=0, xmin=0, xmax=1, hold=None, c='k') # Black line to sepperate tweet dots
+	axes = plt.gca()
+	ymin, ymax = axes.get_ylim()
+	plt.plot(theTweets[:, 0], ymax/9.0 * np.random.random(theTweets.shape[0]) + ymax/20., '+k')
+	#plt.plot(X_plot2, np.exp(log_dens2), 'm',label='KDE Fit on Current Tweets', linestyles[':'])
 	plt.legend(loc='upper right')
 	plt.ylabel('Modeled Approximate\nProbability Density')
 	axes = plt.gca()
@@ -440,7 +452,7 @@ def main():
 
 	    # Now I've got timeBTWTweets, and theTweets:
 	    #  Based on tbtwtweets, decide if an event occured. 
-	    eventStatus, zscored = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets), len(theTweets))
+	    eventStatus, zscored = isItAnEvent(searchEV[event], np.mean(timeBTWTweets), np.var(timeBTWTweets), len(theTweets), timeBTWTweets)
 	    #eventStatus = True #DEBUGGING
 	    print len(theTweets)
 	    if eventStatus == True:
