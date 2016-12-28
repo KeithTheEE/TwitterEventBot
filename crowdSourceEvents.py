@@ -505,7 +505,27 @@ def main():
 		if (oldEvent != searchEV[event]) or (zscored < -10):
 		    #api.update_status(status=msg)
 		    fn = os.path.abspath('tweetProof.png')
-		    api.update_with_media(fn, status=msg)
+		    '''
+		    Traceback (most recent call last):
+		    Error path:
+		        raise TweepError(error_msg, resp, api_code=api_error_code)
+		    tweepy.error.TweepError: [{u'message': u'Internal error', u'code': 131}]
+
+		    Basically, according to the twitter api,
+		    "131	Internal error	Corresponds with an HTTP 500 - An unknown internal error occurred."
+		    Something went wrong, we don't know what or why. 
+		    
+		    wait a short period, try again, and if that fails, give up with an error message and 
+		    continue on your merry way
+		    '''
+		    try:
+			api.update_with_media(fn, status=msg)
+		    except TweepError:
+			time.sleep(2)
+			try:
+			    api.update_with_media(fn, status=msg)
+			except TweepError:
+			    print "It's fucked man, two Tweep Errors in a row\n\tCheck what's up with twitter"
 		    pass
 		oldEvent = searchEV[event]
 		msg = "I think Event: " + str(searchEV[event]) + " has occurred" + str(locBestGuess) + str(time.ctime(time.time()))
