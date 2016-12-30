@@ -66,8 +66,8 @@ http://tkang.blogspot.com/2011/01/tweepy-twitter-api-status-object.html
 '''
 
 import tweepy
-import getKMKeys # Format of CK, CS, AK, AS
-#import getChatBotKeys as getKMKeys
+#import getKMKeys # Format of CK, CS, AK, AS
+import getChatBotKeys as getKMKeys
 #[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 import time
 import math
@@ -155,6 +155,19 @@ class twitterThread(threading.Thread):
     def stopped(self):
 	return self._stop.isSet()
 
+class restartButtonThread(threading.Thread):
+    def __init__(self):
+	threading.Thread.__init__(self)
+	self.name="restartButtonThread"
+	self.daemon = True
+    def run(self):
+	print "Button is active"
+	buttonListener()
+    def stop(self):
+	self._stop.set()
+    def stopped(self):
+	return self._stop.isSet()
+
 
 def myLED(theLED):
     red = 12
@@ -207,13 +220,42 @@ def myLED(theLED):
     return
 
 def heartBeat():
+    # Toggles an LED to verify the program is running
+    # Lets the pi run without owner needing a monitor 
     while True:
 	GPIO.output(16, True)
-	print "BEAT"
+	# print "BEAT"
 	time.sleep(1)
 	GPIO.output(16, False)
 	time.sleep(1)
 	    
+def buttonListener():
+    # For restart and shutdown
+    # This is super inelegant. But I think it'll work so there we go
+    oldState = GPIO.input(7)
+    buttonPress = False
+    while True:
+	curState = GPIO.input(7)
+	if curState not oldState:
+	    # Debounce
+	    time.sleep(0.003)
+	    if curState not oldState:
+		if buttonPress = True:
+		    buttonPress = False
+		    duration = time.time() - startTime
+		    if duration <= 7:
+			os.system("sudo reboot")			
+		buttonPress = True
+		oldState = curState
+		startTime = time.time()
+	time.sleep(.001)
+	if buttonPress:
+	    duration = time.time() - startTime
+	    if duration > 7:
+		# Shutdown condition
+		os.system("sudo shutdown -h now")
+    return
+	
 
 
 def is_connected():
@@ -308,7 +350,7 @@ def isItAnEvent(event, theMean, var, uniqTweets, timeBTWTweets):
 	#plt.axhline(y=0, xmin=0, xmax=1, hold=None, c='k') # Black line to sepperate tweet dots
 	axes = plt.gca()
 	ymin, ymax = axes.get_ylim()
-	plt.plot(theTweets[:, 0], ymax/9.0 * np.random.random(theTweets.shape[0]) + ymax/20., '+k')
+	plt.plot(theTweets[:, 0], ymax/12.0 * np.random.random(theTweets.shape[0]) + ymax/20., '+k')
 	#plt.plot(X_plot2, np.exp(log_dens2), 'm',label='KDE Fit on Current Tweets', linestyles[':'])
 	plt.legend(loc='upper right')
 	plt.ylabel('Modeled Approximate\nProbability Density')
@@ -507,7 +549,7 @@ def main():
 		    fn = os.path.abspath('tweetProof.png')
 		    '''
 		    Traceback (most recent call last):
-		    Error path:
+		    Erro path:
 		        raise TweepError(error_msg, resp, api_code=api_error_code)
 		    tweepy.error.TweepError: [{u'message': u'Internal error', u'code': 131}]
 
@@ -631,15 +673,20 @@ def piMain():
     GPIO.setup(15, GPIO.OUT)
     GPIO.setup(16, GPIO.OUT)
     GPIO.setup(18, GPIO.OUT)
+    GPIO.setup(7, GPIO.IN)
     heartB = heartBeatThread()
     unCorruptFiles.main()
+    powerButton = restartButtonThread()
     tweetStuff = twitterThread()
+
     try:
     	heartB.start()
+	powerButton.start()
     	tweetStuff.start()
     except(KeyboardInterrupt, SystemExit):
 	heartB.stop()
 	tweetStuff.stop()
+	powerButton.stop()
     return
 	
 
@@ -654,11 +701,16 @@ try:
     # Image Data
     import matplotlib.pyplot as plt
     import matplotlib.mlab as mlab
+    # Actual twitter bot info
+    import getKMKeys # Format of CK, CS, AK, AS
+#[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 except:
     # Image Data
     import matplotlib.pyplot as plt
     import matplotlib.mlab as mlab
     rPI = False
+    # Demo bot info since testing uses @keithChatterBot
+    import getChatBotKeys as getKMKeys
 
 if (rPI == True):
     print "PI"
