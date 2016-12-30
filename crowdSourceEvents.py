@@ -236,11 +236,11 @@ def buttonListener():
     buttonPress = False
     while True:
 	curState = GPIO.input(7)
-	if curState not oldState:
+	if curState != oldState:
 	    # Debounce
 	    time.sleep(0.003)
-	    if curState not oldState:
-		if buttonPress = True:
+	    if curState != oldState:
+		if buttonPress == True:
 		    buttonPress = False
 		    duration = time.time() - startTime
 		    if duration <= 7:
