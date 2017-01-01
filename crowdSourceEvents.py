@@ -675,12 +675,12 @@ def piMain():
     GPIO.setup(18, GPIO.OUT)
     GPIO.setup(7, GPIO.IN)
     heartB = heartBeatThread()
-    unCorruptFiles.main()
     powerButton = restartButtonThread()
     tweetStuff = twitterThread()
 
     try:
     	heartB.start()
+	unCorruptFiles.main()
 	powerButton.start()
     	tweetStuff.start()
     except(KeyboardInterrupt, SystemExit):
