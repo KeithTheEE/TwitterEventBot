@@ -250,8 +250,9 @@ def buttonListener():
 		    if duration <= 7:	
 			GPIO.output(yellow, True)
 			time.sleep(.1)
-			os.system("sudo reboot")		
-		buttonPress = True
+			os.system("sudo reboot")
+		else:		
+		    buttonPress = True
 		oldState = curState
 		startTime = time.time()
 		# Turn on "I'm responding" LED Combo
