@@ -680,8 +680,8 @@ def piMain():
 
     try:
     	heartB.start()
-	unCorruptFiles.main()
 	powerButton.start()
+	unCorruptFiles.main()
     	tweetStuff.start()
     except(KeyboardInterrupt, SystemExit):
 	heartB.stop()
