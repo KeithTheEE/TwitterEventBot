@@ -554,7 +554,7 @@ def main():
 
 		# now we've looked at the tweets and tried to guess a location
 		locBestGuess1 = getLocation(locBestGuess)
-		msg = "I think Event: " + str(searchEV[event]) + " has occurred" + str(locBestGuess1) + "\n" + str(time.ctime(time.time())) + "CDT" 
+		msg = "I think Event: " + str(searchEV[event]) + " has occurred" + str(locBestGuess1) + "\n" + str(time.ctime(time.time())) + " CDT" 
 		if (len(msg) > 116):
 		    msg = msg[0:115]
 		# Only tweet if it's not repeating OR (zSc * zSc2) under isItAnEvent is less than -10 
