@@ -338,9 +338,6 @@ def isItAnEvent(event, theMean, var, uniqTweets, timeBTWTweets):
 	theAvgs = np.array(theAvgs)
 	theAvgs = theAvgs[:, None]
 	X_plot = np.linspace(0, compAvg+(3*compStd), len(theAvgs))[:, None]
-	kde = KernelDensity(kernel='epanechnikov', bandwidth=3.0)
-	kde.fit(theAvgs)
-	log_dens = kde.score_samples(X_plot)
 	# KDE For Event
 	theTweets = np.array(timeBTWTweets)
 	theTweets = theTweets[:, None]
@@ -358,6 +355,11 @@ def isItAnEvent(event, theMean, var, uniqTweets, timeBTWTweets):
 	plt.legend(loc='upper right')
 	axes = plt.gca()
 	tempSet = axes.get_xlim()
+
+	bw = float(tempSet[1])*0.012
+	kde = KernelDensity(kernel='epanechnikov', bandwidth=bw)
+	kde.fit(theAvgs)
+	log_dens = kde.score_samples(X_plot)
 
 	plt.subplot(2, 1, 2)
 	plt.plot(x1,mlab.normpdf(x1, compAvg, compStd),label='Historic Gaussian Distribution')
