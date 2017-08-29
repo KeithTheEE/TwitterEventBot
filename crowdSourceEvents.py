@@ -168,6 +168,27 @@ class restartButtonThread(threading.Thread):
     def stopped(self):
 	return self._stop.isSet()
 
+def ledCycle():
+    def blink(pin):
+        pinState = False
+        for i in range(6):
+            pinState = not pinState
+            GPIO.output(pin, pinState)
+            time.sleep(0.15)
+        GPIO.output(pin, False)
+
+    white = 16
+    red = 12
+    yellow = 13
+    blue = 15
+    green = 18
+    blink(white)
+    blink(red)
+    blink(yellow)
+    blink(blue)
+    blink(green)
+    return
+
 
 def myLED(theLED):
     red = 12
@@ -692,6 +713,9 @@ def piMain():
     GPIO.setup(16, GPIO.OUT)
     GPIO.setup(18, GPIO.OUT)
     GPIO.setup(7, GPIO.IN)
+
+    ledCycle()
+
     heartB = heartBeatThread()
     powerButton = restartButtonThread()
     tweetStuff = twitterThread()
