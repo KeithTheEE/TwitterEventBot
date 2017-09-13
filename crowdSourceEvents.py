@@ -70,6 +70,7 @@ import time
 import math
 import numpy as np
 import nltk
+nltk.data.path.append('/home/pi/nltk_data')
 import datetime
 import socket
 import sys
