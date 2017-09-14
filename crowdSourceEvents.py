@@ -823,6 +823,7 @@ def gotTweepError():
         print "I'm not connected to the network at the moment, sorry"
         myLED("RED")
         time.sleep(60*1)
+    myLED("GREEN")
     return
 
 def getTweets(api, event, rppSize=50):
@@ -1551,6 +1552,7 @@ def main1():
         # [(X_plot, log_dens), allHistAvgs, histAvg, histStd]]  
         plotSummaries(api) #  Check if tweet trends haven't been tweet
 	for i, event in enumerate(searchEV): # Perform a search on all events
+            myLED("GREEN")
             print event, datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
             # Get historical data
             allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
@@ -1578,6 +1580,7 @@ def main1():
 
             # I should probably ignore it if there aren't enough tweets, but we'll see
             if isEvent:
+                myLED("EVENT")
                 print "IT'S AN EVENT HOT DOG!"
                 locations = processLocations(tweets, event)
                 timeStamp, media = makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
@@ -1590,6 +1593,7 @@ def main1():
             #locations = processLocations(tweets, event)
             #print event, tweetCount, '\n\t', locations
         print "Sleeping...", datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        myLED("SLEEP")
 	time.sleep(5*60)
         
     return
