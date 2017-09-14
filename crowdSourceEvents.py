@@ -392,6 +392,10 @@ def heartBeat():
 	time.sleep(1)
 	    
 def buttonListener():
+    red = 12
+    yellow = 13
+    blue = 15
+    green = 18
     # For restart and shutdown
     # This is super inelegant. But I think it'll work so there we go
     oldState = GPIO.input(7)
@@ -405,18 +409,31 @@ def buttonListener():
 		if buttonPress == True:
 		    buttonPress = False
 		    duration = time.time() - startTime
-		    if duration <= 7:
-			os.system("sudo reboot")			
-		buttonPress = True
+		    if duration <= 7:	
+			GPIO.output(yellow, True)
+			time.sleep(.1)
+			os.system("sudo reboot")
+		else:		
+		    buttonPress = True
 		oldState = curState
 		startTime = time.time()
+		# Turn on "I'm responding" LED Combo
+		GPIO.output(green, True)
+		GPIO.output(blue, True)
 	time.sleep(.001)
 	if buttonPress:
 	    duration = time.time() - startTime
 	    if duration > 7:
 		# Shutdown condition
+		GPIO.output(red, True)
+		time.sleep(.1)
+		GPIO.output(red, False)
+		time.sleep(.1)
+		GPIO.output(red, True)
+		time.sleep(.5)
 		os.system("sudo shutdown -h now")
     return
+	
 	
 
 
