@@ -1433,7 +1433,7 @@ def classifyEvent(event, featureVector, oldEvent):
         isEvent = False
 
 
-    if CuWu_Wo*WuCu_Co > -0.1:
+    if CuWu_Wo*WuCu_Co > -2:
         #print "Failed that one test\n\t" + str(isEvent) +'\t'+ str(CuWu_Wo*WuCu_Co)
         isEvent = False
     #else:
