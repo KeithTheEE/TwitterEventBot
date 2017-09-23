@@ -51,6 +51,7 @@ while True:
         break
     except:
         ln = traceback.format_exc()
+        print ln
         flname = 'errorReport.log'
         fl = open(flname, 'w')
         fl.write(ln)

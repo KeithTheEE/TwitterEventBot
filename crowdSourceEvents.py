@@ -80,7 +80,7 @@ import threading
 from sklearn.neighbors import KernelDensity
 import unCorruptFiles
 #import getKMKeys # Format of CK, CS, AK, AS
-import getChatBotKeys as getKMKeys
+#import getChatBotKeys as getKMKeys
 #[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
 
 
@@ -1133,6 +1133,7 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
             if datetime.datetime.now() > runTime:
                 if datetime.datetime.now() < dontRunAfter:
                     conditional = True
+                    kdeOld = []
 
 
     if conditional:
@@ -1438,6 +1439,10 @@ def classifyEvent(event, featureVector, oldEvent):
         isEvent = False
     #else:
     #    print "PASSED IT\n\t" + str(isEvent) +'\t'+ str(CuWu_Wo*WuCu_Co)
+
+
+
+
 
     # Should save classifier (Will take care of it after filters are online
 
