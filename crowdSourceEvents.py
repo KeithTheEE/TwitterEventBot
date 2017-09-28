@@ -833,7 +833,7 @@ def gotTweepError():
     connected = is_connected()
     #connected = True
     if connected:
-        print "I started to annoy twitter, now I have to wait a bit"
+        print "I started to annoy twitter, now I have to wait a bit", datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
         myLED("YELLOW")
         time.sleep(60*5)
     else:
@@ -1140,7 +1140,6 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
 	myLED("KDEPREP")
         searchEV = eventLists()
         for event in searchEV:
-            theAvgs, compAvg, compStd = getEventHistory(event)
             allHistAvgs, histAvg, histStd = getEventHistory(event)
 
 
@@ -1376,11 +1375,12 @@ def saveToHistoryFile(sampledMean, sampledVar, tweetCount, event):
     #   and can be calculated readily from all previous data
     zSc1 = 'x'
     zSc2 = 'z'
-    eventHistory = open(str(event) + ".txt", 'a')
-    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d%H:%M") \
-        + '\t' + str(sampledMean) + '\t' + str(sampledVar) +'\t' + str(zSc1) + 
-        '\t' + str(zSc2) +"\t"+ str(tweetCount) +'\n')
-    eventHistory.close()
+    if (str(sampledMean) != "NaN") and (str(sampledVar) != "NaN"):
+        eventHistory = open(str(event) + ".txt", 'a')
+        eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d%H:%M") \
+            + '\t' + str(sampledMean) + '\t' + str(sampledVar) +'\t' + str(zSc1) + 
+            '\t' + str(zSc2) +"\t"+ str(tweetCount) +'\n')
+        eventHistory.close()
     return 
 
 def classifyEvent(event, featureVector, oldEvent):
@@ -1463,6 +1463,11 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     weekStd = featureVector[4]
     histAvg = featureVector[5]
     histStd = featureVector[6]
+
+    # Add some sort of catch here, if bot has been down for a week
+    # Week data is useless
+    # if (weekAvg):
+        
    
     xHist = np.linspace(0, histAvg+(3*histStd), 100*(6*histStd))
     xWeek = np.linspace(0, weekAvg+(3*weekStd), 100*(6*weekStd))
@@ -1590,8 +1595,6 @@ def main1():
             # Time to get all of the features
             tweetCount = len(tweets)
             tweetMean, tweetStd, tbtwTweets = getTweetsDistrobution(tweets)
-            # Save Sampled Distrobution
-            saveToHistoryFile(tweetMean, tweetStd, tweetCount, event)
 
             # Feature Vector
             fv = [ \
@@ -1600,6 +1603,11 @@ def main1():
               histAvg, histStd]
             isEvent = classifyEvent(event, fv, oldEvent)
 
+
+            # Save Sampled Distrobution
+            saveToHistoryFile(tweetMean, tweetStd, tweetCount, event)
+
+            #isEvent = False ### HEY DELETE THIS YOU DOLT
             # I should probably ignore it if there aren't enough tweets, but we'll see
             if isEvent:
                 myLED("EVENT")
