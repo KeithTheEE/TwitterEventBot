@@ -149,7 +149,7 @@ class twitterThread(threading.Thread):
     def __init__(self):
 	threading.Thread.__init__(self)
 	self.name="TwitterBotThread"
-	#self.daemon = True
+	self.daemon = True
     def run(self):
 	print "Starting to Tweet"
 	main1()
