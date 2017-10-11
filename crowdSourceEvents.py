@@ -1375,7 +1375,7 @@ def saveToHistoryFile(sampledMean, sampledVar, tweetCount, event):
     #   and can be calculated readily from all previous data
     zSc1 = 'x'
     zSc2 = 'z'
-    if (str(sampledMean) != "NaN") and (str(sampledVar) != "NaN"):
+    if (not math.isnan(sampledMean)) and (not math.isnan(sampledVar)):
         eventHistory = open(str(event) + ".txt", 'a')
         eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d%H:%M") \
             + '\t' + str(sampledMean) + '\t' + str(sampledVar) +'\t' + str(zSc1) + 
