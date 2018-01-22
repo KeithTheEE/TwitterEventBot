@@ -190,6 +190,7 @@ def updateLogFile(newLine):
 
     Parameters
     ----------
+    
 
     Raises 
     ------
@@ -263,10 +264,19 @@ def getLoggedData(lineID):
 
     Parameters
     ----------
+    lineID: string
+        a string with a log name the user wants to find
+
+    Returns
+    -------
+    theValue: string
 
     Raises 
     ------
-    
+    SyntaxError:
+        If the program can't parse the input string to find the 
+        correct log entry, it'll raise this error. I'll fix this
+        phrasing later on.
 
 
     Notes
@@ -302,6 +312,17 @@ def getLoggedData(lineID):
 
 
 def ledCycle():
+    """
+    Runs through each LED on the display to verify its function
+    Cycle order should be (right to left) White, Red, Yellow, Blue, 
+    Green. The same order they are in the perf board
+
+    Notes
+    -----
+    This is largely just so I can be sure that the LEDs still work. 
+
+
+    """
     def blink(pin):
         pinState = False
         for i in range(6):
@@ -438,6 +459,13 @@ def buttonListener():
 
 
 def is_connected():
+    """
+    Tries to connect to google to see if router is down
+
+    Returns
+    -------
+    connected: boolean
+    """
     REMOTE_SERVER = "www.google.com"
     try:
 	print "Testing Internet Connection"
@@ -453,6 +481,30 @@ def is_connected():
 
 
 def getLocation(locBestGuess):
+    """
+    Gets the best guess for location the event took place in
+
+    Parameters
+    ----------
+    locBestGuess: list of strings
+        locBestGuess should be made up of parsed substrings 
+        from tweets. The parsing is handled by `extractLocations`
+        or a similar function
+
+    Returns
+    -------
+    bestGuess: str
+        string will be "in X" where x is the guess or " but I can't 
+        find where" according to the presence of any guess in the input
+        parameter
+
+    Notes
+    -----
+    `ExtractLocation` might be moved to its own file, as might `getLocation`
+    I'm not yet sure if I want it, but the location extraction would be a 
+    useful standalone program.
+
+    """
     if len(locBestGuess) == 0:
 	return " but I can't find where"
     elif len(locBestGuess) == 1:
@@ -505,7 +557,11 @@ def extractLocation(text):
 
     This also uses the nltk pos tagger, which assumes propper english rules are
     being followed (as was the case in its training data). That assumption is 
-    invalid with twitter data. So 
+    invalid with twitter data. So... yeah. Fun thing about that is that it still
+    generally works 
+
+    It works under the assumption that locations are grammatically similar to 
+    state machines when used in english language.
 
     '''
     # Do the nltk stuff
@@ -523,8 +579,8 @@ def extractLocation(text):
         startC= ["NNP", "JJ"]
         validExtend = [ "NNP", ',', '#', "IN", "CC", "DT"]
         afterIN = ["NNP", "JJ"]
-        validTerminal = ["NNP"]
-        startHere = ["IN"] # Had JJ, JJ requires more grammer rules to be added. This is a bad formate for that
+        validTerminal = ["NNP"] # CURRENTLY NOT IN USE. REMOVE SOON
+        startHere = ["IN"] # Had JJ, JJ requires more grammer rules to be added. This is a bad format for that
 
 
         locStart = -1
@@ -665,6 +721,8 @@ def processSpam(tweet, tweetDict, userDict, event, myHandle):
         usernames, allowed 5 total appearences
     event: str
         The event we're trying to talk about, removes "@JohnnyTsunami tweeted this"
+    myHandle: str
+        The twitter handle of this bot
 
     Returns
     -------
@@ -782,6 +840,10 @@ def polysemeFilter(tweets, event):
         worship, whether serious or sarcastic, is a huge pain. Most hail tweet distrobutions
         are fairly wide apart unless there's a tornado somewhere
 
+    Lightning: I need soo many filters on that one. Ligthning sale, lightning charger, so
+        on and so forth. Jan 2018 the bot uses the word lightening, but until the polyseme
+        filter is online, I'm not going to fix this. 
+
     Since we're talking about what would be nice, maybe look to see if "No Tsunami" is also
         posible to polyseme filter. 
 
@@ -792,8 +854,8 @@ def polysemeFilter(tweets, event):
         centroid test, or a SVM, or any other method. Either way, it's nothing compared to
         generating the matrix. 
 
-    Also, I don't yet know if I'll be building a projection for each event, or one hyper
-        projection which hopefully 
+    Finally, I don't yet know if I'll be building a projection for each event, or one hyper
+        projection which hopefully would work on all 
 
 
     '''
@@ -801,6 +863,9 @@ def polysemeFilter(tweets, event):
 
 
     return tweets
+
+
+
 def negationFilter(tweets, event):
     '''
     Remove tweets which say the event didn't happen. 
@@ -823,15 +888,24 @@ def negationFilter(tweets, event):
     Notes
     -----
     Currently incomplete. Just a dummy function until I build the projection matrix
+    Really this is a grammar filter, and the polyseme filter is a semantic filter
     ''' 
 
 
     return tweets
 
 def gotTweepError():
-    # check if the error is internet connection based
+    '''
+    Just kill some time. 5 minutes for tweepy, 1 for no internet
+
+    Notes
+    -----
+    I need to add a condition that reboots if wifi is down for too long
+
+    '''
+    # check if the error is internet connection based on
     connected = is_connected()
-    #connected = True
+
     if connected:
         print "I started to annoy twitter, now I have to wait a bit", datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
         myLED("YELLOW")
@@ -845,7 +919,8 @@ def gotTweepError():
 
 def getTweets(api, event, rppSize=50):
     '''
-    Remove blantantly spam tweets, nothing else
+    Grabs around 50 tweets (most recent) from twitter
+    Blantantly spam tweets are removed (exact copies)
 
     Parameters
     ----------
@@ -936,7 +1011,35 @@ def getTweets(api, event, rppSize=50):
 
     return listOfTweets
 
-def getEventHistory(event):
+def XgetEventHistory(event):
+    '''
+    DEPRECATED
+    Loads up the history file for that event. The history just 
+        contains the date, average and standard deviation of that 
+        sample time's 
+
+    Parameters
+    ----------
+    event: str
+        A string that is the keyword in a twitter search
+
+    Returns
+    -------
+    theTimes: list of datetimes
+        this is the reference for `allHistAvgs`
+    allHistAvgs: list of floats
+        the average time between tweet for the event at the sample
+        time
+    histAvg: float
+        The average of the sampled averages
+    histStd: float
+        the standard deviation of the sampled averages
+
+    Notes
+    -----
+
+
+    '''
 
     try:
     	eventHistory = open(str(event) + ".txt", 'r')
@@ -963,10 +1066,161 @@ def getEventHistory(event):
     histAvg = np.mean(allHistAvgs)
     histStd = np.std(allHistAvgs)
 
-    return allHistAvgs, histAvg, histStd
+    return theTimes, allHistAvgs, histAvg, histStd
 
-def getEventLastWeek(event):
+def getEventHistoryStats(sampleAvgs):
+    timeSpanAvg = np.mean(sampleAvgs)
+    timeSpanStd = np.std(sampleAvgs)
+    return timeSpanAvg, timeSpanStd
+
+
+def getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0):
     """
+    Functionally similar to `getEventHistory`, this grabs only the 
+    history of the last week (might be modified to last month) to 
+    create a rolling comparision, preventing continous event tweets
+    about the same subject (see spikes in tweet post NK Missile Tests)
+
+    
+
+    Parameters
+    ----------
+    event: string
+        keyword used for data files
+    weeks: int, default = 1
+        Number of weeks back from now 
+    days=0
+    hours=0
+    minutes=0
+
+
+    Returns
+    -------
+    sampleTimes: list of Datetimes
+
+    sampleAvgs: list of floats
+        
+
+
+    Notes
+    -----
+    I'm not sure how well this will work when it's a new feature
+    It also might need to be redone with `getEventHistory`, because 
+    improved filtering might make it rare that the bot tweets about
+    events (old average time between tweets being significantly 
+    smaller, causing new samples to look insignificant in comparision
+    
+    also downtime is much more noticable in this method. 
+
+    Still, this will be how the bot tweets week history so we'll see
+
+    weekMaxSize = 2016 is determined by the 5 minute wait after each 
+    event cycle. This means the max number of times the bot will ping
+    twitter is 60/5*24*7 
+
+    There is almost certainly never going to be more elements in the 
+    week history than this, and reduces search space making computations
+    simpler on the pi
+
+    ...which is useful becase I can't promise that this will run smoothly
+    on the pi..
+    
+    """
+    
+    # Grab all history
+    try:
+    	eventHistory = open(str(event) + ".txt", 'r')
+    except IOError:
+	eventHistory = open(str(event) + ".txt", 'a')
+	eventHistory.close()
+	eventHistory = open(str(event) + ".txt", 'r')
+    sampleTimes = []
+    allSampleAvgs = []
+    theVar = []
+    for line in eventHistory:
+	if line == "":
+	    break
+	try:
+	    line = line.split('\t')
+	    sampleTimes.append(line[0])
+	    allSampleAvgs.append(float(line[1]))
+	    theVar.append(float(line[2]))
+	except:
+	    print "Average File Error"
+	
+    eventHistory.close()
+    #theTimes, allHistAvgs, histAvg, histStd = getEventHistory(event)
+    
+    # Check if all info needs to be returned
+    #  This is shown by inputing a -1 in any time entry
+    inMin = min(minutes, hours, days, weeks)
+    if inMin == -1:
+        sampleTimes = np.array([datetime.datetime.strptime(d,'%Y-%m-%d%H:%M') for d in sampleTimes])
+        return sampleTimes, allSampleAvgs
+    # else adjust the returned array size
+
+
+    # Reduce search space
+    
+    weekMaxSize = 2016
+    maxSize = 1+ \
+                minutes/5+ \
+                hours*60/5+ \
+                days*24*60/5+ \
+                weeks*7*24*60/5
+    
+    if len(sampleTimes) - maxSize < 0:
+        maxSize = 0
+    #maxSize = max(0, len(sampleTimes) - maxSize)
+    if len(sampleTimes) > maxSize:
+        sampleTimes = sampleTimes[-maxSize:]
+    if len(allSampleAvgs) > maxSize:
+        allSampleAvgs = allSampleAvgs[-maxSize:]
+
+    # Parse theTimes for correct oldest sample
+    x = np.array([datetime.datetime.strptime(d,'%Y-%m-%d%H:%M') for d in sampleTimes])
+    i = 0
+    while i < len(sampleTimes):
+        if  x[i] > datetime.datetime.now()-datetime.timedelta(weeks=weeks,\
+                 days=days, hours=hours, minutes=minutes):
+            break
+        i+=1
+
+    sampleTimes = x[i:]
+    allSampleAvgs = allSampleAvgs[i:]
+
+    #timeSpanAvg = np.mean(allSampleAvgs)
+    #timeSpanStd = np.std(allSampleAvgs)
+
+
+
+
+    return sampleTimes, allSampleAvgs 
+
+
+def getEventHistoryDateRange(event, startDateTime, endDateTime):
+    x = datetime.datetime.now()-startDateTime
+    minutes = x.total_seconds() / 60
+
+    sampleTimes, allSampleAvgs = getEventHistoryTimeLimit(event, weeks=0, days=0, hours=0, minutes=minutes)
+
+
+    # Parse theTimes for correct most recent sample
+    i = 0
+    while i < len(sampleTimes):
+        if  sampleTimes[i] > endDateTime:
+            break
+        i+=1
+
+    sampleTimes = sampleTimes[:i]
+    allSampleAvgs = allSampleAvgs[:i]
+
+    return sampleTimes, allSampleAvgs
+
+
+def XgetEventLastWeek(event):
+    """
+    DEPRECATED
     Functionally similar to `getEventHistory`, this grabs only the 
     history of the last week (might be modified to last month) to 
     create a rolling comparision, preventing continous event tweets
@@ -1055,11 +1309,138 @@ def getEventLastWeek(event):
 
     return allWeekAvgs, weekAvg, weekStd, sampleTimes
 
+def XgetEvent(event):
+    """
+    DEPRECATED
+    Functionally similar to `getEventHistory`, this grabs only the 
+    history of the last week (might be modified to last month) to 
+    create a rolling comparision, preventing continous event tweets
+    about the same subject (see spikes in tweet post NK Missile Tests)
+
+    
+
+    Parameters
+    ----------
+    event : string
+        keyword used for data files
+
+
+    Returns
+    -------
+
+
+    Notes
+    -----
+    I'm not sure how well this will work when it's a new feature
+    It also might need to be redone with `getEventHistory`, because 
+    improved filtering might make it rare that the bot tweets about
+    events (old average time between tweets being significantly 
+    smaller, causing new samples to look insignificant in comparision
+    
+    also downtime is much more noticable in this method. 
+
+    Still, this will be how the bot tweets week history so we'll see
+
+    weekMaxSize = 2016 is determined by the 5 minute wait after each 
+    event cycle. This means the max number of times the bot will ping
+    twitter is 60/5*24*7 
+
+    There is almost certainly never going to be more elements in the 
+    week history than this, and reduces search space making computations
+    simpler on the pi
+
+    ...which is useful becase I can't promise that this will run smoothly
+    on the pi..
+    
+    """
+    
+    # Grab all history
+    try:
+    	eventHistory = open(str(event) + ".txt", 'r')
+    except IOError:
+	eventHistory = open(str(event) + ".txt", 'a')
+	eventHistory.close()
+	eventHistory = open(str(event) + ".txt", 'r')
+    sampleTimes = []
+    allWeekAvgs = []
+    theVar = []
+    for line in eventHistory:
+	if line == "":
+	    break
+	try:
+	    line = line.split('\t')
+	    sampleTimes.append(line[0])
+	    allWeekAvgs.append(float(line[1]))
+	    theVar.append(float(line[2]))
+	except:
+	    print "Average File Error"
+	
+    eventHistory.close()
+
+    # Reduce search space
+    weekMaxSize = 2016
+    if len(sampleTimes) > weekMaxSize:
+        sampleTimes = sampleTimes[-weekMaxSize:]
+    if len(allWeekAvgs) > weekMaxSize:
+        allWeekAvgs = allWeekAvgs[-weekMaxSize:]
+
+    # Parse theTimes for correct oldest sample
+    x = np.array([datetime.datetime.strptime(d,'%Y-%m-%d%H:%M') for d in sampleTimes])
+    i = 0
+    while i < len(sampleTimes):
+        if  x[i] > datetime.datetime.now()-datetime.timedelta(weeks=1):
+            break
+        i+=1
+
+    sampleTimes = x[i:]
+    allWeekAvgs = allWeekAvgs[i:]
+
+    weekAvg = np.mean(allWeekAvgs)
+    weekStd = np.std(allWeekAvgs)
+
+    return allWeekAvgs, weekAvg, weekStd, sampleTimes
+
+def pastEcho():
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+
+    Other Parameters
+    ----------------
+
+    Raises
+    ------
+
+    See Also
+    --------
+
+    Notes
+    -----
+    This is going to be an event classifier. 
+    It is going to be based on whether or not a large spike the event history 
+    occured recently, 
+
+    References
+    ----------
+
+    Examples
+    --------
+
+    """
+
+    return
+
+
 def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
     """
     Generates the KDE over the event history for each events
     This is done at startup, and once per day at approximately 
-    2 am CDT (VERIFY/SET AS VARIBLE) 
+    3 am CDT (VERIFY/SET AS VARIBLE)
+    `updateKDE` also functions as the source of historical averages 
 
     Parameters
     ----------
@@ -1140,20 +1521,23 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
 	myLED("KDEPREP")
         searchEV = eventLists()
         for event in searchEV:
-            allHistAvgs, histAvg, histStd = getEventHistory(event)
+            theTimesX, allHistAvgsX = getEventHistoryTimeLimit(event, weeks=-1, days=0, hours=0, minutes=0)
+            histAvg, histStd = getEventHistoryStats(allHistAvgsX)
+            # adjsut all hist avgs to last year here
+            theTimes, allHistAvgs =getEventHistoryTimeLimit(event, weeks=0, days=365, hours=0, minutes=0)
+            yearAvg, yearStd = getEventHistoryStats(allHistAvgs)
 
-
-            x1 = np.linspace(0, histAvg+(3*histStd), 100*(6*histStd))
+            x1 = np.linspace(0, yearAvg+(3*yearStd), 100*(6*yearStd))
             allHistAvgs = np.array(allHistAvgs)
             allHistAvgs = allHistAvgs[:, None]
-            X_plot = np.linspace(0, histAvg+(3*histStd), len(allHistAvgs))[:, None]
+            X_plot = np.linspace(0, yearAvg+(3*yearStd), len(allHistAvgs))[:, None]
             # KDE For Event
             maxPoint = max(allHistAvgs)
             bw = float(maxPoint)*0.012
             kde = KernelDensity(kernel='epanechnikov', bandwidth=bw)
             kde.fit(allHistAvgs)
             log_dens = kde.score_samples(X_plot)
-            kdeOld.append([(X_plot, log_dens), allHistAvgs, histAvg, histStd])
+            kdeOld.append([(X_plot, log_dens), allHistAvgsX, histAvg, histStd])
 
         print "Updated KDE"
         logLine = "Last KDE Update:\t"+str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
@@ -1273,7 +1657,9 @@ def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
         searchEV = eventLists()
         for event in searchEV:
             
-            allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
+            allWeekAvgs, weekAvg, weekStd, sampleTimes 
+            sampleTimes, allWeekAvgs = getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0)
+            weekAvg, weekStd = getEventHistoryStats(allWeekAvgs)
             segments = adjustTimes(sampleTimes, allWeekAvgs)
 
             msg = "Weekly Summary for " + event[0].upper() + event[1:].lower()
@@ -1375,12 +1761,13 @@ def saveToHistoryFile(sampledMean, sampledVar, tweetCount, event):
     #   and can be calculated readily from all previous data
     zSc1 = 'x'
     zSc2 = 'z'
-    if (not math.isnan(sampledMean)) and (not math.isnan(sampledVar)):
-        eventHistory = open(str(event) + ".txt", 'a')
-        eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d%H:%M") \
-            + '\t' + str(sampledMean) + '\t' + str(sampledVar) +'\t' + str(zSc1) + 
-            '\t' + str(zSc2) +"\t"+ str(tweetCount) +'\n')
-        eventHistory.close()
+    if tweetCount > 3:
+        if (not math.isnan(sampledMean)) and (not math.isnan(sampledVar)):
+            eventHistory = open(str(event) + ".txt", 'a')
+            eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d%H:%M") \
+                + '\t' + str(sampledMean) + '\t' + str(sampledVar) +'\t' + str(zSc1) + 
+                '\t' + str(zSc2) +"\t"+ str(tweetCount) +'\n')
+            eventHistory.close()
     return 
 
 def classifyEvent(event, featureVector, oldEvent):
@@ -1391,6 +1778,8 @@ def classifyEvent(event, featureVector, oldEvent):
     weekStd = featureVector[4]
     histAvg = featureVector[5]
     histStd = featureVector[6]
+    #fiveHrAvg
+    #fiveHrStd
 
     # Cu: Current mean 
     # Co: Current St. Deviation
@@ -1511,7 +1900,7 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     plt.subplot(2, 1, 2)
     plt.plot(xHist,mlab.normpdf(xHist, histAvg, histStd),'b',label='Historic Gaussian Distribution', linewidth=1.0)
     plt.plot(xCur,mlab.normpdf(xCur, tweetMean, tweetStd), 'g', label='Current Gaussian Distribution', linewidth=1.0)
-    plt.plot(histKdeX, np.exp(histKdeY), 'r',label='KDE Fit of Historic Averages', linewidth=1.0)
+    plt.plot(histKdeX, np.exp(histKdeY), 'r',label='KDE Fit of Past Year', linewidth=1.0)
     # Cap off top of current kde
     axes = plt.gca()
     ymin, ymaxOld = axes.get_ylim()
@@ -1582,7 +1971,9 @@ def main1():
             myLED("GREEN")
             print event, datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
             # Get historical data
-            allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
+            #allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
+            sampleTimes, allWeekAvgs= getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0)
+            weekAvg, weekStd = getEventHistoryStats(allWeekAvgs)
             kdePlots, allHistAvgs, histAvg, histStd = eventKDEs[i]
 
             # Get tweets
@@ -1601,7 +1992,11 @@ def main1():
               tweetCount, tweetMean, tweetStd, 
               weekAvg, weekStd,
               histAvg, histStd]
-            isEvent = classifyEvent(event, fv, oldEvent)
+            print weekAvg, weekStd
+            if math.isnan(weekAvg) or math.isnan(weekStd):
+                isEvent = False
+            else:
+                isEvent = classifyEvent(event, fv, oldEvent)
 
 
             # Save Sampled Distrobution
