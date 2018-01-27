@@ -1011,63 +1011,6 @@ def getTweets(api, event, rppSize=50):
 
     return listOfTweets
 
-def XgetEventHistory(event):
-    '''
-    DEPRECATED
-    Loads up the history file for that event. The history just 
-        contains the date, average and standard deviation of that 
-        sample time's 
-
-    Parameters
-    ----------
-    event: str
-        A string that is the keyword in a twitter search
-
-    Returns
-    -------
-    theTimes: list of datetimes
-        this is the reference for `allHistAvgs`
-    allHistAvgs: list of floats
-        the average time between tweet for the event at the sample
-        time
-    histAvg: float
-        The average of the sampled averages
-    histStd: float
-        the standard deviation of the sampled averages
-
-    Notes
-    -----
-
-
-    '''
-
-    try:
-    	eventHistory = open(str(event) + ".txt", 'r')
-    except IOError:
-	eventHistory = open(str(event) + ".txt", 'a')
-	eventHistory.close()
-	eventHistory = open(str(event) + ".txt", 'r')
-    theTimes = []
-    allHistAvgs = []
-    theVar = []
-    for line in eventHistory:
-	if line == "":
-	    break
-	try:
-	    line = line.split('\t')
-	    theTimes.append(line[0])
-	    allHistAvgs.append(float(line[1]))
-	    theVar.append(float(line[2]))
-	except:
-	    print "Average File Error"
-	
-    eventHistory.close()
-
-    histAvg = np.mean(allHistAvgs)
-    histStd = np.std(allHistAvgs)
-
-    return theTimes, allHistAvgs, histAvg, histStd
-
 def getEventHistoryStats(sampleAvgs):
     timeSpanAvg = np.mean(sampleAvgs)
     timeSpanStd = np.std(sampleAvgs)
@@ -1218,188 +1161,6 @@ def getEventHistoryDateRange(event, startDateTime, endDateTime):
     return sampleTimes, allSampleAvgs
 
 
-def XgetEventLastWeek(event):
-    """
-    DEPRECATED
-    Functionally similar to `getEventHistory`, this grabs only the 
-    history of the last week (might be modified to last month) to 
-    create a rolling comparision, preventing continous event tweets
-    about the same subject (see spikes in tweet post NK Missile Tests)
-
-    
-
-    Parameters
-    ----------
-    event : string
-        keyword used for data files
-
-
-    Returns
-    -------
-
-
-    Notes
-    -----
-    I'm not sure how well this will work when it's a new feature
-    It also might need to be redone with `getEventHistory`, because 
-    improved filtering might make it rare that the bot tweets about
-    events (old average time between tweets being significantly 
-    smaller, causing new samples to look insignificant in comparision
-    
-    also downtime is much more noticable in this method. 
-
-    Still, this will be how the bot tweets week history so we'll see
-
-    weekMaxSize = 2016 is determined by the 5 minute wait after each 
-    event cycle. This means the max number of times the bot will ping
-    twitter is 60/5*24*7 
-
-    There is almost certainly never going to be more elements in the 
-    week history than this, and reduces search space making computations
-    simpler on the pi
-
-    ...which is useful becase I can't promise that this will run smoothly
-    on the pi..
-    
-    """
-    
-    # Grab all history
-    try:
-    	eventHistory = open(str(event) + ".txt", 'r')
-    except IOError:
-	eventHistory = open(str(event) + ".txt", 'a')
-	eventHistory.close()
-	eventHistory = open(str(event) + ".txt", 'r')
-    sampleTimes = []
-    allWeekAvgs = []
-    theVar = []
-    for line in eventHistory:
-	if line == "":
-	    break
-	try:
-	    line = line.split('\t')
-	    sampleTimes.append(line[0])
-	    allWeekAvgs.append(float(line[1]))
-	    theVar.append(float(line[2]))
-	except:
-	    print "Average File Error"
-	
-    eventHistory.close()
-
-    # Reduce search space
-    weekMaxSize = 2016
-    if len(sampleTimes) > weekMaxSize:
-        sampleTimes = sampleTimes[-weekMaxSize:]
-    if len(allWeekAvgs) > weekMaxSize:
-        allWeekAvgs = allWeekAvgs[-weekMaxSize:]
-
-    # Parse theTimes for correct oldest sample
-    x = np.array([datetime.datetime.strptime(d,'%Y-%m-%d%H:%M') for d in sampleTimes])
-    i = 0
-    while i < len(sampleTimes):
-        if  x[i] > datetime.datetime.now()-datetime.timedelta(weeks=1):
-            break
-        i+=1
-
-    sampleTimes = x[i:]
-    allWeekAvgs = allWeekAvgs[i:]
-
-    weekAvg = np.mean(allWeekAvgs)
-    weekStd = np.std(allWeekAvgs)
-
-    return allWeekAvgs, weekAvg, weekStd, sampleTimes
-
-def XgetEvent(event):
-    """
-    DEPRECATED
-    Functionally similar to `getEventHistory`, this grabs only the 
-    history of the last week (might be modified to last month) to 
-    create a rolling comparision, preventing continous event tweets
-    about the same subject (see spikes in tweet post NK Missile Tests)
-
-    
-
-    Parameters
-    ----------
-    event : string
-        keyword used for data files
-
-
-    Returns
-    -------
-
-
-    Notes
-    -----
-    I'm not sure how well this will work when it's a new feature
-    It also might need to be redone with `getEventHistory`, because 
-    improved filtering might make it rare that the bot tweets about
-    events (old average time between tweets being significantly 
-    smaller, causing new samples to look insignificant in comparision
-    
-    also downtime is much more noticable in this method. 
-
-    Still, this will be how the bot tweets week history so we'll see
-
-    weekMaxSize = 2016 is determined by the 5 minute wait after each 
-    event cycle. This means the max number of times the bot will ping
-    twitter is 60/5*24*7 
-
-    There is almost certainly never going to be more elements in the 
-    week history than this, and reduces search space making computations
-    simpler on the pi
-
-    ...which is useful becase I can't promise that this will run smoothly
-    on the pi..
-    
-    """
-    
-    # Grab all history
-    try:
-    	eventHistory = open(str(event) + ".txt", 'r')
-    except IOError:
-	eventHistory = open(str(event) + ".txt", 'a')
-	eventHistory.close()
-	eventHistory = open(str(event) + ".txt", 'r')
-    sampleTimes = []
-    allWeekAvgs = []
-    theVar = []
-    for line in eventHistory:
-	if line == "":
-	    break
-	try:
-	    line = line.split('\t')
-	    sampleTimes.append(line[0])
-	    allWeekAvgs.append(float(line[1]))
-	    theVar.append(float(line[2]))
-	except:
-	    print "Average File Error"
-	
-    eventHistory.close()
-
-    # Reduce search space
-    weekMaxSize = 2016
-    if len(sampleTimes) > weekMaxSize:
-        sampleTimes = sampleTimes[-weekMaxSize:]
-    if len(allWeekAvgs) > weekMaxSize:
-        allWeekAvgs = allWeekAvgs[-weekMaxSize:]
-
-    # Parse theTimes for correct oldest sample
-    x = np.array([datetime.datetime.strptime(d,'%Y-%m-%d%H:%M') for d in sampleTimes])
-    i = 0
-    while i < len(sampleTimes):
-        if  x[i] > datetime.datetime.now()-datetime.timedelta(weeks=1):
-            break
-        i+=1
-
-    sampleTimes = x[i:]
-    allWeekAvgs = allWeekAvgs[i:]
-
-    weekAvg = np.mean(allWeekAvgs)
-    weekStd = np.std(allWeekAvgs)
-
-    return allWeekAvgs, weekAvg, weekStd, sampleTimes
-
 def pastEcho():
     """
 
@@ -1422,7 +1183,8 @@ def pastEcho():
     -----
     This is going to be an event classifier. 
     It is going to be based on whether or not a large spike the event history 
-    occured recently, 
+    occured recently, and then adjust to measure whether or not the current 
+    tweet rate is caused by another event, or by 
 
     References
     ----------
@@ -1657,7 +1419,7 @@ def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
         searchEV = eventLists()
         for event in searchEV:
             
-            allWeekAvgs, weekAvg, weekStd, sampleTimes 
+            #allWeekAvgs, weekAvg, weekStd, sampleTimes 
             sampleTimes, allWeekAvgs = getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0)
             weekAvg, weekStd = getEventHistoryStats(allWeekAvgs)
             segments = adjustTimes(sampleTimes, allWeekAvgs)
