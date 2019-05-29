@@ -1,0 +1,43 @@
+# Local applications
+*.ipynb
+*.log
+*.mp4
+*.png
+*.html
+.ipynb_checkpoints/
+asecretplace/
+asecondsecretplace/
+deprecated/
+logs/
+misc/corruptFiles/
+misc/extraInfo/
+misc/hist_data/
+misc/lsaDB/
+misc/pyProgramTrainingLines.txt
+outlines.md
+research/
+tests/
+testSummarizeText.py
+
+# Pre defined
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
