@@ -1,54 +1,59 @@
-Crowd Sourcing Twitter Bot
-==========================
+# Crowd Source Twitter: an Event Bot
+---
 
 Author(s): Keith Murray
+
 Contact: kmurrayis@gmail.com
 
-This is the brains of a twitter bot called Keith Event Tracker: https://twitter.com/Keith_Event
+This is the brains of a twitter bot called [Event Tracker](https://twitter.com/Keith_Event)
 
-The keys, passwords, and anything else security wise is stored in 
-  a seperate file accessed via getKMKeys.py, which returns the keys formated
-  in an array [CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
+Basic Opperation:
+---
 
-Requirements
-============
-Using Python 2.7.6
-This program reqires the standard libraries of time, math, and datetime,
-the extra libraries of numpy, and tweepy.
+Every few minutes the bot runs and searches twitter for recent tweets with a given keyword, (the 'event') in it. The tweets timestamps are sorted, and the time between each neighboring tweet is recorded. It then takes the average amount of time in seconds between each of the returned tweets as well as the standard deviation and uses that value to determine if an event has occured compared to historical averages. At the end of each run, it archives the averge time between tweets.
 
-If the watchdog program is also in use, it will require smtplib, poplib,
-email, and imaplib 
+To compare against the historical averages, the program pulls the archived sample values and gets the historic average and standard deviation over all recorded samples. 
 
-Usage
-=====
-For the twitter bot, you will need to add a file to return your keys, 
-as outlined above. After you have the keys, you can run using 
-'python crowdSourceEvents.py'
+Reading the Plots
+---
 
-Specifics
-=========
-the file requires an events database 'listOfTwitterEvents.txt', a
-city database 'ExtendedCityDatabase.txt', and if there is no history
-for the events, it will create a file labeled [event].txt
+![sample_plot](https://pbs.twimg.com/media/D9TjRZoXkAAxI6n.png)
 
-Events are deemed true if they pass the isItAnEvent(event, theMean, var)
-function, which will return true or false. If true, the program will
-try to identify the location using the city database, and will send a
-tweet accordingly. 
 
-After this is done for all tweets, the program sleeps for a certain 
-amount of time, then runs again.
 
-Watchdog
-========
-A watchdog program is provided because this code has been up and running
-for less than a full 24 hours. There have been errors the program has
-thrown that took hours for me to notice, so the watchdog allows me a
-crude way of checking that the program is still running. In a seperate
-terminal, run 'python tweetWatchdog.py' and once every n minutes, (I 
-suggest at least 20) the program will check the last modification time
-for one of the log files. If it has not been modified recently, the 
-watchdog assumes a failure, and sends a text message and email to the 
-user letting them know. 
-If that occurs, the watchdog exits. 
+The plot is divided up into two halves, a historic histogram, and a modeled distrobution plot. 
 
+### Focusing on the top plot:
+ 
+The blue values in the plot show a histogram over all recorded average 'time between tweets'. In that plot, there is a verticle red line which represents the current sample average, that way you can tell how it stacks up against what the bot usually measures. 
+
+
+
+### Focusing on the bottom plot:
+
+Stripping away the noisy histogram data, the second plot provides modeled distrobutions.
+
+The **solid blue curve** takes all archived historical averages and generates a guassian distrobution using the average of the historical averages and the standard deviation of the historical averages. 
+
+The **solid green curve** shows a gaussian distrobution for the current collection of tweets, organized by the time between those current tweets. 
+
+The **verticle red line** extends from the top plot showing the current sample average time between tweets. 
+
+From the solid green and blue curves, it's apperent that gaussian distrobuitons are not the necessarily best way to model the current and historic distrobutions of the time between tweets. To try to get a better visual model, Kernel Density Estimation (KDE) is used. 
+
+Each KDE distrobution uses the Epanechnikov to distribute a curve around each sample, then the curves are added together and normalized for every sample 
+
+The **solid red curve** is made from the past year of historic records and modeled using KDE.
+
+The **dotted green curve** is made from the current twitter sample, where the tweets timestamps are sorted, and the time between each neighboring tweet is recorded. This is distinct from the historic values, as the average of this set of samples is recorded and the set of averages make up the historic distrobutions. 
+
+The **little black crosses** at the bottom are the individual time between tweet samples. The dotted greed curve should fit over these crosses, offering more insight into how time between tweet values are distrobuted. 
+
+The **dotted pink line** is made from the recorded averages of the past week of samples. This shows how different the current distrobution is from what has been recently happening on twitter. 
+
+
+### Weekly Summary Plot
+![sample_weekly_summary](https://pbs.twimg.com/media/D9DuJIIWwAoVAwu.png)
+
+This plot shows how many tweets per second about an event occurred over the past week.
+Each time the bot ran in the past week, it recorded the average value of the time between tweets in that runtime sample. This plot displays the inverse value, tweets per second so that the higher the value in this plot, the more tweets were made. 

@@ -5,18 +5,22 @@
 *.png
 *.html
 .ipynb_checkpoints/
-src/asecretplace/
-src/asecondsecretplace/
+asecretplace/
+asecondsecretplace/
 deprecated/
-src/logs/
-src/misc/corruptFiles/
-src/misc/extraInfo/
-src/misc/hist_data/
-src/misc/lsaDB/
-src/misc/pyProgramTrainingLines.txt
+logs/
+misc/corruptFiles/
+misc/extraInfo/
+misc/hist_data/
+misc/hist_data_old/
+misc/hist_data_(copy)/
+misc/lsaDB/
+misc/pyProgramTrainingLines.txt
+misc/sample_tweets/
 outlines.md
 research/
-tests/
+#tests/
+tests/testTweetOut.json
 testSummarizeText.py
 
 # Pre defined
