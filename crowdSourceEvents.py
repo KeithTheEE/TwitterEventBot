@@ -134,48 +134,49 @@ YELLOW-	13 14
 
 class heartBeatThread(threading.Thread):
     def __init__(self):
-	threading.Thread.__init__(self)
-	self.name="HeartBeatThread"
-	self.daemon = True
+        threading.Thread.__init__(self)
+        self.name="HeartBeatThread"
+        self.daemon = True
     def run(self):
-	print "STARTING THAT SICK BEAT YO"
-	heartBeat()
+        print "STARTING THAT SICK BEAT YO"
+        heartBeat()
     def stop(self):
-	self._stop.set()
+        self._stop.set()
     def stopped(self):
-	return self._stop.isSet()
+        return self._stop.isSet()
 
 class twitterThread(threading.Thread):
     def __init__(self):
-	threading.Thread.__init__(self)
-	self.name="TwitterBotThread"
-	self.daemon = True
+        threading.Thread.__init__(self)
+        self.name="TwitterBotThread"
+        self.daemon = True
     def run(self):
-	print "Starting to Tweet"
-	main1()
-	print "I ESCAPED"
+        print "Starting to Tweet"
+        main1()
+        print "I ESCAPED"
     def stop(self):
-	self._stop.set()
+        self._stop.set()
     def stopped(self):
-	return self._stop.isSet()
+        return self._stop.isSet()
 
 class restartButtonThread(threading.Thread):
     def __init__(self):
-	threading.Thread.__init__(self)
-	self.name="restartButtonThread"
-	self.daemon = True
+        threading.Thread.__init__(self)
+        self.name="restartButtonThread"
+        self.daemon = True
     def run(self):
-	print "Button is active"
-	buttonListener()
+        print "Button is active"
+        buttonListener()
     def stop(self):
-	self._stop.set()
+        self._stop.set()
     def stopped(self):
-	return self._stop.isSet()
+        return self._stop.isSet()
 
 
 
 
 def startupLogFile():
+    # REPLICATED: utils/botHelperFunctions.py startupLogFile()
     newStartup = "Last Startup:\t" + \
                 str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")) 
     updateLogFile(newStartup)
@@ -184,6 +185,7 @@ def startupLogFile():
 
 
 def updateLogFile(newLine):
+    # REPLICATED: utils/botHelperFunctions.py updateLogFile()
     """
     Takes `newLine` and inserts it into the correct line in
     the log file, sucessfully updating that feature
@@ -258,6 +260,7 @@ def updateLogFile(newLine):
         
 
 def getLoggedData(lineID):
+    # REPLICATED: utils/botHelperFunctions.py getLoggedData()
     """
     Takes `newLine` and inserts it into the correct line in
     the log file, sucessfully updating that feature
@@ -312,6 +315,7 @@ def getLoggedData(lineID):
 
 
 def ledCycle():
+    # REPLICATED: utils/rpiGPIOFunctions.py ledCycle()
     """
     Runs through each LED on the display to verify its function
     Cycle order should be (right to left) White, Red, Yellow, Blue, 
@@ -345,6 +349,7 @@ def ledCycle():
 
 
 def myLED(theLED):
+    # REPLICATED: utils/rpiGPIOFunctions.py myLED()
     red = 12
     yellow = 13
     blue = 15
@@ -403,16 +408,18 @@ def myLED(theLED):
     return
 
 def heartBeat():
+    # REPLICATED: utils/rpiGPIOFunctions.py heartBeat()
     # Toggles an LED to verify the program is running
     # Lets the pi run without owner needing a monitor 
     while True:
-	GPIO.output(16, True)
-	# print "BEAT"
-	time.sleep(1)
-	GPIO.output(16, False)
-	time.sleep(1)
+        GPIO.output(16, True)
+        # print "BEAT"
+        time.sleep(1)
+        GPIO.output(16, False)
+        time.sleep(1)
 	    
 def buttonListener():
+    # REPLICATED and improved: utils/rpiGPIOFunctions.py buttonListener()
     red = 12
     yellow = 13
     blue = 15
@@ -459,6 +466,7 @@ def buttonListener():
 
 
 def is_connected():
+    # REPLICATED: utils/twitterInteractions.py is_connected()
     """
     Tries to connect to google to see if router is down
 
@@ -481,6 +489,7 @@ def is_connected():
 
 
 def getLocation(locBestGuess):
+    # REPLICATED: utils/nlpTools/locationFromText.py getLocation()
     """
     Gets the best guess for location the event took place in
 
@@ -516,6 +525,7 @@ def getLocation(locBestGuess):
 
 	
 def extractLocation(text):
+    # REPLICATED: utils/nlpTools/locationFromText.py extractLocation()
     '''
     An NLTK based location extractor. 
 
@@ -668,6 +678,7 @@ def extractLocation(text):
     return locations
 
 def processLocations(tweets, event):
+    # REPLICATED: utils/nlpTools/locationFromText.py processLocations()
 
     # Now we get ready to tweet!! :D
     locBestGuess = []
@@ -694,10 +705,12 @@ def processLocations(tweets, event):
 
 	
 def cleanTweetText(text):
+    # REPLICATED: utils/nlpTools/filters/twitterSpecific cleanTweetText()
     #removes urls
     return re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text, flags=re.MULTILINE)
 
 def cleanTweetTextofAts(text):
+    # REPLICATED: utils/nlpTools/filters/twitterSpecific cleanTweetTextofAts()
     #removes urls and @ mentions
     # Though it doesn't really.. It misses 'there' in @here_there 
     text = re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text, flags=re.MULTILINE)
@@ -708,6 +721,7 @@ def cleanTweetTextofAts(text):
     return text
 
 def processSpam(tweet, tweetDict, userDict, event, myHandle):
+    # REPLICATED: utils/nlpTools/filters/unspam processSpam()
     '''
     Remove blantantly spam tweets, nothing else
 
@@ -804,6 +818,7 @@ def processSpam(tweet, tweetDict, userDict, event, myHandle):
 	return True, tweetDict, userDict
 
 def polysemeFilter(tweets, event):
+    # REPLICATED: utils/nlpTools/filters/polysemyFilters polysemyFilter()
     '''
     Remove polyseme's of the event (OKC Thunder, Blizzard from DQ, or the gaming company)
 
@@ -867,6 +882,7 @@ def polysemeFilter(tweets, event):
 
 
 def negationFilter(tweets, event):
+    # REPLICATED: utils/nlpTools/filters/grammarFilters negationFilter()
     '''
     Remove tweets which say the event didn't happen. 
         "No tsunami threat present" 
@@ -895,6 +911,7 @@ def negationFilter(tweets, event):
     return tweets
 
 def gotTweepError():
+    # REPLICATED: utils/twitterInteractions gotTweetError()
     '''
     Just kill some time. 5 minutes for tweepy, 1 for no internet
 
@@ -918,6 +935,7 @@ def gotTweepError():
     return
 
 def getTweets(api, event, rppSize=50):
+    # REPLICATED: utils/twitterInteractions getTweets()
     '''
     Grabs around 50 tweets (most recent) from twitter
     Blantantly spam tweets are removed (exact copies)
@@ -1012,12 +1030,14 @@ def getTweets(api, event, rppSize=50):
     return listOfTweets
 
 def getEventHistoryStats(sampleAvgs):
+    # REPLICATED: utils/botHelperFunctions  getEventHistoryStats()
     timeSpanAvg = np.mean(sampleAvgs)
     timeSpanStd = np.std(sampleAvgs)
     return timeSpanAvg, timeSpanStd
 
 
 def getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0):
+    # REPLICATED: utils/botHelperFunctions getEventHistoryTimeLimit()
     """
     Functionally similar to `getEventHistory`, this grabs only the 
     history of the last week (might be modified to last month) to 
@@ -1142,6 +1162,7 @@ def getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0):
 
 
 def getEventHistoryDateRange(event, startDateTime, endDateTime):
+    # REPLICATED: utils/botHelperFunctions getEventHistoryDateRange()
     x = datetime.datetime.now()-startDateTime
     minutes = x.total_seconds() / 60
 
@@ -1162,6 +1183,7 @@ def getEventHistoryDateRange(event, startDateTime, endDateTime):
 
 
 def pastEcho():
+    # REPLICATED: utils/eventClassifiers/experimental/pastEcho pastEchoing()
     """
 
     Parameters
@@ -1198,6 +1220,7 @@ def pastEcho():
 
 
 def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
+    # REPLICATED: utils/plotManager updateKDE()
     """
     Generates the KDE over the event history for each events
     This is done at startup, and once per day at approximately 
@@ -1310,6 +1333,7 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
     return kdeOld
 
 def tryToTweet(api, msg, media):
+    # REPLICATED: utils/twitterInteractions tryToTweet()
     fn = os.path.abspath(media)
     if (len(msg) > 116):
         msg = msg[0:115]
@@ -1330,6 +1354,7 @@ def tryToTweet(api, msg, media):
     return success
 
 def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
+    # REPLICATED: utils/plotManager plotSummaries()
     """
     If it's Sunday Night and the system has been online for
     most of the last week, tweet a 'trends' plot for each event
@@ -1448,6 +1473,7 @@ def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
     
 
 def getTwitterAPI():
+    # Poorly REPLICATED: main.py
     # Get twitter reqs 
     myKeys = getKMKeys.GETTWITTER()
     CONSUMER_KEY = myKeys[0]
@@ -1460,6 +1486,7 @@ def getTwitterAPI():
     return api
 
 def cityData(): 
+    # DEPRECATED 
     locDB = "extendedCityDatabase.txt"
     # Load cities and events into memory
     #   Cities
@@ -1479,6 +1506,7 @@ def cityData():
     return cities, maxSpace
 
 def eventLists():
+    # REPLICATED: utils/botHelperFunctions eventLists()
     """
     Load defined event names
 
@@ -1506,6 +1534,7 @@ def eventLists():
     return searchEV
 
 def getTweetsDistrobution(tweets):
+    # REPLICATED: utils/eventClassifiers/simpleDistrobution/simpleClassifier getTweetsDistrobution()
     tbtwTweets = []
     for i in range(1, len(tweets)):
         delta = tweets[i-1].created_at - tweets[i].created_at
@@ -1518,6 +1547,7 @@ def getTweetsDistrobution(tweets):
 
 
 def saveToHistoryFile(sampledMean, sampledVar, tweetCount, event):
+    # REPLICATED: utils/botHelperFunctions saveToHistoryFile
     # zSc is a holdover of legacy code. One of these updates will 
     #   remove it completely, it's not actually used anymore
     #   and can be calculated readily from all previous data
@@ -1533,6 +1563,7 @@ def saveToHistoryFile(sampledMean, sampledVar, tweetCount, event):
     return 
 
 def classifyEvent(event, featureVector, oldEvent):
+    # REPLICATED: utils/eventClassifiers/simpleDistrobution/simpleClassifier classifyEvent()
     tweetCount = featureVector[0]
     tweetMean = featureVector[1]
     tweetStd = featureVector[2]
@@ -1604,6 +1635,7 @@ def classifyEvent(event, featureVector, oldEvent):
     
     
 def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots):
+    # REPLICATED: utils/plotManager makeDistPlot
     media = "tweetProof.png"
     timeStamp = time.ctime(time.time())
 
@@ -1697,6 +1729,7 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     return timeStamp, media
 
 def buildMsg(event, timeStamp, locations):
+    # REPLICATED: main.py
     loc = getLocation(locations)
     event = event[0].upper()+event[1:].lower()
     msg = "I think Event: " + str(event) + " has occurred" + str(loc) + "\n" + str(timeStamp) + " CDT"

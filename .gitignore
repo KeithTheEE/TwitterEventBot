@@ -22,6 +22,7 @@ research/
 #tests/
 tests/testTweetOut.json
 testSummarizeText.py
+testTweetOut.json
 
 # Pre defined
 __pycache__/
