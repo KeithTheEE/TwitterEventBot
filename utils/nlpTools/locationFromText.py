@@ -7,6 +7,7 @@ print("this works too")
 
 
 import logging
+import re
 
 
 def getLocation(locBestGuess): 
@@ -196,8 +197,13 @@ def extractLocation(text):
 
     #if locStart > -1:
         #print sent[locStart:tail]
+
+    # **Hex Filter Bodge**: 
+    # This exists because I poorly cast unicode as strings 
+    reTarget = re.compile(r'[xX][0-9a-fA-F]+')
+    hexless_locations = [loc for loc in locations if not re.search(reTarget, loc)]
     
-    return locations
+    return hexless_locations
 
 
 

@@ -5,12 +5,13 @@ from utils.nlpTools.locationFromText import *
 
 import tweepy
 import json
+import re
 
 
-def get_tweepy_status_populated():
+def get_tweepy_status_populated(tweetsFilePath='tests/testTweetOut.json'):
 
     # Load sample data in place
-    with open('tests/testTweetOut.json', 'r') as ifl:
+    with open(tweetsFilePath, 'r') as ifl:
         tweetSet = json.load(ifl)
 
 
@@ -52,6 +53,7 @@ def getLocation_Multi_Element_List_With_Winner_Test():
 
 
 
+
 def test_getLocation():
     getLocation_Empty_List_Test()
     getLocation_One_Element_List_Test()
@@ -82,5 +84,18 @@ def test_extractLocation():
 def test_processLocations():
     tweets = get_tweepy_status_populated()
     
-    processLocations(tweets, 'Tornado')
+    locBestGuess = processLocations(tweets, 'Tornado')
+    assert type(locBestGuess) == list
+
     pass
+
+def test_processLocations_NoHexBodge():
+    tweets = get_tweepy_status_populated()
+    
+    locBestGuess = processLocations(tweets, 'Tornado')
+
+    reTarget = re.compile(r'[xX][0-9a-fA-F]+')
+    for loc in locBestGuess:
+        m = re.search(reTarget, loc)
+        assert not m, "Hex patterns are still passing"+re.sub(reTarget, ' ', loc)
+

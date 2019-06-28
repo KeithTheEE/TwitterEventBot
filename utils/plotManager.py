@@ -9,13 +9,14 @@ if rPI:
     mpl.use('Agg') # Backend for plotting on the pi 
     
 import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
+#import matplotlib.mlab as mlab
 import matplotlib.dates as mdates
 
 # And now back to your regularly scheduled imports
 import time
 import datetime
 import numpy as np
+import scipy.stats
 import logging
 
 
@@ -144,7 +145,7 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
 
 
 
-def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
+def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4, quietMode=False):
     """
     If it's Sunday Night and the system has been online for
     most of the last week, tweet a 'trends' plot for each event
@@ -253,7 +254,8 @@ def plotSummaries(api, runOn='FRI', runTime='6_PM', minAgeDays=4):
             #plt.show()
             plt.savefig(media, bbox_inches='tight')
             plt.close()
-            success = twitterInteractions.tryToTweet(api, msg, media)
+            if not quietMode:
+                success = twitterInteractions.tryToTweet(api, msg, media)
             time.sleep(3)
         logLine = "Last Weekly Summary:\t"+str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
         botHelperFunctions.updateLogFile(logLine)
@@ -316,14 +318,14 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     plt.hist(allHistAvgs, bins=1000)
     plt.axvline(x=tweetMean, color='r', label="Current Mean", linewidth=1.0)
     plt.legend(loc='upper right')
-    plt.xlim(xmin=0)
+    plt.xlim(left=0)
     axes = plt.gca()
     tempSet = axes.get_xlim()
 
     # Subplot 2
     plt.subplot(2, 1, 2)
-    plt.plot(xHist,mlab.normpdf(xHist, histAvg, histStd),'b',label='Historic Gaussian Distribution', linewidth=1.0)
-    plt.plot(xCur,mlab.normpdf(xCur, tweetMean, tweetStd), 'g', label='Current Gaussian Distribution', linewidth=1.0)
+    plt.plot(xHist,scipy.stats.norm.pdf(xHist, histAvg, histStd),'b',label='Historic Gaussian Distribution', linewidth=1.0)
+    plt.plot(xCur,scipy.stats.norm.pdf(xCur, tweetMean, tweetStd), 'g', label='Current Gaussian Distribution', linewidth=1.0)
     plt.plot(histKdeX, np.exp(histKdeY), 'r',label='KDE Fit of Past Year', linewidth=1.0)
     # Cap off top of current kde
     axes = plt.gca()
@@ -337,8 +339,8 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     ymin, ymaxNew = axes.get_ylim()
     if ymaxOld*1.5 < ymaxNew:
         ymaxSet = ymaxOld*1.25
-        plt.ylim(ymax=ymaxSet)
-    plt.ylim(ymin=0)
+        plt.ylim(top=ymaxSet)
+    plt.ylim(bottom=0)
     axes = plt.gca()
     ymin, ymax = axes.get_ylim()
 
