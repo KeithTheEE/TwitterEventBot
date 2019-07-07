@@ -279,6 +279,10 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     histAvg = featureVector[5]
     histStd = featureVector[6]
 
+    # BODGE: The Almost Big One
+    if tweetStd == 0.0:
+        tweetStd = 0.05
+
     # Add some sort of catch here, if bot has been down for a week
     # Week data is useless
     # if (weekAvg):

@@ -1,6 +1,6 @@
 
 
-# CHANGELOG: Crowd Source Twitter: an Event Bot Version 0.7.00
+# CHANGELOG: Crowd Source Twitter: an Event Bot Version 0.7.01
 All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
@@ -22,8 +22,45 @@ Dates follow YYYY-MM-DD format
 
 
 
-## [0.7.00] 2019-XX-XX
-In Progress
+## [0.7.01] 2019-07-07
+Complete
+
+### Contributors
+Keith Murray
+
+email: kmurrayis@gmail.com |
+twitter: [@keithTheEE](https://twitter.com/keithTheEE) |
+github: [CrakeNotSnowman](https://github.com/CrakeNotSnowman)
+
+Unless otherwise noted, all changes by @kmurrayis
+
+This project is not currently looking for other contributors
+
+### Big Picture: What happened, what was worked on
+Files were deleted, reorganized, and altered. 
+
+Most everything that changed will not be recorded in this specific version, as so much changed. If it exists, it was either changed or moved or created this round. I don't know that there was a single region that was untouched. The next changelog version will have the changes listed more explicitly. 
+
+#### Added
+ - locationFromText.extractLocation has a bodge at the end to strip any guessed locations that have a hex string in it, xXX
+#### Changed
+ - matplotlib uses in plotManager have been updated for deprecation issues, uses of xmin, ymin, xmax, ymax have been changed to left, bottom, right, top respectively 
+ - plotManager now uses scipy.stats to generate a pdf rather than mlab.normpdf
+ - plotManager.makeDistPlot now has a check for tweet standard deviation of 0.0: in the event that every tweet returned by twitter is from the same second timestamp, std is redefined as 0.05
+#### Deprecated
+#### Removed
+#### Fixed
+#### Security
+#### Testing
+
+### More focused Changes
+#### Main
+#### Util Libraries
+#### Tests 
+
+
+## [0.7.00] 2019-06-28
+Complete
 
 ### Contributors
 Keith Murray
