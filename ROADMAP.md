@@ -25,8 +25,9 @@ Dates follow YYYY-MM-DD format
 
 
 
-## [0.7.01] 2019-XX-XX
-In Progress
+## [0.7.01] 2019-07-07
+Completed
+
 ### Contributors
 Keith Murray
 
@@ -64,7 +65,7 @@ The targets of this update are:
 #### Consider
  - Adding a new visual comparing recent tweets to recent historical tweets (past week/day)
  - Add a logging flag to monitor memory usage
- - Write up an install explaination/requirements 
+ - Write up an install explaination/requirements [tweepy==3.5.0, numpy==1.14.3, matplotlib==3.0.3, nltk==3.3, scipy==1.1.0, scikit_learn==0.21.2]
 #### Testing
  - Build "simulate twitter" from recorded events. Adjust to recent events. Sepperate out all api calls and file saves to prevent rerecording already seen data. 
  - Add a quietMode flag to all api calls, making testing easier

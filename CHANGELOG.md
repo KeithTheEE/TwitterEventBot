@@ -23,7 +23,7 @@ Dates follow YYYY-MM-DD format
 
 
 ## [0.7.01] 2019-07-07
-Complete
+Completed
 
 ### Contributors
 Keith Murray
