@@ -355,3 +355,12 @@ def save_recent_tweets(tweets):
         json.dump(jsonSet, outfile)
 
     return
+
+
+def load_recent_tweets(filePath):
+    with open(filePath) as ifl:
+        tweetsJson = json.load(ifl)
+    tweets = []
+    for tweet in tweetsJson:
+        tweets.append(tweepy.models.Status().parse(None, tweet))
+    return tweets

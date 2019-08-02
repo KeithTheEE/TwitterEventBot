@@ -14,33 +14,62 @@ import logging
 
 
 
-def cleanIt(infile):
-    validBytes = ["0","1","2","3","4","5","6","7","8","9",".","-",":","e","i","n","f","a","\t","\n"]
-    fl = open(infile, 'r')
+def clear_corrupted_bytes(infile, allowedToEdit=False):
+    validBytes = ["0","1","2","3","4","5","6","7","8","9",".","-",":","e","i","n","f","a","\t","\n", "x", "y", "z"]
+    validBytes = [bytes(x.encode()) for x in validBytes]
+    
+    
     flString = ""
+    flBytes = bytearray()
+    invalidBytesCount = 0
+    validBytesCount = 0
+    totalBytesCount = 0
+    #invalids = [] Used to see what characters it's saying are invalid
     with open(infile, 'rb') as fl:
         while 1:
             byte_s = fl.read(1)
             if not byte_s:
                 break
             if byte_s in validBytes:
-                flString = flString + byte_s
-    fl.close()
-    fl = open(infile, 'w')
-    fl.write(flString)
-    fl.close()
+                #flString = flString + byte_s
+                flBytes += byte_s
+                validBytesCount += 1
+            else:
+                invalidBytesCount += 1
+                #if byte_s not in invalids:
+                #    invalids.append(byte_s)
+            totalBytesCount += 1
+
+    #print(invalids)
+    # Ensure file isn't altering too much automatically
+    #  To make sure I'm not deleting too much with a poorly defined string
+    edited = False
+    if invalidBytesCount/float(totalBytesCount) < 0.001:
+        if allowedToEdit:
+            if invalidBytesCount > 0:
+                with open(infile, 'wb') as fl:
+                    fl.write(flBytes)
+            edited = True
 
 
+        logging.info("Stripped out "+str(invalidBytesCount)+" invalid bytes from file of " +str(totalBytesCount))
+    else:
+        logging.warning("Too much of the file is flagged as invalid. Automated correction is turned off\n\t"
+            +str(invalidBytesCount)+" invalid bytes from file of " +str(totalBytesCount))
 
-def isItAnEvent(event):
+    return invalidBytesCount, validBytesCount, totalBytesCount, edited
+
+
+def validate_Event_History_File(event, allowedToEdit=False):
     # open event db
     # Date/Time \t theMean \t var
+    folderPrefix = "misc/hist_data/"
     try:
-    	eventHistory = open(str(event) + ".txt", 'r')
+    	eventHistory = open(folderPrefix+str(event) + ".txt", 'r')
     except IOError:
-        eventHistory = open(str(event) + ".txt", 'a')
+        eventHistory = open(folderPrefix+str(event) + ".txt", 'a')
         eventHistory.close()
-        eventHistory = open(str(event) + ".txt", 'r')
+        eventHistory = open(folderPrefix+str(event) + ".txt", 'r')
     theTimes = []
     theAvgs = []
     theVar = []
@@ -71,44 +100,32 @@ def isItAnEvent(event):
     #print "Lines:\t", lineCount
 	
     eventHistory.close()
+
+
     compAvg = np.mean(theAvgs)
     compVar = np.var(theAvgs)
     compStd = np.std(theAvgs)
     #print compAvg, compVar, compStd, len(theTimes)
 
-    eventHistory = open(str(event) + ".txt", 'w')
-    for i in range(len(lines)):
-        eventHistory.write(lines[i])
-    eventHistory.close()
+
+    if errorCount/float(lineCount) < 0.001:
+        if allowedToEdit:
+            if errorCount > 0:
+                #eventHistory = open(folderPrefix+str(event) + ".txt", 'w')
+                with open(folderPrefix+str(event) + ".txt", 'w') as eventHistory:
+                    for i in range(len(lines)):
+                        eventHistory.write(lines[i])
+                logging.info("Cleaned "+str(errorCount)+" Errors over "+str(lineCount)+" lines")
+    else:
+        logging.warning("Too much of the file is flagged as invalid. Automated correction is turned off\n\t"
+            +str(errorCount)+" invalid lines from file of " +str(lineCount))
 	
 
-
-
-    ''' 
-	
-    # compare eventDB to most recent event
-    didEventOccur = False
-    compAvg = np.mean(theAvgs)
-    compVar = np.var(theAvgs)
-    compStd = np.std(theAvgs)
-    zSc = (theMean-compAvg)/compStd
-    zSc2 = (compAvg-theMean)/math.sqrt(var)
-    #if (theMean < (compAvg - compStd*1.3)) and (theMean < 2.75) :#and (var < 10):
-    #if (math.fabs(zSc) > 2):
-    print event, (zSc * zSc2), compAvg, theMean
-    if ((zSc * zSc2) <= -2) and (theMean < compAvg) and uniqTweets > 14:#and (theMean < 2.75):
-	didEventOccur = True 
-
-    # Save new data to DB
-    eventHistory = open(str(event) + ".txt", 'a')
-    eventHistory.write(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\t' + str(theMean) + '\t' + str(var) +'\t' + str(zSc) + '\t' + str(zSc2) +"\t"+ str(uniqTweets) +'\n')
-    eventHistory.close()
-    '''
 
 
 def main():
 
-    keyEventsDB = "listOfTwitterEvents.txt" 
+    keyEventsDB = "misc/listOfTwitterEvents.txt" 
 
     #   Events
     eventL = open(keyEventsDB, 'r')
@@ -120,8 +137,9 @@ def main():
 
     for event in range(len(searchEV)):
         logging.debug("Cleaning " + searchEV[event])
-        isItAnEvent(searchEV[event])
-        cleanIt(str(searchEV[event]) + ".txt")
+        validate_Event_History_File(searchEV[event])
+        invalidBytesCount, validBytesCount, totalBytesCount, edited = clear_corrupted_bytes("misc/hist_data/"+str(searchEV[event]) + ".txt")
+        break
 
 
 

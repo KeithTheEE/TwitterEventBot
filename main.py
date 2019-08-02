@@ -64,6 +64,10 @@ http://tkang.blogspot.com/2011/01/tweepy-twitter-api-status-object.html
 }
 
 '''
+import sys
+# Required to get program to run at boot on pi
+sys.path.append('/home/pi/.local/lib/python3.7/site-packages')
+
 from utils import startupLoggingCharacteristics
 import logging
 
@@ -76,7 +80,7 @@ import nltk
 nltk.data.path.append('/home/pi/nltk_data')
 import datetime
 import socket
-import sys
+#import sys
 import os
 import re # http://stackoverflow.com/questions/6883049/regex-to-find-urls-in-string-in-python
 import threading
@@ -241,6 +245,7 @@ def piMain():
 
 
 def startup():
+
     #rpiGPIOFunctions.ledCycle()
     api = getTwitterAPI()
     searchEV = botHelperFunctions.eventLists()
@@ -312,7 +317,7 @@ def runBot(api, searchEV):
                 logging.debug(msg)
 
             #media = makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
-            botHelperFunctions.save_recent_tweets(tweets)
+            #botHelperFunctions.save_recent_tweets(tweets)
 
             #locations = processLocations(tweets, event)
             #print event, tweetCount, '\n\t', locations
@@ -357,7 +362,7 @@ if __name__ == "__main__":
         print("Starting threads")
         heartB.start()
         powerButton.start()
-        #unCorruptFiles.main()
+        unCorruptFiles.main()
         #tweetStuff.start()
         api, searchEV= startup()
         runBot(api, searchEV)
