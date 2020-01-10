@@ -28,8 +28,8 @@ Dates follow YYYY-MM-DD format
 
 
  
-## [0.7.02] 2020-XX-XX
-In Progress
+## [0.7.02] 2020-01-10
+Complete
 
 ### Contributors
 Keith Murray
