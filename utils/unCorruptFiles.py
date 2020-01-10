@@ -49,10 +49,8 @@ def clear_corrupted_bytes(infile, allowedToEdit=False):
             if invalidBytesCount > 0:
                 with open(infile, 'wb') as fl:
                     fl.write(flBytes)
-            edited = True
-
-
-        logging.info("Stripped out "+str(invalidBytesCount)+" invalid bytes from file of " +str(totalBytesCount))
+                edited = True
+                logging.info("Stripped out "+str(invalidBytesCount)+" invalid bytes from file of " +str(totalBytesCount))
     else:
         logging.warning("Too much of the file is flagged as invalid. Automated correction is turned off\n\t"
             +str(invalidBytesCount)+" invalid bytes from file of " +str(totalBytesCount))
@@ -128,18 +126,17 @@ def main():
     keyEventsDB = "misc/listOfTwitterEvents.txt" 
 
     #   Events
-    eventL = open(keyEventsDB, 'r')
     searchEV = []
-    for event in eventL:
-        searchEV.append(event.strip())
-    eventL.close()
+    with open(keyEventsDB, 'r') as ifl: 
+        for line in ifl:
+            searchEV.append(line.strip())
     
 
     for event in range(len(searchEV)):
         logging.debug("Cleaning " + searchEV[event])
         validate_Event_History_File(searchEV[event])
         invalidBytesCount, validBytesCount, totalBytesCount, edited = clear_corrupted_bytes("misc/hist_data/"+str(searchEV[event]) + ".txt")
-        break
+
 
 
 

@@ -85,11 +85,6 @@ import os
 import re # http://stackoverflow.com/questions/6883049/regex-to-find-urls-in-string-in-python
 import threading
 from sklearn.neighbors import KernelDensity
-#import unCorruptFiles
-#import getKMKeys # Format of CK, CS, AK, AS
-#import getChatBotKeys as getKMKeys
-#[CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET]
-
 
 
 '''
@@ -111,6 +106,9 @@ from utils import rpiGPIOFunctions
 from utils import twitterInteractions
 from utils import unCorruptFiles
 from utils.nlpTools import locationFromText
+
+from utils.experimental.topology import tweetNetworkExploration
+from lsalib.utils import wordRelationTools
 
 
 # Filters 
@@ -194,8 +192,8 @@ class twitterThread(threading.Thread):
         self.daemon = True
     def run(self):
         logging.debug("Starting to Tweet")
-        api, searchEV= startup()
-        runBot(api, searchEV)
+        api, searchEV, eventKDEs, polyF, knn_models = startup() 
+        runBot(api, searchEV, eventKDEs, polyF, knn_models)
         logging.debug("I ESCAPED")
     #def stop(self):
     #    self._stop.set()
@@ -247,83 +245,130 @@ def piMain():
 def startup():
 
     #rpiGPIOFunctions.ledCycle()
-    api = getTwitterAPI()
     searchEV = botHelperFunctions.eventLists()
-
+    polyF = polysemyFilters.load_filters(filter_root_fp="misc/polysemyFilterModels/", events=searchEV)
+    knn_models = polysemyFilters.build_knn_classifier_model(text_root_fp='utils/nlpTools/filters/poly_ref_texts/', polyF=polyF, events=searchEV)
+    eventKDEs = plotManager.updateKDE(None)
     
-    return api, searchEV
+    # Get API last to avoid repeated pings if other startup modes fail
+    api = getTwitterAPI()
+    return api, searchEV, eventKDEs, polyF, knn_models
 
 
 
-def runBot(api, searchEV):
+def runBot(api, searchEV, eventKDEs, polyF, knn_models):
 
 
     rppSize = 50
     tweetTracker = 0
     oldEvent = ""
-    eventKDEs = None
+    #eventKDEs = None
     rpiGPIOFunctions.myLED("GREEN")
 
+    # **** Topology Network Stuff ****
+    lowWRG = wordRelationTools.embedding_projection()
+    lowWRG.load('utils/experimental/topology/sample_reduced_model_v2_k50.tar.gz')
+    lowWRT10 = wordRelationTools.embedding_projection()
+    lowWRT10.load('utils/experimental/topology/twitter_text_model_reduced_k50_10perc.tar.gz')
+    networks = {}
+    
+    # event = 'Shipwreck'
+    # ttn = tweetNetworkExploration.twitter_recent_history_network(lowWRG=lowWRG, lowWRT10=lowWRT10)
+    # if os.path.isfile('temp/'+event+'_save.json'):
+    #     logging.debug("Loading Network for Event " + event)
+    #     ttn.load('temp/'+event+'_save.json')
+    # networks[event] =  ttn#tweetNetworkExploration.twitter_Top_Network(lowWRG=lowWRG, lowWRT10=lowWRT10)
+
+    for event in searchEV:
+        ttn = tweetNetworkExploration.twitter_recent_history_network(lowWRG=lowWRG, lowWRT10=lowWRT10)
+        if os.path.isfile('temp/'+event+'_save.json'):
+            logging.debug("Loading Network for Event " + event)
+            ttn.load('temp/'+event+'_save.json')
+        networks[event] =  ttn#tweetNetworkExploration.twitter_Top_Network(lowWRG=lowWRG, lowWRT10=lowWRT10)
+
     # Start the state machine  
-    while True:
-        # Run Time based checks        
-        eventKDEs = plotManager.updateKDE(eventKDEs) #  Load kde values      
-        # [(X_plot, log_dens), allHistAvgs, histAvg, histStd]]  
-        plotManager.plotSummaries(api) #  Check if tweet trends haven't been tweet
-        for i, event in enumerate(searchEV): # Perform a search on all events
-            rpiGPIOFunctions.myLED("GREEN")
-            #print event, datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-            # Get historical data
-            #allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
-            sampleTimes, allWeekAvgs= botHelperFunctions.getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0)
-            weekAvg, weekStd = botHelperFunctions.getEventHistoryStats(allWeekAvgs)
-            kdePlots, allHistAvgs, histAvg, histStd = eventKDEs[i]
 
-            # Get tweets
-            tweets = twitterInteractions.getTweets(api, event)
-            eventTimestamp = time.time() 
-            tweets = polysemyFilters.polysemyFilter(tweets, event) # Cool I've got tweets. We need to filter out tweets about polysems
-            tweets = grammarFilters.negationFilter(tweets, event)
+    try:
+        while True:
+            # Run Time based checks        
+            eventKDEs = plotManager.updateKDE(eventKDEs) #  Load kde values      
+            # [(X_plot, log_dens), allHistAvgs, histAvg, histStd]]  
+            plotManager.plotSummaries(api) #  Check if tweet trends haven't been tweet
+            for i, event in enumerate(searchEV): # Perform a search on all events
+                rpiGPIOFunctions.myLED("GREEN")
+                #print event, datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                # Get historical data
+                #allWeekAvgs, weekAvg, weekStd, sampleTimes = getEventLastWeek(event)
+                sampleTimes, allWeekAvgs= botHelperFunctions.getEventHistoryTimeLimit(event, weeks=1, days=0, hours=0, minutes=0)
+                weekAvg, weekStd = botHelperFunctions.getEventHistoryStats(allWeekAvgs)
+                kdePlots, allHistAvgs, histAvg, histStd = eventKDEs[i]
 
+                # Get tweets And Filter
+                tweets = twitterInteractions.getTweets(api, event)
+                tweets_all = tweets[:]
+                eventTimestamp = time.time() 
+                olen = len(tweets)
+                tweets = polysemyFilters.polysemyFilter(tweets, polyF[event], knn_models[event]) # Cool I've got tweets. We need to filter out tweets about polysems
+                plen = len(tweets)
+                if olen != plen:
+                    print("Purged ", (olen-plen) /olen * 100, '% of tweets')
+                tweets = grammarFilters.negationFilter(tweets, event)
 
-            # Time to get all of the features
-            tweetCount = len(tweets)
-            tweetMean, tweetStd, tbtwTweets = simpleClassifier.getTweetsDistrobution(tweets)
-
-            # Feature Vector
-            fv = [ \
-              tweetCount, tweetMean, tweetStd, 
-              weekAvg, weekStd,
-              histAvg, histStd]
-            #print weekAvg, weekStd
-            if math.isnan(weekAvg) or math.isnan(weekStd):
-                isEvent = False
-            else:
-                isEvent = simpleClassifier.classifyEvent(event, fv, oldEvent)
+                # **** Add to topology Structure ****
+                networks = tweetNetworkExploration.add_sample_to_network(networks, event, eventTimestamp, tweets)
 
 
-            # Save Sampled Distrobution
-            botHelperFunctions.saveToHistoryFile(tweetMean, tweetStd, tweetCount, event)
+                # Time to get all of the features
+                tweetCount = len(tweets)
+                tweetMean, tweetStd, tbtwTweets = simpleClassifier.getTweetsDistrobution(tweets)
 
-            #isEvent = False ### HEY DELETE THIS YOU DOLT
-            # I should probably ignore it if there aren't enough tweets, but we'll see
-            if isEvent:
-                rpiGPIOFunctions.myLED("EVENT")
-                logging.debug( "IT'S AN EVENT HOT DOG!")
-                locations = locationFromText.processLocations(tweets, event)
-                timeStamp, media = plotManager.makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
-                msg = buildMsg(event, timeStamp, locations)
-                twitterInteractions.tryToTweet(api, msg, media)
-                logging.debug(msg)
+                # Feature Vector
+                fv = [ \
+                tweetCount, tweetMean, tweetStd, 
+                weekAvg, weekStd,
+                histAvg, histStd]
+                #print weekAvg, weekStd
+                if math.isnan(weekAvg) or math.isnan(weekStd):
+                    isEvent = False
+                else:
+                    isEvent = simpleClassifier.classifyEvent(event, fv, oldEvent)
 
-            #media = makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
-            #botHelperFunctions.save_recent_tweets(tweets)
 
-            #locations = processLocations(tweets, event)
-            #print event, tweetCount, '\n\t', locations
-        #print "Sleeping...", datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        rpiGPIOFunctions.myLED("SLEEP")
-        time.sleep(5*60)
+                # Save Sampled Distrobution
+                botHelperFunctions.saveToHistoryFile(tweetMean, tweetStd, tweetCount, event)
+
+                #isEvent = False ### HEY DELETE THIS YOU DOLT
+                # I should probably ignore it if there aren't enough tweets, but we'll see
+                if isEvent:
+                    rpiGPIOFunctions.myLED("EVENT")
+                    logging.debug(event + "IT'S AN EVENT HOT DOG!")
+                    locations = locationFromText.processLocations(tweets, event)
+                    timeStamp, media = plotManager.makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
+                    try:
+                        topFilePath = tweetNetworkExploration.make_Image(networks[event])
+                    except:
+                        # Startup bodge when nework has only an initial amount of samples
+                        print("MAKING STARTUP BODGE IMAGE SWAP")
+                        topFilePath = media
+                    msg = buildMsg(event, timeStamp, locations)
+                    twitterInteractions.tryToTweet(api, msg, media)
+                    #twitterInteractions.tryToTweet(api, msg, topFilePath) # Not used when not in experimental
+                    logging.debug(msg)
+
+                #media = makeDistPlot(event, fv, tbtwTweets, allWeekAvgs, allHistAvgs, kdePlots)
+                botHelperFunctions.save_recent_tweets(tweets_all)
+
+                #locations = processLocations(tweets, event)
+                #print event, tweetCount, '\n\t', locations
+            #print "Sleeping...", datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+            rpiGPIOFunctions.myLED("SLEEP")
+            time.sleep(5*60)
+    except KeyboardInterrupt:
+        print("Exiting and Saving...")
+        for event in searchEV:
+            ttn = networks[event]
+            ttn.save('temp/'+event+'_save.json')
+
         
     return
 
@@ -364,8 +409,9 @@ if __name__ == "__main__":
         powerButton.start()
         unCorruptFiles.main()
         #tweetStuff.start()
-        api, searchEV= startup()
-        runBot(api, searchEV)
+        api, searchEV, eventKDEs, polyF, knn_models = startup()
+        logging.debug("Startup complete, running bot..")
+        runBot(api, searchEV, eventKDEs, polyF, knn_models)
     except(KeyboardInterrupt, SystemExit):
         #heartB.stop()
         #tweetStuff.stop()

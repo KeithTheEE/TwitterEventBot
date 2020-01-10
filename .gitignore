@@ -18,12 +18,16 @@ misc/hist_data_(copy)/
 misc/lsaDB/
 misc/pyProgramTrainingLines.txt
 misc/sample_tweets/
+misc/sample_tweets2/
+misc/sample_tweets*/
 outlines.md
 research/
 #tests/
+temp/
 tests/testTweetOut.json
 testSummarizeText.py
 testTweetOut.json
+utils/experimental/**/*.tar.gz
 
 # Pre defined
 __pycache__/

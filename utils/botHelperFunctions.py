@@ -7,6 +7,7 @@ import math
 import json
 
 import logging
+import tweepy
 
 
 def eventLists():
@@ -344,7 +345,7 @@ def getLoggedData(lineID):
 
 def save_recent_tweets(tweets):
 
-    dirName = "misc/sample_tweets"
+    dirName = "misc/sample_tweets4"
     if not os.path.exists(dirName):
         os.makedirs(dirName)
     logFileName =   'LOG_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.json'
@@ -357,7 +358,7 @@ def save_recent_tweets(tweets):
     return
 
 
-def load_recent_tweets(filePath):
+def load_tweets_from_disk(filePath):
     with open(filePath) as ifl:
         tweetsJson = json.load(ifl)
     tweets = []

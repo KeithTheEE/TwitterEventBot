@@ -87,6 +87,7 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
         dt = dt.replace(hour=hour, minute=minute)
         return dt
 
+    logging.debug( "Updating KDE..")
 
     conditional = False
 
@@ -122,10 +123,10 @@ def updateKDE(kdeOld, runTime='3_AM', runWindow=3, minAgeHours=8):
             theTimes, allHistAvgs = botHelperFunctions.getEventHistoryTimeLimit(event, weeks=0, days=365, hours=0, minutes=0)
             yearAvg, yearStd = botHelperFunctions.getEventHistoryStats(allHistAvgs)
 
-            x1 = np.linspace(0, yearAvg+(3*yearStd), int(100*(6*yearStd)))
+            x1 = np.linspace(0, int(yearAvg+(3*yearStd)), int(100*(6*yearStd)))
             allHistAvgs = np.array(allHistAvgs)
             allHistAvgs = allHistAvgs[:, None]
-            X_plot = np.linspace(0, yearAvg+(3*yearStd), len(allHistAvgs))[:, None]
+            X_plot = np.linspace(0, int(yearAvg+(3*yearStd)), len(allHistAvgs))[:, None]
             # KDE For Event
             maxPoint = max(allHistAvgs)
             bw = float(maxPoint)*0.012
@@ -288,9 +289,9 @@ def makeDistPlot(event, featureVector, tbtwTweets, allWeekAvgs, allHistAvgs, kde
     # if (weekAvg):
         
    
-    xHist = np.linspace(0, histAvg+(3*histStd), 100*(6*histStd))
-    xWeek = np.linspace(0, weekAvg+(3*weekStd), 100*(6*weekStd))
-    xCur = np.linspace(0, tweetMean+(3*tweetStd), 100*(6*tweetStd))
+    xHist = np.linspace(0, int(histAvg+(3*histStd)), int(100*(6*histStd)))
+    xWeek = np.linspace(0, int(weekAvg+(3*weekStd)), int(100*(6*weekStd)))
+    xCur = np.linspace(0, int(tweetMean+(3*tweetStd)), int(100*(6*tweetStd)))
 
     # Historic KDE (prebuilt)
     histKdeX = kdePlots[0]

@@ -28,7 +28,7 @@ Dates follow YYYY-MM-DD format
 
 
  
-## [0.7.02] 2019-XX-XX
+## [0.7.02] 2020-XX-XX
 In Progress
 
 ### Contributors
@@ -50,12 +50,21 @@ The targets of this update are:
   
 
 #### Add
+ - Rather than sleeping, prebuild most of the plots so when an event occurs, the bot has them ready to go rather than noticing an event, then waiting to build: delaying the speed it can tweet. This should probably be a part of  a priority queue based on events which are closer to the tweet boundary. 
  - Logging. Logging everywhere.
- - Tests. Not as many are as needed, but more than none
+ - Tests. Not as many are as needed, but more than none. Start with Aziraphale to load in tweets to pretend it's live. This will also force functions to be rewritten to simplify testing.
  - Populate the polysemy filter. Given the issues are thunder basketball and blizzard ent, focus on those and have it be empty for other topics
+ - Along with tests and off of the polysemy filter, build a report to see how the current build changes from the previous one. RAM, execution time, and how it performs on classified batches of events/spam
+ - Command line input on startup:
+    - Run in silent mode
+    - Ignore bot and record tweets
+    - Ignore Saved State (to speed up bot restarting)
+    - Experimental Mode: When enabled new tests will be run, and when disabled libraries and imports will be ignored, making it easier to push updates to the raspberry pi. 
 #### Change
  - Timestamps should change from time.time() to datetime objects, and explicitly call either cdt or utc
  - [X] unCorruptFiles needs an overhaul too, it's not consistent with itself
+ - Change behavior if there is no history data for an event, or if there is no recent history data. This lets new events be more easily added without constantly breaking the bot on each start up.
+ - Change the startup() functionality to a startup_local and startup_api, splitting the startup into two phases so it's easier to test the returned values of local functions which read from disk.
 #### Deprecate
  - Old/Broken/Unused code: Flag and list
  - crowdsourceEvents 
@@ -71,6 +80,7 @@ The targets of this update are:
  - Write up an install explaination/requirements [tweepy==3.5.0, numpy==1.14.3, matplotlib==3.0.3, nltk==3.3, scipy==1.1.0, scikit_learn==0.21.2]
 #### Testing
  - Build "simulate twitter" from recorded events. Adjust to recent events. Sepperate out all api calls and file saves to prevent rerecording already seen data. 
+ - Using almost all of the above, make an offline mode to 
  - Add a quietMode flag to all api calls, making testing easier
 
 
