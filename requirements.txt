@@ -2,5 +2,5 @@ tweepy==3.5.0
 numpy==1.22.0
 matplotlib==3.0.3
 nltk==3.6.6
-scipy==1.1.0
+scipy==1.10.0
 scikit_learn==0.21.2
